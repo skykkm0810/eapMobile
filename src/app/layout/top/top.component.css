@@ -1,4 +1,58 @@
-.topWrap{
+
+#header {
+    width:100%;
+    height:50px;
+    background-color: #3F3D56;
+    position: relative;
+}
+.floating {
+    position: fixed!important;
+    top:0;
+    left:0;
+    z-index:3;
+}
+#header .menu {
+    width:24px;
+    height:24px;
+    position: absolute;
+    left:10px;
+    top:calc(50% - 12px);
+    background: url(../../../assets/images/icon/pink/menu_hamburger.png) no-repeat center center / cover;
+}
+#header h1 {
+    width:104px;
+    height:32px;
+    position: absolute;
+    left:calc(50% - 52px);
+    top:calc(50% - 16px);
+    background: url(../../../assets/images/logoMobile.png) no-repeat center center / cover;
+}
+#header .search {
+    width:25px;
+    height:25px;
+    position: absolute;
+    right:10px;
+    top:calc(50% - 12.5px);
+    background: url(../../../assets/images/icon/pink/search_mobile.png) no-repeat center center / cover;
+}
+#header .searchModal {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index:3;
+}
+#header .searchModal .searchBox {
+    position: fixed;
+    width:100%;
+    height:56px;
+    top:50px;
+    background-color: #DD5E5E;
+}
+/* 네비게이션 */
+/* .topWrap{
     width:100%;
     position: relative;
     height:80px;
@@ -100,10 +154,10 @@
 }
 .useful li:nth-child(1) { background-image: url(../../../assets/images/icon/pink/menu.png); }
 .useful li:nth-child(2) { background-image: url(../../../assets/images/icon/pink/search.png); }
-.useful li:nth-child(3) { background-image: url(../../../assets/images/icon/pink/mypage.png); }
+.useful li:nth-child(3) { background-image: url(../../../assets/images/icon/pink/mypage.png); } */
 
 /* 검색 박스 */
-.searchBox {
+/* .searchBox {
     position: absolute;
     top:15px;
     right:0px;
@@ -168,10 +222,10 @@
     right:10px;
     bottom:12.5px;
     background: url(../../../assets/images/icon/white/searchbtn.png) no-repeat center center / cover;   
-}
+} */
 /*  메뉴 박스 */
 
-.menuBox {
+/* .menuBox {
     position: absolute;
     top:15px;
     right:30px;
@@ -256,4 +310,4 @@
 }
 .content .pointer:hover {
     text-decoration: underline;
-}
+} */

@@ -20,6 +20,7 @@ import {BroadcastComponent} from './page/broadcast/broadcast.component';
 import {LectureInfoListComponent} from './page/lecture-info-list/lecture-info-list.component';
 import {RqstCompanyClassComponent} from './page/rqst-company-class/rqst-company-class.component';
 import {RqstPersonalClassComponent} from './page/rqst-personal-class/rqst-personal-class.component';
+import {InquireComponent} from './page/inquire/inquire.component';
 
 const routes: Routes = [
   { path: TAGS.MAIN, component: MainComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: TAGS.LECTUREINFOLIST, component: LectureInfoListComponent },
   { path: TAGS.RQSTPSNCLASS, component: RqstCompanyClassComponent },
   { path: TAGS.RQSTCPNCLASS, component: RqstPersonalClassComponent },
+  { path: TAGS.INQUIRE, component: InquireComponent },
 ];
 
 @NgModule({

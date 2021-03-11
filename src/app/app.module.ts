@@ -70,6 +70,7 @@ import { LectureInfoListComponent } from './page/lecture-info-list/lecture-info-
 import { SafePipe } from './pipe/safe.pipe';
 import { RqstPersonalClassComponent } from './page/rqst-personal-class/rqst-personal-class.component';
 import { RqstCompanyClassComponent } from './page/rqst-company-class/rqst-company-class.component';
+import { InquireComponent } from './page/inquire/inquire.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { RqstCompanyClassComponent } from './page/rqst-company-class/rqst-compan
     LectureInfoListComponent,
     SafePipe,
     RqstPersonalClassComponent,
-    RqstCompanyClassComponent
+    RqstCompanyClassComponent,
+    InquireComponent
   ],
   imports: [
     BrowserModule,

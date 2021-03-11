@@ -128,7 +128,30 @@ export class MypageComponent implements OnInit {
   cred;
   user;
   info;
-
+  // 페이크데이터
+  fake = [
+    {num : 1000, 
+      date:'2021-03-10', 
+      title:'글자가넘어가나요?글자가넘어가나요?글자가넘어가나요?글자가넘어가나요?', 
+      que:'이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구',
+      answer:'답변했씁니다.',
+      process:'처리중'
+     },
+     {num : 2000, 
+      date:'2021-03-11', 
+      title:'글자가넘어가나요?글자가넘어가나요?글자가넘어가나요?글자가넘어가나요?', 
+      que:'이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구',
+      answer:'답변했씁니다.',
+      process:'미확인'
+     },
+     {num : 3000, 
+      date:'2021-03-10', 
+      title:'글자가넘아글쎄가나오?글자가넘어가나요?글자가넘어가나요?', 
+      que:'이러저러어쩌구저쩌구이쩌러거이러저러어쩌구저쩌구이쩌러거이러저러어쩌구저쩌구이쩌러거이러저러어쩌구저쩌구이쩌러거이러저러어쩌구저쩌구이쩌러거',
+      answer:'답변했씁니다.',
+      process:'처리완료'
+     }
+  ]
   receipt_end = [
     {
       date: null,
@@ -326,6 +349,19 @@ export class MypageComponent implements OnInit {
   goLive(id) {
     if(confirm('라이브 수업을 시작하시겠습니까?')){
       this.router.navigate(['/broadcast/'+id]);
+    }
+  }
+  showInq(e:Event){
+    let thisTag = e.target as HTMLElement;
+    let viewBox = thisTag.closest('td').getElementsByClassName('inqBox')[0] as HTMLElement;
+    console.log(viewBox)
+    if(thisTag.classList.contains('rotate')){
+      thisTag.classList.remove('rotate');
+      viewBox.classList.add('hidden');
+    }
+    else {
+      thisTag.classList.add('rotate');
+      viewBox.classList.remove('hidden');
     }
   }
 }

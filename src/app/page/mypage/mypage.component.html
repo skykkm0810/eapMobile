@@ -51,50 +51,6 @@
           </tbody>
         </table>
       </div>
-      <div class="inquire tabContentBox hidden">
-        <div class="titleBox">
-          <p class="title">문의 내역</p>
-        </div>
-        <table class="lecTb">
-          <colgroup>
-            <col width="175px">
-            <col width="230px">
-            <col width="370px">
-            <col width="130px">
-            <col width="180px">
-            <col width="110px">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>결제일</th>
-              <th>강의 이미지</th>
-              <th>강의 제목</th>
-              <th>회차</th>
-              <th>강의 일정</th>
-              <th>강의 시간</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let l of receipt_end">
-              <td class="ft-22 c-pink">
-                <span>{{ l.date | date: 'Y-M-d' }}</span>
-              </td>
-              <td [routerLink]="['/detail/'+l.lecture[0].id]">
-                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="" class="classImg pointer">
-              </td>
-              <td colspan="4">
-                <p class="ft-bold ft-22" style="text-align: left; padding: 20px 40px;">{{ l.lecture[0].title }}</p>
-                <div class="tdgCtnr" *ngFor="let c of l.lecture[0].currs">
-                  <p class="subtitle ft-16">{{ c.stage }}. {{ c.title }}</p>
-                  <p class="ft-22 ft-bold">{{ c.stage }}회차</p>
-                  <p class="ft-16"><span *ngIf="c.date != null">{{ c.date | date: 'Y-M-d' }}<br>{{ c.date | date: 'HH:mm' }}</span></p>
-                  <p class="ft-22 ft-bold">{{ c.dur }}분</p>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
       <div class="certification tabContentBox hidden">
         <table class="lecTb">
           <colgroup>
@@ -135,6 +91,48 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="inquire tabContentBox hidden">
+        <div class="titleBox">
+          <p class="title">문의 내역</p>
+        </div>
+        <table class="inqTable">
+          <thead>
+            <tr>
+              <th><div>문의번호</div></th>
+              <th><div>작성일</div></th>
+              <th><div>문의제목</div></th>
+              <th><div>처리결과</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let f of fake'>
+              <td colspan="4">
+                <div class="tdGrid">
+                  <div><span>{{f.num}}</span></div>
+                  <div><span>{{f.date | date:'Y-M-d'}}</span></div>
+                  <div><p class="tit">{{f.title}}</p><span class="arrow pointer" (click)="showInq($event)"></span></div>
+                  <div><p>{{f.process}}</p></div>
+                </div>
+                <div class="inqBox hidden">
+                  <div class="inqinnerBox">
+                    <div class="inqQ">
+                      <p>답변</p>
+                      <div class="textBox whiteWrap">{{f.answer}}</div>
+                    </div>
+                    <div class="inqA">
+                      <p>문의내용</p>
+                      <div class="textBox whiteWrap">{{f.que}}</div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="goInquire">
+          <button mat-button>문의하기</button>
+        </div>
       </div>
       <div class="personal tabContentBox hidden">
         <div class="basic">

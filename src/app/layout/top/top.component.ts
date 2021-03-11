@@ -1,4 +1,4 @@
-import { Component, OnInit ,AfterViewInit} from '@angular/core';
+import { Component, OnInit ,AfterViewInit,Output,EventEmitter} from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { MatDialog} from '@angular/material/dialog';
 import { ReadyComponent} from '../../page/ready/ready.component';
@@ -8,14 +8,14 @@ import { MaumdociComponent} from '../../page/maumdoci/maumdoci.component';
 import { LoginComponent} from '../login/login.component';
 import { AuthService } from '../../service/auth.service';
 import { AuthGuard } from '../../service/auth.guard';
-
+import { SidenavService} from '../../service/sidenav.service';
 @Component({
   selector: 'app-top',
   templateUrl: './top.component.html',
   styleUrls: ['./top.component.css']
 })
 export class TopComponent implements AfterViewInit{
-
+  @Output() navToggle = new EventEmitter<boolean>();
   constructor(
     private router: Router,
     private route:ActivatedRoute,
@@ -24,6 +24,7 @@ export class TopComponent implements AfterViewInit{
     public sign_in:MatDialog,
     public golink:MatDialog,
     private guard: AuthGuard,
+    private sidenav: SidenavService,
   ) {
     router.events.subscribe((val) => {
       this.url = this.router.url.split('/')[1];
@@ -38,8 +39,13 @@ export class TopComponent implements AfterViewInit{
     this.sign_check();
   }
   ngAfterViewInit():void{
-    // this.boxPosition();
+    document.addEventListener('scroll',()=>{
+      this.whenScroll();
+    })
   }
+   
+  search = 0;
+  topNav = false;
   sign = false;
   info;
   display = 'none';
@@ -143,6 +149,20 @@ export class TopComponent implements AfterViewInit{
   }
   HyperLink(loc){
     location.href = './' + loc;
+  }
+  clickMenu(){
+    this.sidenav.toggle();
+  }
+  whenScroll(){
+    if(window.scrollY > 60){
+      this.topNav = true;
+    }
+    else {
+      this.topNav = false;
+    }
+  }
+  searchOn() {
+    this.search = 1;
   }
   
 }

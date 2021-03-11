@@ -1,21 +1,78 @@
-<footer>
-    <div class="tfoot">
-      <div class="innerWrap">
-        <ul>
-          <li class="pointer" (click)="pir()">개인정보처리방침</li>
-          <li class="pointer" (click)="usr()">이용약관</li>
-        </ul>
-      </div>
-    </div>
-    <div class="bfoot">
-      <div class="innerWrap">
-        <div class="bottomLogo pointer"><a href="/" class="textHidden">마음도씨</a></div>
-        <div class="eapLogo textHidden">한국EAP협회</div>
-        <span class="placeNum">(04551)</span>
-        <span class="placeAddress">서울시 중구 수표로 45, 1201호 [저동2가, 을지비즈센터]</span>
-        <span class="tel">Tel 1566 5228</span>
-        <span class="fax">Fax 02 2261 2010</span>
-        <small> &copy; 2019. 한국EAP협회. All Rights Reserved.</small>
-      </div>
-    </div>
+<nav id="nav">
+  <div class="navHeader">
+    <span class="beforeLog" (click)='signin()'>로그인해주세요</span>
+    <span class="logImg" (click)='signin()'></span>
+
+    <!-- <span class="beforeLog" *ngIf="!sign">로그인해주세요</span> -->
+    <!-- <span class="afterLog" *ngIf="sign">홍길동님</span> -->
+    <!-- <span class="logImg" *ngIf="!sign"></span> -->
+    <!-- <span class="setting" *ngIf="sign"></span> -->
+  </div>
+  <ul class="gnb">
+    <li>
+      <mat-expansion-panel hideToggle class="expansion">
+        <mat-expansion-panel-header class="panelBox">
+          <mat-panel-title class="mainCategory">
+            <h2>모든라이브</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="firstSub">인생여정</p>
+        <p>사회생활</p>
+        <p>힐링</p>
+        <p>심리</p>
+      </mat-expansion-panel>
+    </li>
+    <li>
+      <mat-expansion-panel hideToggle class="expansion">
+        <mat-expansion-panel-header class="panelBox">
+          <mat-panel-title class="mainCategory">
+            <h2>오픈예정</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="firstSub">인생여정</p>
+        <p>사회생활</p>
+        <p>힐링</p>
+        <p>심리</p>
+      </mat-expansion-panel>
+    </li>
+    <li>
+      <mat-list class="expansion">
+        <mat-list-item class="mainCategory pointer">
+          <h2>리뷰</h2>
+        </mat-list-item>
+      </mat-list>
+    </li>
+    <li>
+      <mat-list class="expansion">
+        <mat-list-item class="mainCategory pointer">
+          <h2>마음도씨란?</h2>
+        </mat-list-item>
+      </mat-list>
+    </li>
+    <li>
+      <mat-list class="expansion">
+        <mat-list-item class="mainCategory pointer">
+          <h2>한국 EAP협회소개</h2>
+        </mat-list-item>
+      </mat-list>
+    </li>
+    <li>
+      <mat-expansion-panel hideToggle class="expansion">
+        <mat-expansion-panel-header class="panelBox">
+          <mat-panel-title class="mainCategory">
+            <h2>{{"class" | uppercase}} 신청</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="firstSub">개인형 클래스</p>
+        <p>맞춤형 클래스</p>
+      </mat-expansion-panel>
+    </li>
+  </ul>
+  
+  <footer id="footer">
+    <div class="footerLogo"></div>
+    <address>[04551]서울시 중구 수표로 45, 1201호 [저동 2가, 을지비즈센터]<br>
+      {{"tel" | titlecase }} 070.4888.5434&nbsp;&nbsp;{{"fax" | titlecase }} 02.2261.2010
+    </address>
   </footer>
+</nav>

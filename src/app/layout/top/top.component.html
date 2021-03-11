@@ -1,4 +1,14 @@
-<div class="topWrap">
+<header id="header" [class.floating]='topNav == true'>
+  <div class="menu pointer" (click)="clickMenu()"></div>
+  <h1 class="textHidden pointer" (click)="HyperLink('./')">마음도씨</h1>
+  <div class="search pointer" (click)='searchOn()'></div>
+  <div class="searchModal" *ngIf='search == 1'>
+    <div class="searchBox">
+
+    </div>
+  </div>
+</header>
+<!-- <div class="topWrap">
   <div class="innerWrap">
     <h1 class="logo pointer"><a href="./" class="textHidden">마음도씨</a></h1>
     <div class="htop">
@@ -14,23 +24,21 @@
         </li>
         <li class="pointer" *ngIf="sign && info.type" [routerLink]="['/lectureInfoList/'+info.id]">
           <h2>수강기록부</h2>
-        </li>
+        </li> -->
 
         <!-- <li class="pointer" *ngIf="sign">
           <h2>오늘 내 강의</h2>
         </li> -->
         <!-- <li class="pointer howToUse" (click)="modal()">이용방법</li> -->
         <!-- <li class="pointer enrollCompany"><h2>기업등록</h2></li> -->
-      </ul>
+      <!-- </ul>
     </div>
     <div class="ltop">
       <ul class="snb">
-        <!-- <li class="pointer whatIs" (click)= "active($event)">마음도씨란?</li> -->
         <li class="pointer maum" [routerLink]="['maum']">마음도씨란?</li>
         <li class="pointer allLive"  (click)="HyperLink('allLive')">모든라이브</li>
         <li class="pointer preopen" [routerLink]="['preopen']">오픈예정</li>
         <li class="pointer todayLive" [routerLink]="['todayLive']">오늘의라이브</li>
-        <!-- <li class="pointer review" (click)= "active($event)">리뷰보기</li> -->
         <li class="pointer review" (click)="modal()">리뷰보기</li>
       </ul>
       <ul class="useful">
@@ -105,4 +113,4 @@
   </div>
 </div>
 
-</div>
+</div> -->

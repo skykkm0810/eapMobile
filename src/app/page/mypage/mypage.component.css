@@ -54,9 +54,12 @@
   padding-top: 40px;
 }
 h2 {
+  font-size: 30px;
   text-indent: 10px;
   color:#3F3D56;
+  padding-bottom: 10px;
   border-bottom:1px solid #c4c4c4;
+  font-weight: bold;
 }
 .tabBox {
   margin-top: 50px;
@@ -682,10 +685,7 @@ h2 {
   min-height: 185px;
   padding: 20px 0;
 }
-.lecTb h1 {
-  font-size: 22px;
-  line-height: 28px;
-}
+
 .lecTb p{
   text-align: center;
   padding: 10px 0 ;
@@ -722,4 +722,119 @@ h2 {
 }
 .c-pink {
   color: #DD5E5E;
+}
+/* 문의 내역 */
+.inquire .titleBox {
+  padding-top: 27px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.inquire .titleBox .title {
+  width: 280px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #eeeeee;
+  margin-bottom: 0;
+}
+.inquire table {
+  margin-top: 40px;
+  width:100%;
+} 
+.inquire table th:nth-child(1) {width:205px;box-sizing: border-box; padding-right: 30px;}
+.inquire table th:nth-child(2) {width:205px;box-sizing: border-box; padding-right: 30px;}
+.inquire table th:nth-child(3) {width:615px;box-sizing: border-box; padding-right: 30px;}
+.inquire table th:nth-child(4) {width:175px;}
+.inquire table th div{
+  text-align: center;
+  font-size: 18px;
+  line-height: 20px;
+  box-sizing: border-box;
+  padding-bottom: 15px;
+  border-bottom: 15px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.inquire table td .tdGrid {
+  display: grid;
+  grid-template-columns: 205px 205px 615px 175px;
+}
+.inquire table td .tdGrid div {
+  text-align: center;
+  height:80px;
+  padding-right: 30px;
+  border-bottom:1px solid #c4c4c4;
+  position: relative;
+}
+.inquire table td .tdGrid div:last-child {
+  padding-right: 0;
+}
+.inquire table td .tdGrid div span {
+  display: block;
+  padding-top: 32px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.inquire table td .tdGrid div p {
+  margin:0;
+  padding-top: 21px;
+  font-size: 22px;
+  line-height: 38px;
+  font-weight: bold;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.inquire table td .tdGrid div p.tit {
+  padding:21px 32px 0;
+  text-align: left;
+}
+.inquire table td .tdGrid div .arrow {
+  width:30px;
+  height:24px;
+  position: absolute;
+  top:calc(50% - 12px);
+  right:30px;
+  background: url(../../../assets/images/icon/pink/arrow_bottom.png) no-repeat center center / contain;
+  transition-duration: 0.5s;
+}
+.inquire table td .tdGrid div .rotate {
+  transform:rotate(180deg) ;
+  transition-duration: 0.5s;
+}
+.inquire table td .inqBox {
+  text-align: right;
+  padding-bottom: 20px;
+}
+.inquire table td .inqinnerBox {
+  display: inline-block;
+  width:790px;
+  text-align: left;
+}
+.inquire table td .inqinnerBox > div {
+  padding-top: 10px;
+}
+.inquire table td .inqinnerBox > div p {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 23px;
+}
+.inquire table td .inqinnerBox > div .textBox {
+  width:100%;
+  height:120px;
+  box-sizing: border-box;
+  padding: 1rem;
+  border:1px solid #c4c4c4;
+}
+.inquire .goInquire {
+  padding-top: 150px;
+  text-align: right;
+}
+.inquire .goInquire button {
+  width:250px;
+  height:50px;
+  background-color: #3F3D56;
+  color:#fff;
+  font-weight: bold;
+  font-size: 26px;
 }

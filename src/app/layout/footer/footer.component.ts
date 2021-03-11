@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PersonalInformationComponent } from '../../modal/personal-information/personal-information.component';
 import { UsageRuleComponent } from '../../modal/usage-rule/usage-rule.component';
+import { LoginComponent} from '../login/login.component';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -10,8 +12,9 @@ import { UsageRuleComponent } from '../../modal/usage-rule/usage-rule.component'
 export class FooterComponent implements OnInit {
 
   constructor(
-    public dialog:MatDialog,
-    public dialog2:MatDialog,
+    private dialog:MatDialog,
+    private sign_in:MatDialog,
+    private dialog2:MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -22,5 +25,13 @@ export class FooterComponent implements OnInit {
   }
   usr(){
     const dialogRef2 = this.dialog.open(UsageRuleComponent);
+  }
+  signin(){
+    this.closeBox();
+    const dialogRef2 = this.sign_in.open(LoginComponent);
+  }
+  closeBox(){
+    // var box1 = document.getElementsByClassName('searchBox')[0] as HTMLElement;
+    // box1.style.display = 'none';
   }
 }

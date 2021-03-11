@@ -1,3 +1,7 @@
-<app-top></app-top>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<mat-drawer-container [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+        <app-footer class="sidenav"></app-footer>
+    </mat-drawer>
+        <app-top></app-top>
+        <router-outlet></router-outlet>
+</mat-drawer-container>    

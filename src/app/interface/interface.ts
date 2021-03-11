@@ -19,6 +19,7 @@ export const TAGS : Record<string, string> = {
   BROADCAST:'broadcast/:id',
   RQSTPSNCLASS:'rqstCompanyClass',
   RQSTCPNCLASS:'rqstPersonalClass',
+  INQUIRE:'inquire',
 } 
 
 export const INTERESTS = [
