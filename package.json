@@ -26,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "@ngmodule/material-carousel": "^0.6.0",
     "@zoomus/websdk": "^1.9.0",
+    "angular-responsive-carousel": "^2.0.2",
     "bootstrap": "^4.6.0",
     "buffer": "^6.0.3",
     "crypto-js": "^4.0.0",

@@ -132,7 +132,7 @@ export class MainComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     var dot = document.getElementsByClassName('dot');
     var dotWrap = document.getElementsByClassName('dotWrap')[0] as HTMLElement;
-    var wrapWidth = dot.length*30;
+    var wrapWidth = dot.length*16;
     dotWrap.style.left = 'calc(50% - '+(wrapWidth/2)+'px)';
     
     var tempBar = document.getElementsByClassName('tempDynamic');
@@ -161,11 +161,7 @@ export class MainComponent implements OnDestroy, AfterViewInit {
 // 오늘라이브 없을시에
     var isthere = document.getElementsByClassName('isthere');
     var content = document.querySelectorAll('.today .content');
-    var shownothing = document.getElementsByClassName('todayNo')[0] as HTMLElement;
 
-    if(content.length == 0 ){
-      shownothing.style.display = 'block';
-    }
   }
 
   ngOnDestroy(): void {
@@ -242,6 +238,7 @@ export class MainComponent implements OnDestroy, AfterViewInit {
   curIndex = 0;
   bannerCount = 0;
   bannerCount2 = 0;
+  bannerCount3 = 0;
 
   slideLeft(){
     this.curIndex ++;
@@ -276,23 +273,22 @@ export class MainComponent implements OnDestroy, AfterViewInit {
     }
     else{
       bannerBody.style.transition = 'left , 0.5s';
-      bannerBody.style.marginLeft = -50*this.bannerCount + '%';
+      bannerBody.style.marginLeft = -100*this.bannerCount + '%';
     }
   }
   bannerSliderLeft(){
-    
     var bannerBody = document.querySelector('.nowlive .innerWrap .banner') as HTMLElement;
     var bannerList = bannerBody.getElementsByClassName('clive');
     if(this.bannerCount == 0){
-      this.bannerCount = bannerList.length -1;
-      bannerBody.style.marginLeft = -50*this.bannerCount + '%';
-      this.bannerCount2 = bannerList.length;
+      this.bannerCount = bannerList.length - 1;
+      bannerBody.style.transition = 'left , 0.5s';
+      bannerBody.style.marginLeft = -100*this.bannerCount + '%';
     }
     else{
+      this.bannerCount --;
       bannerBody.style.transition = 'left , 0.5s';
-      bannerBody.style.marginLeft = -50*this.bannerCount + 50 + "%";
+      bannerBody.style.marginLeft = -100*this.bannerCount + "%";
     }
-    this.bannerCount --;
   }
   bannerSliderRight2(){
     this.bannerCount2 ++;
@@ -304,7 +300,7 @@ export class MainComponent implements OnDestroy, AfterViewInit {
     }
     else{
       bannerBody.style.transition = 'left , 0.5s';
-      bannerBody.style.marginLeft = -50*this.bannerCount2 + '%';
+      bannerBody.style.marginLeft = -100*this.bannerCount2 + '%';
     }
   }
   bannerSliderLeft2(){
@@ -313,14 +309,41 @@ export class MainComponent implements OnDestroy, AfterViewInit {
     var bannerList = bannerBody.getElementsByClassName('pre');
     if(this.bannerCount2 == 0){
       this.bannerCount2 = bannerList.length -1;
-      bannerBody.style.marginLeft = -50*this.bannerCount2 + '%';
-      this.bannerCount2 = bannerList.length;
+      bannerBody.style.transition = 'left , 0.5s';
+      bannerBody.style.marginLeft = -100*this.bannerCount2 + '%';
+    }
+    else{
+      this.bannerCount2 --;
+      bannerBody.style.transition = 'left , 0.5s';
+      bannerBody.style.marginLeft = -100*this.bannerCount2+ "%";
+    }
+  }
+  bannerSliderRight3(){
+    this.bannerCount3 ++;
+    var bannerBody = document.querySelector('.today .innerWrap .banner') as HTMLElement;
+    var bannerList = bannerBody.getElementsByClassName('isthere');
+    if(this.bannerCount3 == bannerList.length){
+      this.bannerCount3 = 0;
+      bannerBody.style.marginLeft = '0';
     }
     else{
       bannerBody.style.transition = 'left , 0.5s';
-      bannerBody.style.marginLeft = -50*this.bannerCount2 + 50 + "%";
+      bannerBody.style.marginLeft = -100*this.bannerCount3 + '%';
     }
-    this.bannerCount2 --;
+  }
+  bannerSliderLeft3(){
+    var bannerBody = document.querySelector('.today .innerWrap .banner') as HTMLElement;
+    var bannerList = bannerBody.getElementsByClassName('isthere');
+    if(this.bannerCount3 == 0){
+      this.bannerCount3 = bannerList.length -1;
+      bannerBody.style.transition = 'left , 0.5s';
+      bannerBody.style.marginLeft = -100*this.bannerCount3 + '%';
+    }
+    else{
+      this.bannerCount3 --;
+      bannerBody.style.transition = 'left , 0.5s';
+      bannerBody.style.marginLeft = -100*this.bannerCount3+ "%";
+    }
   }
   dotClick(e:Event){
     var thisDot = e.target as HTMLElement;

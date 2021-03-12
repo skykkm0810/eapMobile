@@ -22,6 +22,8 @@ export class AllLiveComponent implements AfterViewInit {
       this.all = [];
       this.info = [];
       let filtered;
+      data.filter( dt => dt.currs.length > 0 )
+      // data.filter( dt => dt.currs[0].data != null )
       data.filter( dt => dt.dday != null )
       data.sort(function(a, b) {
         let rst = new Date(a.dday).getTime() - new Date(b.dday).getTime();

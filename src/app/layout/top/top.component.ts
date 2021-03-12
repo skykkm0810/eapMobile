@@ -99,10 +99,7 @@ export class TopComponent implements AfterViewInit{
     box2.style.display = 'none';
   }
   closeBox(){
-    var box1 = document.getElementsByClassName('searchBox')[0] as HTMLElement;
-    var box2 = document.getElementsByClassName('menuBox')[0] as HTMLElement;
-    box1.style.display = 'none';
-    box2.style.display = 'none';
+    this.search = 0;
   }
   menuBox(){
     var box1 = document.getElementsByClassName('searchBox')[0] as HTMLElement;
@@ -114,7 +111,12 @@ export class TopComponent implements AfterViewInit{
     var tag = e.target as HTMLElement;
     if(tag.classList.contains('searchButton')){
       var value = (document.getElementsByClassName('searchInput')[0] as HTMLInputElement).value;
-      document.location.href = 'allLive/search/'+value;
+      if( value == ''){
+        document.location.href = 'allLive';
+      }
+      else{
+        document.location.href = 'allLive/search/'+value;
+      }
     }
     else {
       var value = tag.textContent;
@@ -164,5 +166,15 @@ export class TopComponent implements AfterViewInit{
   searchOn() {
     this.search = 1;
   }
-  
+  searchOff(e:Event){
+    var clickTag = e.target as HTMLElement;
+    var searchBox = document.getElementsByClassName('searchBox')[0] as HTMLElement;
+    var searchInput = document.getElementsByClassName('searchInput')[0] as HTMLElement;
+    if(clickTag == searchBox || clickTag == searchInput ) {
+      this.search = 1;
+    }
+    else {
+      this.search = 0;
+    }
+  }
 }

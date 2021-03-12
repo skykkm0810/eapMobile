@@ -1,28 +1,42 @@
 .innerWrap {
     overflow-x: hidden;
 }
-.left {
+p {
+    margin:0;
+}
+.arrow {
     position: absolute;
     top:50%;
-    left:72px;
-    width:28px;
-    height:48px;
-    background: url(../../../assets/images/icon/pink/arrow-left.png) no-repeat center center / cover;
+    width:30px;
+    height:30px;
+    background-color:#fff ;
+    padding:5px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
-.right {
+.arrow::after {
+    content:'';
     position: absolute;
-    top:50%;
-    right:72px;
-    width:28px;
-    height:48px;
-    background: url(../../../assets/images/icon/pink/arrow-right.png) no-repeat center center / cover;
+    display: block;
+    top:calc(50% - 10px);
+    width:20px;
+    height:20px;
 }
+.left{left:5%}
+.left::after{left:calc(50% - 12px);
+    background: url(../../../assets/images/icon/pink/arrow-left.png) no-repeat center center / contain;
+}
+.right{right:5%}
+.right::after{right:calc(50% - 12px);
+    background: url(../../../assets/images/icon/pink/arrow-right.png) no-repeat center center / contain;
+}
+
 
 /* common */
 .slideWrap {
     width:100%;
     margin:0 auto;
-    height:400px;
+    height:200px;
     overflow: hidden;
     position: relative;
     max-width: 1920px;
@@ -65,82 +79,75 @@
 }
 .dotWrap .dot {
     display: inline-block;
-    margin:0 10px;
-    width:15px;
-    height:15px;
+    margin:0 4px;
+    width:8px;
+    height:8px;
     border-radius: 100%;
     background-color: rgba(255,255,255,0.5);
 }
 .dotWrap .show {
     background-color: #F2A6A3;
 }
-
+.grid1 {
+    width:200%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
 /* 마음도씨 라이브 */
 .nowlive {
     width:100%;
     position: relative;
-    overflow: hidden;
 }
 .nowlive h2 {
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
-    width:350px;
-    line-height: 100px;
-    height:100px;
-}
-
-.nowlive h2 {
-    font-size: 30px;
-    text-align: center;
-    width:350px;
-    height:100px;
-    line-height: 100px;
-    margin:0 auto;
-    color:#3F3D56;
+    line-height: 28px;
+    font-family: 'nanum' ,sans-serif;
     font-weight: bold;
-    font-family: 'nanum';
+    padding: 10px 0;
+    margin:0;
 }
-
 .nowlive .banner {
-    width:400%;
-    display: grid;
-    grid-template-columns: repeat(8,1fr);
-    column-gap: 30px;
-    padding: 54px 0 37px 1px;
+    position: relative;
 }
 .nowlive .banner > div {
+    padding: 16px 0;
+}
+.nowlive .banner .clive {
+    margin:0 auto;
+    width:320px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
+    border-radius: 15px 15px 28px 15px;
     position: relative;
-    padding:23px 43px 27px 42px;
+    padding:16px 24px 8px;
     background-color: #fff;
 }
-.nowlive .banner .openTime {
-    font-size: 26px;
-    width:450px;
-    height:60px;
-    line-height: 60px;
+.nowlive .banner .clive .openTime {
+    font-size: 14px;
+    width:264px;
+    height:32px;
+    line-height: 32px;
     color:#fff;
     background-color: #3F3D56;
     text-align: center;
-    border-radius: 30px;
+    border-radius: 32px;
     position: absolute;
-    top:-28px;
-    left:calc(50% - 225px);
+    top:-16px;
+    left:calc(50% - 132px);
 }
 .nowlive .banner .cardTitle {
     margin:0!important;
     width:100%;
-    height:100px;
+    height:56px;
     box-sizing: border-box;
-    padding-top: 25px;
-    line-height: 30px;
+    line-height: 18px;
     text-align: center;
-    font-size: 30px;
+    font-size: 16px;
+    padding:10px 0;
 }
 .nowlive .banner .bannerImg {
     width:100%;
-    height:375px;
+    height:224px;
 }
 .nowlive .banner .bannerImg img {
     width:100%;
@@ -148,249 +155,222 @@
 }
 .nowlive .banner .temp {
     position: absolute;
-    width:570px;
-    height:90px;
+    width:340px;
+    height:50px;
     background: url(../../../assets/images/icon/other.png) no-repeat center center / contain;
-    left:calc(50% - 285px);
-    top:450px;
+    left:calc(50% - 170px);
+    top:280px;
 }
 .nowlive .tempDynamic {
     position: absolute;
-    width:450px;
-    height:22px;
-    left:76px;
-    top:29px;
+    width:243px;
+    height:12px;
+    left:60px;
+    top:16.25px;
     background-color: #DD5E5E;
     border-radius: 30px;
     max-width: 450px;
 }
+.nowlive .openInfoBox {
+    position: relative;
+    height:70px;
+}
 .nowlive .openInfo {
     position: absolute;
     left:0;
-    padding-left: 88px;
-    padding-right:30px;
+    padding-left: 20px;
+    padding-right:10px;
     width:100%;
-    top:540px;
-    font-size: 35px;
+    top:40px;
+    font-size: 20px;
     font-weight: bold;
     color:#DD5E5E;
     box-sizing: border-box;
+    line-height: 22px;
 }
 .nowlive .openInfo .classdate {
     display: inline-block;
 }
-.nowlive .openInfo .timeRound { display: inline-block;}
-.nowlive .openInfo .time {
-    display: inline-block;
-    text-align: center;
-    font-size: 22px;
-    line-height:35px;
-    width:80px;
-    height:35px;
-    border-radius: 20px;
-    background-color: #DD5E5E;
-    color:#fff;
-    margin-right:30px;
-    vertical-align: middle;
 
-}
-.nowlive .openInfo .round {display: inline-block;}
-.nowlive .openInfo .round span { 
-    display: inline-block;
-    border-radius: 100%;
-    width:35px;
-    height:35px;
-    color:#fff;
-    font-size:22px ;
-    background-color: #ffdddd;
-    margin-right: 10px;
-    vertical-align: middle;
-    text-align: center;
-    line-height: 35px;
-}
-.nowlive .openInfo .round .during{
-    background-color: #DD5E5E;
-}
 .nowlive .openInfo .degree {
     float:right;
-    font-size: 24px;
+    font-size: 15px;
     color:#dd5e5e;
     padding-right: 4px;
+    line-height: 22px;
 }
 .nowlive .openInfo .degree .howMuch{
-    font-size: 35px;
+    font-size: 20px;
 }
 .nowlive .banner .bannerTexts {
-    width: 420px;
-    height:200px;
+    width:calc(100% - 40px);
+    height:60px;
     box-sizing: border-box;
-    padding-top: 110px;
-    font-size: 22px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 16px;
 }
 .nowlive .banner .goArrow {
     position: absolute;
     right:0;
     bottom:0;
-    width:100px;
-    height:100px;
-    background: url(../../../assets/images/button/arrowBtn.png);   
+    width:56px;
+    height:56px;
+    background: url(../../../assets/images/button/arrowBtn.png) no-repeat center center / cover;   
 }
 /* 오픈예정 */
 .preopen {
     width:100%;
-    overflow: hidden;
     position: relative;
 }
 .preopen .back {
-    width:wh;
+    width:100%;
     height:450px;
     position: absolute;
-    top:200px;
+    top:0;
     left:0;
     background-color: #FFEEEE ;
 }
 .preopen h2 {
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
-    width:350px;
-    height:100px;
-    line-height: 100px;
-    margin:0 auto;
-    color: #3F3D56;
+    line-height: 28px;
+    font-family: 'nanum' ,sans-serif;
     font-weight: bold;
-    font-family: 'nanum';
+    padding: 10px 0;
+    margin:0;
+    position: relative;
 }
-
 .preopen .banner {
-    width:400%;
-    display: grid;
-    grid-template-columns: repeat(8,1fr);
-    column-gap: 30px;
-    padding: 54px 0 37px 1px;
+    position: relative;
 }
 .preopen .banner > div {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
+    margin:0 auto;
+    padding:16px 0;
     position: relative;
-    padding:23px 43px 27px 42px;
-    background-color:#fff;
+}
+.preopen .banner .pre {
+    margin:0 auto;
+    width:320px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px 15px 28px 15px;
+    position: relative;
+    padding:16px 24px 8px;
+    background-color: #fff;
 }
 .preopen .banner .openTime {
-    font-size: 26px;
-    width:450px;
-    height:60px;
-    line-height: 60px;
+    font-size: 14px;
+    width:264px;
+    height:32px;
+    line-height: 32px;
     color:#fff;
     background-color: #3F3D56;
     text-align: center;
-    border-radius: 30px;
+    border-radius: 32px;
     position: absolute;
-    top:-28px;
-    left:calc(50% - 225px);
+    top:-16px;
+    left:calc(50% - 132px);
 }
 .preopen .banner .cardTitle {
     margin:0!important;
     width:100%;
-    height:100px;
+    height:56px;
     box-sizing: border-box;
-    padding-top: 25px;
-    line-height: 30px;
+    line-height: 18px;
     text-align: center;
-    font-size: 30px;
+    font-size: 16px;
+    padding:10px 0;
 }
 .preopen .banner .bannerImg {
     width:100%;
-    height:375px;
+    height:224px;
 }
 .preopen .banner .bannerImg img {
     width:100%;
     height:100%;
 }
-.preopen .banner .temp {
-    position: absolute;
-    width:570px;
-    height:90px;
-    background: url(../../../assets/images/icon/other.png) no-repeat center center / contain;
-    left:calc(50% - 285px);
-    top:450px;
-}
-.preopen .tempDynamic {
-    position: absolute;
-    width:450px;
-    height:22px;
-    left:76px;
-    top:29px;
-    background-color: #DD5E5E;
-    border-radius: 30px;
-}
 .preopen .banner .bannerTexts {
-    width: 420px;
-    height:120px;
+    width:calc(100% - 40px);
+    height:60px;
     box-sizing: border-box;
-    padding-top: 20px;
-    font-size: 22px;
-    line-height: 23px;
+    font-size: 14px;
+    line-height: 16px;
+    padding-top:10px;
 }
 .preopen .banner .goArrow {
     position: absolute;
     right:0;
     bottom:0;
-    width:100px;
-    height:100px;
-    background: url(../../../assets/images/button/arrowBtn.png);   
+    width:56px;
+    height:56px;
+    background: url(../../../assets/images/button/arrowBtn.png) no-repeat center center / cover;  
 }
 /* 오늘의 컨텐츠 */
 .today {
     position: relative;
+    overflow:hidden ;
 }
 .today h2 {
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
-    width:350px;
-    height:100px;
-    line-height: 100px;
-    margin:0 auto;
-    color: #3F3D56;
+    line-height: 28px;
+    font-family: 'nanum' ,sans-serif;
     font-weight: bold;
-    font-family: 'nanum';
+    padding: 10px 0;
+    margin:0;
 }
 .today .innerWrap {
     padding-top:14px;
 }
-.today .content {
-    height:300px;
-    display: grid;
-    grid-template-columns: 450px 750px;
-    margin-bottom: 50px;
+.today .banner {
+    width:500%;
 }
-.today .content .img{
+.today .banner .isthere {
+    display: inline-block;
+    width:20%;
+}
+.today .content {
+    width:100%;
+    
+    padding:0 32px 20px;
     position: relative;
 }
-.today .content .img .subject {
-    width:100px;
-    height:100px;
-    background: no-repeat center center / cover;
+.today .content .interest{
+    width:72px;
+    height:72px;
     position: absolute;
     left:0;
     top:0;
+    background: url(../../../assets/images/icon/white/subout.png) no-repeat center center / cover;
 }
-
-.today .content .img .backImg {
+.today .content .interest .inner {
+    display: block;
+    width:65px;
+    height:65px;
+    position: absolute;
+    right:0;
+    bottom:0;
+    background: url(../../../assets/images/icon/white/subin.png) no-repeat center center / cover;
+}
+.today .content .interest .inner .text {
+    display: block;
+    position: absolute;
+    width:100%;
+    left:0;
+    top:calc(50% - 15px);
+    font-size: 15px;
+    line-height: 17px;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    word-break: keep-all;
+}
+.today .content .img {
+    width:100%;
+    height:230px;
+}
+.today .content .img img {
     width:100%;
     height:100%;
-    background: no-repeat center center / cover;
-}
-.today .content .img .backImg img {
-    display: inline-block;
-    width:100%;
-    height:300px;
-}
-.today .first .img .backImg {
-    background-image: url(../../../assets/images/banner/list1.png);
-}
-.today .second .img .backImg {
-    background-image: url(../../../assets/images/banner/saveMental.png);
 }
 
 .today .content .todayClassInfo {
@@ -398,19 +378,32 @@
     padding:30px 0 30px 50px;
     position: relative;
 }
-.today .first .todayClassInfo {
-    background-color: #66cccc;
+.today .content .teacher {
+    font-size: 14px;
+    color:#fff;
+    padding: 8px 0 0 50px;
 }
-.today .second .todayClassInfo {
-    background-color: #B08FCC;
+.today .content .title {
+    font-size: 18px;
+    color:#3f3d56;
+    padding: 8px 0 0 50px;
 }
-.today .content .todayClassInfo > p { width:450px; padding-bottom: 20px; margin:0!important;}
-.today .content .todayClassInfo .teacher {font-size: 20px; color:#fff; }
-.today .content .todayClassInfo .title {font-size: 30px; color:#3f3d56; line-height: 31px;}
-.today .content .todayClassInfo .description {font-size: 25px; color:#fff; line-height: 25px;}
-.today .content .todayClassInfo .remainTime {font-size: 35px;color:#fff; padding:0;}
+.today .content .description {
+    font-size: 14px;
+    color:#fff;
+    line-height: 16px;
+    padding-top: 8px;
+}
+.today .content .remainTime {
+    width:calc(100% - 120px);
+    font-size: 22px;
+    line-height: 24px;
+    color:#fff;
+    padding-top: 20px;
+    word-break: keep-all;
+}
 
-.today .content .todayClassInfo .calendarIcon {
+.today .content .calendarIcon {
     width:75px;
     height:88px;
     border-radius: 11px;
@@ -456,8 +449,8 @@
 }
 
 .today .content .goArrow {
-    width:200px;
-    height:80.22px;
+    width:136px;
+    height:55px;
     background: url(../../../assets/images/button/goClass.png) no-repeat center center / cover;
     position: absolute;
     bottom:0;
@@ -465,42 +458,38 @@
 }
 
 
-/* 이달의 컨텐츠 */
+/* 이달의 top */
 .month {
     position: relative;
 }
 .month h2 {
-    width:350px;
-    height:100px;
-    margin:0 auto;
-    line-height: 100px;
-    font-size: 30px;
+    font-size: 22px;
+    line-height: 28px;
+    padding:10px 0;
     text-align: center;
+    margin:0;
 }
 .month .contentBox {
-    height:640px;
     display: grid;
-    border: 1px solid #DD5E5E;
-    grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(5,1fr);
     column-gap: 30px;
     row-gap: 20px;
-    padding:30px 35px;
+    padding:25px;
     box-sizing: border-box;
 }
 .month .contentBox > div  {
     width:100%;
     display: grid;
-    grid-template-columns: 65px 150px 350px;
+    grid-template-columns: 24px 88px 200px;
 }
 
 .month .contentBox div .no {
     display: inline-block;
-    width:65px;
-    font-size: 24px;
+    width:24px;
+    font-size: 20px;
     color:#DD5E5E;
-    text-align: center;
-    line-height: 100px;
+    text-align: left;
+    line-height: 56px;
 }
 .month .contentBox div p {
     margin:0!important;
@@ -508,23 +497,27 @@
 .month .contentBox div img {
     display: inline-block;
     vertical-align: top;
-    width:150px;
-    height:100px;
+    width:88px;
+    height:56px;
 } 
 .month .contentBox div > div{
     height:100%;
     display: inline-block;
     box-sizing: border-box;
-    padding-left:30px ;
+    padding-left:10px ;
 }
 .month .contentBox div .big {
     color:#DD5E5E;
     font-weight: bold;
-    font-size: 18px;
-    height:40%;
+    font-size: 16px;
+    line-height: 17px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .month .contentBox div .small{
-    font-size: 18px;
+    font-size: 15px;
     box-sizing: border-box;
-    height:60%;
+    line-height: 16px;
+    padding-top: 5px;
 }

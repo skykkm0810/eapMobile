@@ -2,7 +2,7 @@
   <ul class="slideBody">
     <li [routerLink]="['maum']" class="pointer"></li>
     <li [routerLink]="['rqstCompanyClass']" class="pointer"></li>
-    <li class=""></li>
+    <li></li>
   </ul>
   <ul class="dotWrap">
     <li class="dot pointer show" (click)='dotClick($event)'></li>
@@ -14,78 +14,82 @@
   <section class="nowlive">
     <h2>마음도씨 라이브</h2>
     <!-- <div class="back"></div> -->
-    <span class="left pointer" (click)='bannerSliderLeft()'></span>
-    <span class="right pointer" (click)='bannerSliderRight()'></span>
     <div class="innerWrap">
-      <div class="banner">
-        <div *ngFor='let d of mainClass' class="clive">
-          <div class="openTime uppercase bold">{{d[0].dday|date:'MM월 dd일 - HH시 mm분'}} ({{d[0].currs[0].dur}}분)</div>
-          <p class="cardTitle bold">{{d[0].title}}</p>
-          <div class="bannerImg">
-            <img src="{{filePath}}{{d[0].thumbnail1}}" alt="배너사진">
+      <div class="banner grid1">
+        <div *ngFor='let d of mainClass'>
+          <div class="clive">
+            <div class="openTime uppercase bold">{{d[0].dday|date:'MM월 dd일 - HH시 mm분'}} ({{d[0].currs[0].dur}}분)</div>
+            <p class="cardTitle bold">{{d[0].title}}</p>
+            <div class="bannerImg">
+              <img src="{{filePath}}{{d[0].thumbnail1}}" alt="배너사진">
+            </div>
+            <div class="temp">
+              <div class="tempDynamic textHidden" [ngStyle]="{'width.px': d[1].deg*4.5}">{{d[1].deg}}</div>
+            </div>
+            <div class="openInfoBox">
+              <div class="openInfo">
+                <span class="textHidden classdate"></span>
+                <span class="remainDays">{{d[2].remain}}</span>
+                <div class="degree bold"><span class="howMuch">{{d[1].deg}}</span>ºC 마음도씨</div>
+              </div>
+            </div>
+            <div class="bannerTexts">
+              {{d[0].subtitle}}
+            </div>
+            <div class="goArrow pointer" routerLink='detail/{{d[0].id}}'></div>
           </div>
-          <div class="temp">
-            <!-- tempDynamic 안의 "텍스트 숫자" 가 온도계 길이가 됨  -->
-            <div class="tempDynamic textHidden" [ngStyle]="{'width.px': d[1].deg*4.5}">{{d[1].deg}}</div>
-          </div>
-          <div class="openInfo">
-            <span class="textHidden classdate"></span>
-            <span class="remainDays">{{d[2].remain}}</span>
-            <!-- 위 tempDynamic 텍스트 숫자와 같은 값을 넣어 줄 것 -->
-            <div class="degree bold"><span class="howMuch">{{d[1].deg}}</span>ºC 마음도씨</div>
-          </div>
-          <div class="bannerTexts">
-            {{d[0].subtitle}}
-          </div>
-          <div class="goArrow pointer" routerLink='detail/{{d[0].id}}'></div>
         </div>
       </div>
+      <span class="arrow left pointer" (click)='bannerSliderLeft()'></span>
+      <span class="arrow right pointer" (click)='bannerSliderRight()'></span>
     </div>
   </section>
   <section class="preopen">
     <div class="back"></div>
-    <span class="left pointer" (click)='bannerSliderLeft2()'></span>
-    <span class="right pointer" (click)='bannerSliderRight2()'></span>
     <div class="innerWrap">
       <h2>오픈예정 라이브 컨텐츠</h2>
-      <div class="banner">
-        <div class="pre" *ngFor="let p of preopenClass">
-          <div class="openTime uppercase bold">OPEN 예정</div>
-          <p class="cardTitle bold">{{p[0].title}}</p>
-          <div class="bannerImg">
-            <img src="{{filePath}}{{p[0].thumbnail1}}" alt="배너사진">
+      <div class="banner grid1">
+        <div *ngFor="let p of preopenClass">
+          <div class="pre">
+            <div class="openTime uppercase bold">OPEN 예정</div>
+            <p class="cardTitle bold">{{p[0].title}}</p>
+            <div class="bannerImg">
+              <img src="{{filePath}}{{p[0].thumbnail1}}" alt="배너사진">
+            </div>
+            <div class="bannerTexts">
+              {{p[0].subtitle}}
+            </div>
+            <div class="goArrow pointer" routerLink='detail/{{p[0].id}}'></div>
           </div>
-
-          <div class="bannerTexts">
-            {{p[0].subtitle}}
-          </div>
-          <div class="goArrow pointer" routerLink='detail/{{p[0].id}}'></div>
         </div>
-
       </div>
+      <span class="arrow left pointer" (click)='bannerSliderLeft2()'></span>
+      <span class="arrow right pointer" (click)='bannerSliderRight2()'></span>
     </div>
   </section>
 
   <section class="today">
     <h2>오늘의 라이브</h2>
     <div class="innerWrap">
-      <p *ngIf="todayClass.length == 0" class="bold hidden todayNo" style="padding: 50px; font-size: 22px; text-align: center;">
+      <p *ngIf="todayClass.length == 0" class="bold hidden todayNo"
+        style="padding: 50px; font-size: 22px; text-align: center;">
         오늘의 라이브 강의가 없습니다.</p>
-      <div *ngIf="todayClass.length > 0">
+      <div *ngIf="todayClass.length > 0" class="banner">
         <div class="isthere" *ngFor='let t of todayClass'>
-          <div class="content" *ngIf = 't.lecture[0].open == true'>
-            <div class="img">
-              <div class="subject textHidden">
-                <!-- <img src="{{t.tagimg}}" alt="/"> -->
+          <div class="content" [style.background]='t.color' *ngIf='t.lecture[0].open == true'>
+            <div class="interest">
+              <div class="inner">
+                <span class="text" [style.color]='t.color'>{{t.lecture[0].interests}}</span>
               </div>
-              <div class="backImg"><img src="{{filePath}}{{t.lecture[0].thumbnail1}}" alt="/"></div>
             </div>
-            <div class="todayClassInfo" [style.background]='t.color'>
-              <p class="teacher">강사 <span class="name">{{t.lecture[0].inst.name}}</span></p>
-              <p class="title bold">{{t.lecture[0].title}}</p>
-              <p class="description">{{t.lecture[0].subtitle}}</p>
-              <p class="remainTime bold"><span class="time">{{t.remains}}</span></p>
-              <div class="calendarIcon">
+            <p class="teacher">강사 <span class="name">{{t.lecture[0].inst.name}}</span></p>
+            <p class="title bold">{{t.lecture[0].title}}</p>
+            <div class="img">
+              <img src="{{filePath}}{{t.lecture[0].thumbnail1}}" alt="/">
+            </div>
+            <p class="description">{{t.lecture[0].subtitle}}</p>
+            <p class="remainTime bold"><span class="time">{{t.remains}}</span></p>
+            <!-- <div class="calendarIcon">
                 <div class="unfill">
                   <p class="day">{{t.date | date: 'd'}}</p>
                   <p class="uppercase month">{{t.date | date: 'MMMM'}}</p>
@@ -93,16 +97,16 @@
                 <div class="fill">
                   <p class="year bold">{{t.date | date: 'Y'}}</p>
                 </div>
-              </div>
-              <div class="goArrow pointer" routerLink='detail/{{t.lecture[0].id}}'></div>
-            </div>
+              </div> -->
+            <div class="goArrow pointer" routerLink='detail/{{t.lecture[0].id}}'></div>
 
           </div>
         </div>
       </div>
+      <span class="arrow left pointer" (click)='bannerSliderLeft3()'></span>
+      <span class="arrow right pointer" (click)='bannerSliderRight3()'></span>
     </div>
   </section>
-
   <section class='month'>
     <div class="innerWrap">
       <h2>이달의 TOP 라이브</h2>
@@ -115,7 +119,6 @@
             <p class="small">{{m.data.subtitle}}</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>

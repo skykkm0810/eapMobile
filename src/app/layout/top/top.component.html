@@ -2,9 +2,12 @@
   <div class="menu pointer" (click)="clickMenu()"></div>
   <h1 class="textHidden pointer" (click)="HyperLink('./')">마음도씨</h1>
   <div class="search pointer" (click)='searchOn()'></div>
-  <div class="searchModal" *ngIf='search == 1'>
-    <div class="searchBox">
-
+  <div class="searchModal" *ngIf='search == 1' (click)="searchOff($event)">
+    <div class="searchBox" [class.boxOpen] = 'search == 1'>
+      <p class="inputBox">
+        <input type="text" placeholder="검색어를 입력하세요" class="searchInput">
+      </p>
+        <span class="searchButton pointer" (click)='allFind($event)'></span>
     </div>
   </div>
 </header>

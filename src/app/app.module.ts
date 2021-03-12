@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -109,6 +110,7 @@ import { InquireComponent } from './page/inquire/inquire.component';
     BrowserAnimationsModule,
     FormsModule,
     MatAutocompleteModule,
+    IvyCarouselModule,
     MatBadgeModule,
     MatBottomSheetModule,
     MatButtonModule,

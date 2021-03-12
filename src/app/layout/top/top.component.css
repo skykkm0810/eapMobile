@@ -4,12 +4,13 @@
     height:50px;
     background-color: #3F3D56;
     position: relative;
+    z-index:99;
 }
 .floating {
     position: fixed!important;
     top:0;
     left:0;
-    z-index:3;
+    z-index:99;
 }
 #header .menu {
     width:24px;
@@ -50,6 +51,50 @@
     height:56px;
     top:50px;
     background-color: #DD5E5E;
+    box-sizing: border-box;
+    padding-top: 10px;
+    animation-name: searchOn;
+    animation-duration: 0.5s;
+}
+#header .searchModal .searchBox .inputBox{
+    width:85%; 
+    margin:0 auto;
+}
+#header .searchModal .searchBox .inputBox input {
+    width:100%;
+    padding-bottom: 6px;
+    border:0;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    color:#fff;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+}
+#header .searchModal .searchBox .inputBox input::placeholder {
+    color:#fff;
+    font-weight: bold;
+}
+#header .searchModal .searchBox .inputBox input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+#header .searchModal .searchBox .searchButton {
+    display: block;
+    width:25px;
+    height:25px;
+    background: url(../../../assets/images/icon/white/searchbtn.png) no-repeat center center / cover;
+    position: absolute;
+    top:calc(50% - 12.5px);
+    right:calc(15% - 25px);
+}
+@keyframes searchOn {
+    from{top:0;opacity: 0;}
+    to {top:50px;opacity: 1;}
+}
+@keyframes searchOff {
+    from{top:50px;opacity: 1;}
+    to {top:0;opacity: 0;}
 }
 /* 네비게이션 */
 /* .topWrap{
