@@ -4,13 +4,12 @@ import { Environment } from 'src/app/environment/environment';
 import { AuthService } from 'src/app/service/auth.service';
 import { PhxChannelService } from 'src/app/service/phx-channel.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class DetailComponent {
+export class DetailComponent implements OnInit, AfterViewInit{
 
   constructor(
     private route: ActivatedRoute,
@@ -126,6 +125,15 @@ export class DetailComponent {
     if ( this.login == true ) {
       this.reviewText = "주제와 무관한 리뷰나 악플은 경고조치 없이 삭제 될수 있습니다.";
     }
+
+    
+
+  }
+  ngAfterViewInit() {
+    this.mainpic();
+    window.addEventListener('resize',()=>{
+      this.mainpic();
+    })
   }
 
   
@@ -135,9 +143,7 @@ export class DetailComponent {
   vP: MatSnackBarVerticalPosition = 'top';
   detail = {
     // 리뷰 
-    review:[
-      {img:'assets/images/icon/star/star4.png',name:'박최고',desc:'완전 굿굿'},
-    ],
+    review:[],
     // 별점이미지
     starimg:[
       {img:'assets/images/icon/star/star5.png', text:'', value: 5},
@@ -147,20 +153,9 @@ export class DetailComponent {
       {img:'assets/images/icon/star/star1.png', text:'', value: 1},
       {img:'', text:'별점 주기'},
     ],
-    // 로그인 된 사람 정보
-    im:'갱갱미',
-
-    // 강의
-    recommand:[
-      {process:'OPEN 예정',remain:'',openDay:'2021-02-22',hashTag:[{tag:'#스트레스'},{tag:'#심리안정'},{tag:'#릴렉스'}] ,color:"#DD5E5E",category:'연애·결혼',title:'플라워디퓨저' , img:'assets/images/banner/week1.png', text:'각종 가공 플라워를 이용한 힐링 프로그램'},
-      {process:'OPEN 예정',remain:'',openDay:'2021-02-22',hashTag:[{tag:'#스트레칭'},{tag:'#운동'},{tag:'#릴렉스'}],color:"#00C6C6",category:'부부·가족',title:'요가로 이용한 스트레스 풀기' , img:'assets/images/banner/week2.png', text:'요가를 이용해 심신을 수양하는 프로그램'},
-      // {process:'진행중',degree:50 ,color:"#954FD0",category:'인생 2막',title:'두줄 까지는 안전한가요? 세줄은 좀 힘들어 보이는데' , img:'assets/images/banner/week3.png', text:'글자길이'},
-      // {process:'OPEN 예정',hashTag:[{tag:'#스트레칭'},{tag:'#심리안정'},{tag:'#릴렉스'}],color:"#DD5E5E",category:'연애·결혼',title:'플라워디퓨저' , img:'assets/images/banner/week1.png', text:'각종 가공 플라워를 이용한 힐링 프로그램'},
-      // {process:'OPEN 예정',hashTag:[{tag:'#스트레칭'},{tag:'#심리안정'},{tag:'#릴렉스'}],color:"#00C6C6",category:'부부·가족',title:'글자를 늘려보려고 길게 적어보았습니다.' , img:'assets/images/banner/week2.png', text:'각종 가공의 그것들을 이용한 어쩃든 무엇을 하는 프로그램'},
-      {process:'OPEN 예정',remain:'',openDay:'2021-02-22',hashTag:[{tag:'#가족관계'},{tag:'#공감하기'},{tag:'#행복'}],color:"#954FD0",category:'인생 2막',title:'함께하는 가족관계 형성하기' , img:'assets/images/banner/week3.png', text:'일도 중요하지만 가정은 더욱 소중하기에, 나의 가정을 행복하게 가꾸기 위한 프로그램'},
-    ]
   }
-
+  mainpicratio= 1.4583;
+  mainpicHeight ;
   like = false;
   kit = ''
   reviewable = false;
@@ -222,10 +217,16 @@ export class DetailComponent {
 
   filePath = Environment.filePath;
   isthere = document.getElementsByClassName('isthere');
-  progress(){
-
+  mainpic(){
+    var mainpic = document.querySelector('.mainpic img') as HTMLElement;
+    var classIntro = document.querySelector('.introductionImg img') as HTMLElement;
+    this.mainpicHeight = (mainpic.clientWidth / this.mainpicratio);
+    mainpic.style.height = this.mainpicHeight +'px';
+    classIntro.style.height = this.mainpicHeight +'px';
   }
-
+  fuc(){
+    console.log('hi')
+  }
   apply() {
     if ( this.auth.isAuthenticated() ) {
       if( this.user.type ) {
@@ -279,6 +280,7 @@ export class DetailComponent {
     var mainImg = document.querySelector('.mainpic img') as HTMLElement;
     mainImg.setAttribute('src',url);
   }
+  
   giveStar( el ){
     var box = document.getElementsByClassName('mat-menu-trigger')[0] as HTMLElement;
     box.style.background ='url('+ el.img +') no-repeat center center / cover';

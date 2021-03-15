@@ -122,7 +122,6 @@ export const react: any [] = [
 export const Banks: string[] = [
   'KEB하나은행', 'SC제일은행', '국민은행', '신한은행', '외환은행', '우리은행', '한국시티은행', '경남은행', '광주은행', '대구은행', '부산은행', '전북은행', '제주은행', '기업은행', '농협', '수협', '한국산업은행', '한국수출입은행'
 ]
-
 export const Agreement = {
   userRule : `
   이용약관

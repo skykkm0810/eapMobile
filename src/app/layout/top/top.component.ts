@@ -26,10 +26,7 @@ export class TopComponent implements AfterViewInit{
     private guard: AuthGuard,
     private sidenav: SidenavService,
   ) {
-    router.events.subscribe((val) => {
-      this.url = this.router.url.split('/')[1];
-      this.active(this.url);
-    })
+    
     auth.Log.subscribe( () => {
       this.sign_check();
     })
@@ -60,20 +57,6 @@ export class TopComponent implements AfterViewInit{
       console.log(this.info);
     }
   }
-  active(txt){
-    if(txt == ''|| txt==undefined){
-      return;
-    }
-    else{
-      var menu = document.getElementsByClassName(txt)[0] as HTMLElement;
-      var allmenu = document.querySelectorAll('.snb li');
-      for(var i=0; i<allmenu.length; i++){
-        allmenu[i].classList.remove('on');
-      }
-      menu.classList.add('on');
-    }
-  }
-
   mypage() {
     if ( this.info.type == false ) {
       this.router.navigate(['mypage/' + this.info.id]);

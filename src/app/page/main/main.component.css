@@ -362,7 +362,6 @@ p {
     text-align: center;
     font-weight: bold;
     box-sizing: border-box;
-    word-break: keep-all;
 }
 .today .content .img {
     width:100%;

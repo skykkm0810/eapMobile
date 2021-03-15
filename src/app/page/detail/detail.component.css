@@ -1,12 +1,10 @@
 /* Common */
-.container {
-    width: 1200px;
-    max-width: 1200px;
+.pink {
+    color: #DD5E5E;
 }
 img {
-    max-width: 100%;
-    max-height: 100%;
-    /* width:100%; */
+    width:100%;
+    height:100%;
 }
 .whitewrap {
     white-space: pre-wrap;
@@ -56,30 +54,19 @@ img {
 /* Abstract */
 .abstract {
     width: 100%;
-    padding-top: 50px;
-}
-
-.mainpic {
-    padding-right: 10px;
-    margin:0 auto;
-}
-.mainpic img {
-    border: 0;
+    padding:20px 10px 0 10px;
 }
 .thumbnail {
-    padding-right: 10px;
-    padding-top: 30px ;
+    display: grid;
+    padding-top: 10px;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 10px;
 }
 
 .thumbnail .item {
-    height:76px;
-    background-color: #eee;
-
-}
-.thumbnail .item img {
     display: block;
-    margin:0 auto;
-    height:100%;
+    background-color: #eee;
+    height:75px;
 }
 
 .title {
@@ -87,60 +74,37 @@ img {
     font-style: normal;
     font-weight: bold;
 }
-.title-header .progress-rect {
-    display: inline-block;
-    box-sizing: border-box;
-    width:60px;
-    height:60px;
-    border:1px solid #57bead;
-    border-radius: 5px;
-    font-size: 22px;
-    line-height: 60px;
-    color:#57bead;
-}
+
 .title-header {
-    /* background-image: url("../../../assets/images/img/title-header.png"); */
-    display: inline-block;
-    background-size: 100px;
-    height:85px;
-    box-sizing: border-box;
-    padding-bottom: 15px;
-    font-size: 30px;
-    line-height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-bottom: 1px solid #c4c4c4;
+    display: grid;
+    grid-template-columns: 52px auto;
+    column-gap: 16px;
+    padding-bottom: 10px;
 }
 
 .title-main {
-    font-size: 30px;
-    line-height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: left;
+    font-size: 18px;
+    line-height: 22px;
 
-    color: #3F3D56;
 }
+
 
 .subtitle {
     position: relative;
-    border-radius: 50px; 
+    padding:10px 0;
 }
 
 .subtitle .desc {
-    width: 570px;
-    padding: 20px 35px 20px 55px;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #c4c4c4;
     border-bottom: 1px solid #c4c4c4;
-    color: #3F3D56;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
 }
 
 .subtitle-rect {
@@ -150,30 +114,32 @@ img {
 
     position: absolute;
 }
-.dah {
-    position: relative;
-    padding-top: 20px;
-}
 .remain {
-    position: absolute;
-    left:0;
-    display: inline-block;
-    font-size: 30px;
-    font-weight: 800;
+    width:50px;
     height:50px;
+    border-radius: 5px;
+    border:1px solid #DD5E5E;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    color:#DD5E5E;
     line-height: 50px;
 }
+.remain .remainDate {
+    display: block;
+    text-align: center;
+    
+}
 .hashtag {
-    padding-top: 20px;   
-    padding-bottom: 10px;   
-    padding-left: 10px;
+    padding: 5px 0;
     width:100%;
     font-family: 'nanum';
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 15px;
+    line-height: 16px;
     color: #DD5E5E;
+    text-align: center;
 }
 .temper {
     height:60px; 
@@ -181,36 +147,30 @@ img {
 }
 .thermo {
     position: relative;
-    display: inline-block;
-    width:365px;
-    height:60px;
-    background: url('../../../assets/images/icon/0c.png') no-repeat center center / contain;
+    width:300px;
+    margin:0 auto;
+    height:50px;
+    background: url(../../../assets/images/icon/0c.png) no-repeat center center / cover;
 }
 .thermo .thermoBar {
     position: absolute;
-    top:19px;
-    left:43px;
+    top:16px;
+    left:40px;
     display: block;
-    width:300px;
-    max-width:300px;
-    height:15px;
+    /* width:245px; */
+    max-width:245px;
+    height:12.5px;
     background-color:#DD5E5E;
     border-radius: 7.5px;
 }
 .temperature {
-    position: absolute;
-    right:0;
-    top:0;
-    height:60px;
-    font-size:24px ;
+    font-size:16px ;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: right;
     color:#DD5E5E;
 }
 .temperature .tempNum {
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .classInfoBox {
@@ -218,38 +178,40 @@ img {
 }
 .classInfoBox .classTitle { 
     display: inline-block;
-    width:140px;
-    height:30px;
+    width:80px;
+    height:24px;
     border-radius: 5px;
-    background-color: #F2A6A3;
+    background-color: #3f3d56;
     color:#fff;
-    font-size: 20px;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
-    line-height: 30px;
+    line-height: 24px;
  }
  .classInfoBox .round {
-     color:#DD5E5E;
-     font-size: 22px;
-     padding-left: 20px;
-     line-height: 30px;
+     height:24px;
+     display: inline-block;
+     color:#3F3D56;
+     font-size: 16px;
+     padding-left: 15px;
+     line-height: 24px;
      font-weight: bold;
  }
  .classTable {
-     width:100%;
+     padding-top: 10px;
+     width:300px;
+     margin:0 auto;
  }
  .classTable .tableRow {
     display: grid;
-    grid-template-columns: 70px 240px 235px;
-    column-gap: 20px;
+    grid-template-columns: 40px 160px 80px;
+    column-gap: 10px;
  }
  .classTable .tableRow span {
     text-align: center;
-    height:50px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    font-size: 22px;
-    line-height: 40px;
+    height:24px;
+    line-height: 24px;
+    font-size: 14px;
     border-bottom: 1px solid #c4c4c4;
  }
  .classTable .tableHeader span {
@@ -257,38 +219,32 @@ img {
      font-weight: bold;
  }
 .class-info-grid {
+    display: inline-block;
     border: 1px solid #C4C4C4;
     border-top: 1px solid #F2A6A3;
     text-align: center;
+    width:25%;
+    height:52px;
 }
 
 .class-info-grid .title {
-    padding-top: 10px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 26px;
-
+    padding-top: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
     text-align: center;
-
-    color: #606060;
+    color: #555555;
 }
 
 .class-info-grid .content {
     padding-top: 7px;
-    padding-bottom: 11px;
-
-    font-family: Roboto;
+    margin:0 auto;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
-    line-height: 26px;
-
     text-align: center;
-
-    color: #DD5E5E;
+}
+.class-info-grid .content img {
+    width:20px;
 }
 
 .progress-container {
@@ -318,12 +274,13 @@ img {
     color: #DD5E5E;
 }
 .class-button {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .class-button button {
-    width:285px;
-    height:60px;
-    font-size: 26px;
+    width:50%;
+    height:40px;
+    font-size: 20px;
+    line-height:40px;
     color:#fff;
     font-weight: bold;
     border-radius: 0;
@@ -335,6 +292,7 @@ img {
 
 .submit-grid {
     padding-top: 20px;
+
 }
 
 .class-apply {
@@ -356,121 +314,93 @@ img {
 
 /* Submenu */
 .submenu {
-    padding-top: 50px;
+    padding-top: 10px;
 }
 
-.submenu .title {
-    font-family: 'nanum';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22x;
-    line-height: 60px;
-    text-align: center;
-    height:60px;
+.submenu > div {
     border-bottom: 1px solid #C4C4C4;
-
+}
+.submenu .title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    height:32px;
+    width:25%;
     color: #555555;
 }
 
 /* Class instruction */
-.class-inst {
-    padding-top: 50px;
-}
 
 /* Curriculum */
 .section-title {
-    background-image: url("../../../assets/images/img/sect_title_background.png");
-    background-size: 250px 250px;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    height: 250px;
-
-    font-family: Roboto;
+    background: url(../../../assets/images/img/sect_title_background.png) no-repeat center center / cover;
+    height: 120px;
+    width: 120px;
     font-style: normal;
-    font-size: 36px;
-    line-height: 36px;
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
-
+    margin:0 auto;
     color: #ffffff;
 }
 
 .dot-sm {
     height: 20px;
-    padding-top: 60px;
-    background-image: url("../../../assets/images/img/light_pink_dot.png");
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    background-position: center;
+    padding-top: 10px;
+    background: url(../../../assets/images/img/light_pink_dot.png) no-repeat center center / 8px;
+
 }
 
 .dot-xsm {
     height: 10px;
     padding-top: 10px;
-    background-image: url("../../../assets/images/img/light_pink_dot.png");
-    background-size: 10px 10px;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url(../../../assets/images/img/light_pink_dot.png) no-repeat center center / 5px;
 }
-
+.subtitleBox {
+    padding-top: 20px;
+}
 .sect-subtitle {
+    width:80%;
+    margin:0 auto;
     border-top: 1px solid #DD5E5E;
     border-bottom: 1px solid #DD5E5E;
-
+    padding: 10px 0;
     font-family: 'nanum';
     font-weight: bold;
-    font-size: 36px;
+    font-size: 14px;
+    line-height: 17px;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
     align-items: center;
 
-    color: #000000;
+    color: #3f3d56;
 }
 .readyFor {
     padding-top: 40px;
     display: grid;
     grid-template-columns: repeat(3,1fr) ;
-    row-gap: 50px;
+    row-gap: 20px;
 }
 .readyFor div {
-    height: 168px;
-    box-sizing: border-box;
-    padding:60px 26px 0 26px;
+    padding:8px 4px;
     text-align: center;
-    font-size: 26px;
+    font-size: 12px;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 13px;
     border-right:1px solid #DD5E5E ;
 }
 
-.curriculum {
-    padding-top: 100px;
-}
-
-.table-entry {
-    font-family: Roboto;
-    font-weight: normal;
-    font-size: 24px;
-    text-align: center;
-}
-
-.table-entry .pink-strong {
-    color: #DD5E5E;
-
-    text-align: left;
-
-    padding-left:20px;
-    padding-right:20px;
-}
 
 /* Class foryou */
 .foryou {
-    padding-top: 100px;
+    padding: 10px;
 }
 
 .img-center {
@@ -513,21 +443,22 @@ img {
 
 /* Instructor introduction */
 .instructor {
-    padding-top: 100px;
+    padding:10px;
 }
 
 .sect-topborder {
     border-top: 1px solid #DD5E5E;
-
-    font-family: Roboto;
+    width:80%;
+    margin:0 auto;
+    padding: 10px 0;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 14px ;
     display: flex;
     justify-content: center;
     align-content: center;
     text-align: center;
     align-items: center;
-
+    letter-spacing: 10px;
     color: #000000;
 }
 
@@ -535,27 +466,23 @@ img {
     background-color: #FFEEEE;
     border-top: 1px solid #DD5E5E;
     border-bottom: 1px solid #DD5E5E;
+    box-sizing: border-box;
+    padding:16px;
 }
 
 .instructor-picture {
-    padding-top: 50px;
-    padding-bottom: 50px;
-
     text-align: center;
+}
+.instructor-picture img {
+    width:70%;
 }
 
 .instructor-desc {
-    padding-left: 10pt;
-    padding-right: 10pt;
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    font-family: Roboto;
+    padding-top: 20px;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 32px;
-
-    color: #DD5E5E;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3F3D56;
 }
 
 .instructor-picli {
@@ -571,30 +498,27 @@ img {
 /* Testimonial */
 
 .testimonial {
-    padding-top: 100px;
+    padding: 10px;
 }
 
-.testimonial-li {
-    padding-top: 100px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    column-gap: 20px;
-}
 
 .starWrap {
+    padding-top: 10px;
+    width:50%;
+    margin:0 auto;
     text-align: center;
-    border-bottom: 1px solid #F2A6A3;
+    /* border-bottom: 1px solid #F2A6A3; */
 }
 
 .testi-text {
-    font-family: Roboto;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
     box-sizing: border-box;
-    padding:30px 1rem;
-    text-align: left;
+    padding:8px;
+    text-align: center;
     color:#DD5E5E;
+    background-color: #FFEEEE;
 }
 
 .testi-star ul li {
@@ -602,117 +526,145 @@ img {
 }
 
 .refund {
-    padding-top: 100px;
+    padding: 10px;
 }
-
+.refundTitle {
+    display: inline-block;
+    width:168px;
+    height:43px;
+    background-color: #ffd7d7;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 43px;
+    color:#3f3d56;
+}
+.refuncText {
+    width:100%;
+    background-color: #FFEEEE;
+    border-top: 1px solid #DD5E5E;
+    border-bottom: 1px solid #DD5E5E;
+    box-sizing: border-box;
+    padding:12px;
+    font-size: 12px;
+    line-height: 17px;
+}
 .rel-items{
     padding-top: 100px;
 }
 /* Class introduction */
 .intro {
-    padding-top: 100px;
+    padding: 10px;
 }
 .introductionImg {
     display: block;
     box-sizing: initial;
-    padding-top: 55px;
-    width:560px;
-    height:384px;
+    padding-top: 15px;
     margin:0 auto;
 }
 .introductionImg img {
     width:100%;
     height:100%;
 }
+.pointWrap {
+    padding-top: 16px;
+}
 .classpoint {
     display: block;
-    width:1000px;
     margin:0 auto;
     border-bottom: 1px solid #c4c4c4;
+    padding:8px;
 }
 
 .classpoint .title {
     display: block;
-    box-sizing: initial;
-    padding-top: 18px;
-    height: 30px;
     font-family: 'nanum';
     font-weight: bold;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 17px;
     text-align: center;
     color:#DD5E5E;
 }
 
 .classpoint .content {
     display: block;
-    height: 80px;
-    line-height: 80px;
-    font-family: 'nanum';
+    padding-top: 15px;
+    line-height: 17px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 16px;
     text-align: center;
-
     color: #3F3D56;
 }
 /* present */
 .presents {
-    padding-top: 100px;
+    padding: 10px;
 }
 .goodness {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 30px;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 .goodness > div {
     border-top: 1px solid #c4c4c4;
     position: relative;
+    padding-bottom:50px ;
+    margin: 0 auto;
 }
 .goodness .title {
-    position: absolute;
-    top: -30px;
-    left: calc(50% - 175px);
-    width:350px;
-    height:60px;
-    border-radius: 30px;
+    width:50%;
+    margin:0 auto;
+    height:35px;
+    border-radius: 35px;
     background-color: #3f3d56;
     color:#fff;
     text-align: center;
-    font-size: 26px;
-    line-height: 60px;
+    font-size: 16px;
+    line-height: 35px;
+    position: relative;
+    top:-17.5px;
 }
 .goodness .contents {
-    padding:50px 20px; 
-    font-size: 30px;
-    line-height: 40px;
+    padding:25px 10px; 
+    font-size: 16px;
+    line-height: 17px;
     text-align: center;
     border-bottom: 1px solid #c4c4c4;
 }
 
 /* curriculum */
 .curriculum {
-    padding-top: 100px;
+    padding: 10px;
 }
-
+.currBox {
+    padding-top: 40px;
+}
 .table-entry
  {
-    font-family: 'nanum';
     font-weight: normal;
-    font-size: 22px;
+    font-size: 10px;
     text-align: center;
     border-collapse: separate;
-    border-spacing: 20px 0;
+    border-spacing: 4px 0;
 }
 .innerTable{
-    font-family: 'nanum';
-    font-weight: normal;
-    font-size: 22px;
-    text-align: left;
+    width:100%;
+    height:100%;
+    margin:0;
     border-collapse: separate;
-    border-spacing: 20px 0;
+    border-spacing: 2px 0;
+}
+.innerTable tr td {
+    border:0;
+    height:1px;
+    margin:0;
+    padding:0;
+    vertical-align: middle;
+    border-bottom: 1px solid #c4c4c4;
+}
+.innerTable tr:last-child td {
+    border-bottom: 0;
 }
 .table-entry th {
     border-top: 0;
+    padding:0;
     border-bottom: 1px solid #DD5E5E;
 }
 .table-entry tbody > tr > td {
@@ -720,7 +672,8 @@ img {
     vertical-align: middle;
     border:0;
     border-bottom: 1px solid #c4c4c4;
-    line-height: 30px;
+    font-size: 8px;
+    word-break: keep-all;
 }
 .table-entry tbody > tr:nth-child(odd) > td:nth-child(1),
 .table-entry tbody > tr:nth-child(odd) > td:nth-child(3)
@@ -732,26 +685,14 @@ img {
 {
     background-color: #F7F8FC;
 }
-.table-entry .pink-strong {
-    color: #DD5E5E;
 
-    text-align: left;
-
-    padding-left:20px;
-    padding-right:20px;
-}
-.innerTable  td {
-    border:0;
-}
 
 /* kit */
 .classKit {
-    padding-top: 80px;
+    padding: 10px;
 }
 .kitImg , .materialImg {
     padding-top: 20px;
-    width: 800px;
-    height:540px;
     margin:0 auto;
 }
 .kitImg img, .materialImg img {
@@ -761,11 +702,11 @@ img {
 
 /* 리뷰  */
 .review {
-    padding-top: 80px;
+    padding: 10px;
 }
 .reviewedBox {
-    padding-top: 60px;
-    height:350px;
+    padding-top: 40px;
+    max-height:350px;
     overflow-y: scroll;
 }
 .reviewedBox::-webkit-scrollbar {
@@ -773,51 +714,79 @@ img {
 }
 .reviewedBox p {
     margin: 0!important;
-    padding-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #c4c4c4;
+}
+.reviewedBox p:last-child {
+    border-bottom: 0;
 }
 .reviewedBox p span{
     vertical-align: top;
 }
-.reviewedBox p .img { width:240px; height:60px;  line-height: 60px;}
-.reviewedBox p .name { width:120px; height:60px; padding-left:30px ; line-height: 60px; font-size: 26px;}
-.reviewedBox p .mention { width:750px; padding-left:30px ; padding-top: 20px; font-size: 22px; color:#DD5E5E;}
-
+.reviewedBox p .img { width:40%;vertical-align: middle;}
+.reviewedBox p .name { font-size:16px; line-height: 18px; padding-left:15px; vertical-align: middle; font-weight: bold;}
+.reviewedBox p .mention { padding-left:15px; padding-top: 10px; font-size: 16px; line-height:18px; color:#DD5E5E;}
+.reviewedBox .noReviews {
+    display: block;
+    text-align: center;
+    padding:10px 0;
+    font-size:16px; 
+    line-height: 18px;
+    font-weight: bold;
+}
 .writeBox {
     border-top: 1px solid #c4c4c4;
-    display: grid;
-    grid-template-columns: 300px 860px;
-    column-gap: 30px;
+    padding-top: 20px;
     position: relative;
 }
 .writeBox > div > p {
     margin: 0!important;
     color:#DD5E5E;
-    height:50px;
-    line-height: 50px;
-    font-size: 20px;
+    line-height: 16px;
+    font-size: 14px;
+}
+.giveStar {
+    position: absolute;
+    top:10px;
+    right:0;
+    text-align: right;
+}
+.giveStar p {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding-right: 10px;
 }
 .giveStar button {
     padding:0;
-    width:240px; height:60px;
-    font-size: 22px;
+    width:150px; height:30px;
+    font-size: 14px;
+    line-height: 30px;
     border:1px solid #c4c4c4;
     position: relative;
+    text-align: center;
 }
+
 .giveStar button::after {
     content: '▼';
     color: #c4c4c4;
-    font-size: 25px;
+    font-size: 14px;
     position:absolute;
     right:10px;
 }
 .giveStar button.arrowremove::after {
     content:'';
 }
+
+.giveComment p {
+    display: inline-block;
+    padding-bottom: 10px;
+}
 .mat-menu-item {
     padding:0;
-    width:240px; height:60px;
+    width:150px; height:40px;
     text-align: center;
-    font-size: 22px;
+    font-size: 14px;
 }
 .mentionBox {
     height:150px;
@@ -826,7 +795,7 @@ img {
     border: 1px solid #c4c4c4;
 }
 .mentionBox p {
-    font-size: 22px;
+    font-size: 17px;
     font-weight: bold;
     margin:0!important;
 
@@ -836,9 +805,9 @@ img {
     width:100%;
     height:90px;
     box-sizing: border-box;
-    padding:10px 20px;
-    font-size: 16px;
-    line-height: 20px;
+    padding:8px;
+    font-size: 12px;
+    line-height: 15px;
     resize:none;
 }
 .mentionBox textarea:focus {
@@ -847,22 +816,24 @@ img {
 .mentionBox textarea::placeholder {
     color:#c4c4c4;
 }
+.writeBox .buttonBox {
+    padding-top: 20px;
+    text-align: right;
+}
 .writeBox .submit {
-    position: absolute;
-    width:110px;
-    height:40px;
+    width:74px;
+    height:24px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 15px;
     border-radius: 0;
-    bottom:-50px;
-    right:-70px;
     padding:0;
     background-color: #3F3D56;
     color:#fff;
 }
 /* 추천 */
 .recommamd {
-    padding-top: 100px;
+    padding: 10px;
 }
 .recommamd .title {
     width:600px;
@@ -996,9 +967,6 @@ img {
 .recommamd .goDetail {
     width:80px;
     height:80px;
-    background: url(../../../assets/images/button/arrowBtn.png) no-repeat center center / cover;
-    position: absolute;
-    right:0;
     bottom:0;
 }
 .recommamd .bigText {
