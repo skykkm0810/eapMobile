@@ -21,6 +21,7 @@ import {LectureInfoListComponent} from './page/lecture-info-list/lecture-info-li
 import {RqstCompanyClassComponent} from './page/rqst-company-class/rqst-company-class.component';
 import {RqstPersonalClassComponent} from './page/rqst-personal-class/rqst-personal-class.component';
 import {InquireComponent} from './page/inquire/inquire.component';
+import {EndLectureComponent} from './page/end-lecture/end-lecture.component';
 
 const routes: Routes = [
   { path: TAGS.MAIN, component: MainComponent },
@@ -44,6 +45,8 @@ const routes: Routes = [
   { path: TAGS.RQSTPSNCLASS, component: RqstCompanyClassComponent },
   { path: TAGS.RQSTCPNCLASS, component: RqstPersonalClassComponent },
   { path: TAGS.INQUIRE, component: InquireComponent },
+  { path: TAGS.ENDLECTURE, component: EndLectureComponent },
+
 ];
 
 @NgModule({

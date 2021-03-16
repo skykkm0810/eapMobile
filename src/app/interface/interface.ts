@@ -20,6 +20,7 @@ export const TAGS : Record<string, string> = {
   RQSTPSNCLASS:'rqstCompanyClass',
   RQSTCPNCLASS:'rqstPersonalClass',
   INQUIRE:'inquire',
+  ENDLECTURE:'endLecture',
 } 
 
 export const INTERESTS = [

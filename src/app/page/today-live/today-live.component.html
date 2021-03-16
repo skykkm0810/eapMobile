@@ -1,45 +1,48 @@
 <div class="wrap">
-    <div class="innerWrap">
-        <div class="Categories">
-            <ul class="bigList">
-                <li *ngFor ='let c of category'
-                [class.selected]="c === selectedC"
-                (click)='onselect(c)'
-                class="pointer">
-                    <span class="inlineBlock img">
-                        <img src="{{c.image}}" alt="{{c.title}} 아이콘">
-                    </span>
-                    <span class="inlineBlock bold bigC">{{c.title}}</span>
-                </li>
-            </ul>
-            <div class="subList" *ngIf="selectedC">
-                <li *ngFor ='let sc of selectedC.subtitle' [class.bold]= 'sc === selectedSC' class="pointer" (click)='filter(sc)'>{{sc.subname}}</li>
-            </div>
-        </div>
-        <div class="showLives">
-            <h3 class="show_title bold">{{title}} 
-                <mat-icon class="rewind pointer rotate" (click)='reset()'>loop</mat-icon>
-                <span class="inlineBlock bold float-right">&nbsp; {{today| date:'yyyy-MM-dd'}}</span>
-            </h3>
-            <p class="bold" style="padding: 50px; font-size: 22px; text-align: center;" *ngIf="info.length == 0"> 오늘의 라이브 강의가 없습니다.</p>
-            <div class="liveListGrid">
-              <div *ngFor='let r of info' class="designedBox">
-                <div class="process">{{r.process|date:'HH시 mm분'}} OPEN</div>
-                <div class="classcategory" [style.background]='r.lecture[0].color'><span class="inlineBlock textHidden maincategory">{{r.lecture[0].maincategory}}</span><span class="subcategory">{{r.lecture[0].interests}}</span></div>
-                <div class="itemHeader">{{r.lecture[0].title}}</div>
-                <div class="itemImg"><img src="{{filePath}}{{r.lecture[0].thumbnail1}}" alt="/"></div>
-                <div class='degreeBox'>
-                  <span class="thermo"><span [ngStyle]="{'width.px': r.degree*3}"
-                      class="thermoBar textHidden">{{r.degree}}</span></span>
-                  <span class="remainDate">{{r.remain}}</span>
-                  <span class="degrees">{{r.degree}} ºC 마음도씨</span>
-                </div>
-                <div class="smallText">
-                  <span>{{r.lecture[0].subtitle}}</span>
-                </div>
-                <span class="goDetail inlineBlock pointer" routerLink='/detail/{{r.lecture[0].id}}'></span>
-              </div>
-            </div>
-        </div>
+  <div class="innerWrap">
+    <div class="Categories">
+      <ul class="bigList">
+        <li *ngFor='let c of category' [class.selected]="c === selectedC" (click)='onselect(c)' class="pointer">
+          <span class="hidden img">
+            <img src="{{c.image}}" alt="{{c.title}} 아이콘">
+          </span>
+          <span class="bold bigC">{{c.title}}</span>
+        </li>
+      </ul>
+      <div class="subList" *ngIf="selectedC">
+        <li *ngFor='let sc of selectedC.subtitle' [class.bold]='sc === selectedSC' class="pointer" (click)='filter(sc)'>
+          {{sc.subname}}</li>
+      </div>
     </div>
+    <div class="showLives">
+      <h3 class="show_title bold">{{title}}
+        <mat-icon class="rewind pointer" (click)='reset($event)'>loop</mat-icon>
+        <span class="inlineBlock bold float-right">&nbsp; {{today| date:'yyyy-MM-dd'}}</span>
+      </h3>
+      <p class="bold" style="padding: 50px; font-size: 22px; text-align: center;" *ngIf="info.length == 0"> 오늘의 라이브 강의가
+        없습니다.</p>
+      <div class="liveListGrid">
+        <div *ngFor='let r of info' class="designedBox">
+          <div class="process">{{r.process|date:'HH시 mm분'}} OPEN</div>
+          <div class="classcategory" [style.background]='r.lecture[0].color'><span
+              class="inlineBlock textHidden maincategory">{{r.lecture[0].maincategory}}</span><span
+              class="subcategory">{{r.lecture[0].interests}}</span></div>
+          <div class="itemHeader">{{r.lecture[0].title}}</div>
+          <div class="itemImg"><img src="{{filePath}}{{r.lecture[0].thumbnail1}}" alt="/"></div>
+          <div class='degreeBox'>
+            <span class="thermo"><span [ngStyle]="{'width.px': r.degree*3}"
+                class="thermoBar textHidden">{{r.degree}}</span></span>
+            <div class="status">
+              <span class="remainDate">{{r.remain}}</span>
+              <span class="degrees">{{r.degree}} ºC 마음도씨</span>
+            </div>
+          </div>
+          <div class="smallText">
+            <span>{{r.lecture[0].subtitle}}</span>
+          </div>
+          <span class="goDetail inlineBlock pointer" routerLink='/detail/{{r.lecture[0].id}}'></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

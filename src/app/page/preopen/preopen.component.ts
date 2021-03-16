@@ -22,6 +22,7 @@ export class PreopenComponent  {
       this.all = [];
       this.info = [];
       let filtered;
+      this.title = this.search.text;
       if( this.search.text === '인생여정' ) {
         filtered = data.filter( data => data.interests.includes("연애결혼") || data.interests.includes("자녀양육") || data.interests.includes("부부/가족관계") || data.interests.includes("인생 2막") )
       } 
@@ -204,6 +205,7 @@ export class PreopenComponent  {
   onselect(c){
     this.info = this.all;
     this.selectedC = c;
+    this.title = c.title;
     var lives = document.getElementsByClassName('designedBox');
     for(var i=0; i<lives.length; i++){
         (lives[i] as HTMLElement).style.display='none';
@@ -212,6 +214,7 @@ export class PreopenComponent  {
       }
     }
   }
+  
   filter(sc){
     this.selectedSC = sc;
     var lives = document.querySelectorAll('.designedBox');
@@ -226,7 +229,9 @@ export class PreopenComponent  {
   detail( el ) {
     this.router.navigate(['detail/' + el.id])
   }
-  reset(){
+  reset(e:Event){
+    var rotate = e.target as HTMLElement;
+    rotate.classList.add('rotate');
     this.info = this.all;
     var lives = document.getElementsByClassName('designedBox');
     this.title = '전체보기';
@@ -237,8 +242,11 @@ export class PreopenComponent  {
     }
     var bigList = document.querySelectorAll('.bigList li');
     for(var i=0; i<bigList.length; i++){
-      bigList[i].classList.remove('clicked')
+      bigList[i].classList.remove('selected')
     }
+    setTimeout(()=>{
+      rotate.classList.remove('rotate');
+    },1000)
   }
   
 }

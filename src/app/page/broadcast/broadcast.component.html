@@ -1,129 +1,75 @@
 <div class="wrap">
   <!-- Class abstract -->
   <section class="streamContainer">
-    <div class="innerWrap">
 
-      <div class="streamBox">
-        <div class="iframeBox" *ngIf="link != ''">
-          <iframe [src]="link | safe" frameborder="0"></iframe>
-        </div>
-        <!-- <div class="chatBox">
-          <div class="chatHeader">
-            <span style="color:#555; font-size: 22px; line-height:28px">라이브 채팅</span>
-          </div>
-          <div class="chatBody noOver" #chatScroll >
-            <p class="chatLine" *ngFor='let c of fakeChat'>
-              <span class="name">{{c.name}}</span>
-              <span class="text whitewrap">{{c.text}}</span>
-            </p>
-          </div>
-          <div class="typingBox">
-            <textarea name="amolang" placeholder="메시지를 입력해주세요." class="chatInput" [(ngModel)]='chatText'></textarea>
-            <span class="nml hidden"></span>
-            <span class="chatUpBtn pointer"(click)='chatUp(this.chatText)'></span>
-          </div>
-        </div> -->
-        <div class="streamUnderBar hidden">
-          <span class="liveStatus uppercase ">● live</span>
+    <div class="streamBox">
+      <div class="iframeBox">
+        <!-- *ngIf="link != ''" -->
+        <!-- <iframe [src]="link | safe" frameborder="0"></iframe> -->
+      </div>
+      <div class="innerWrap">
+
+        <div class="streamUnderBar">
+          <span class="liveStatus uppercase">● live</span>
           <span class="className">{{ info.title }}</span>
-          <span class="teacherName">{{ instInfo.name }}</span>
-          <span class="gocurri pointer" (click)='scroll(curr)'><span class="currImg"></span>커리큘럼</span>
-          <span class="goreview pointer" (click)='scroll(review)'><span class="rvwImg"></span>리뷰작성</span>
+          <!-- <span class="gocurri pointer" (click)='scroll(curr)'><span class="currImg"></span>커리큘럼</span> -->
+          <!-- <span class="goreview pointer" (click)='scroll(review)'><span class="rvwImg"></span>리뷰작성</span> -->
         </div>
+        <div class="teacherName">{{ instInfo.name }}</div>
+
       </div>
     </div>
   </section>
-  <!-- <div class="innerWrap">
 
-    <div class="studentList">
-      <table class="lecTb">
-        <colgroup>
-          <col width="150px">
-          <col width="220px">
-          <col width="130px">
-          <col width="130px">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>이름</th>
-            <th>소속회사</th>
-            <th>신청일</th>
-            <th>출석여부</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ss of this.curr.lecture[].receipts">
-            <td>
-              <p class="ft-bold ft-22">{{ ss.user[0].name }}</p>
-            </td>
-            <td>
-              <p class="ft-16">{{ ss.user[0].company[0].name }}</p>
-            </td>
-            <td>
-              <p class="ft-16">{{ ss.date | date:'yyyy-MM-dd hh:mm' }}</p>
-            </td>
-            <td>
-              <p><button mat-button class="studentInfo" (click)="infoShow(ss)">상세정보</button></p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div> -->
   <!-- Submenus -->
-  <div class="submenu container">
-    <div class="row">
-      <div class="col title pointer" (click)="scroll(det)">상세정보</div>
-      <div class="col title pointer" (click)="scroll(curr)">커리큘럼</div>
-      <div class="col title pointer" (click)="scroll(review)">리뷰쓰기</div>
-      <div class="col title pointer" (click)="scroll(refund)">취소/환불</div>
-    </div>
+  <div class="innerWrap">
+    <div class="submenu">
+      <div>
+        <div class="title pointer" (click)="scroll(det)">상세정보</div>
+        <div class="title pointer" (click)="scroll(curr)">커리큘럼</div>
+        <div class="title pointer" (click)="scroll(review)">리뷰쓰기</div>
+        <div class="title pointer" (click)="scroll(refund)">취소/환불</div>
+      </div>
 
+    </div>
   </div>
   <!-- class how -->
-  <section class="class-inst container">
-    <div class="row">
-      <img src="../../../assets/images/img/class_how_to.jpg">
+  <section class="class-inst">
+    <div class="innerWrap">
+      <div>
+        <img src="../../../assets/images/img/class_how_to.jpg">
+      </div>
     </div>
   </section>
   <!-- Lecture introduction -->
-  <section class="foryou container" #det>
-    <!--
-              <div class="row">
-                  <img src="../../../assets/images/img/class_introduction.jpg">
-              </div>
-              -->
+  <section class="foryou" #det>
     <div class="row section-title">
       Class<br>For You
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-2"></div>
-      <div class="col-8 sect-subtitle">"이런 분들을 위해 준비했습니다"</div>
-      <div class="col-2"></div>
+    <div class="subtitleBox">
+      <div class="sect-subtitle">"이런 분들을 위해 준비했습니다"</div>
     </div>
-    <div class="row readyFor">
+    <div class="readyFor">
       <div *ngFor='let r of info.targets'>{{r.desc}}</div>
     </div>
   </section>
 
   <!-- Testimonial -->
-  <section class="testimonial container">
+  <section class="testimonial">
     <!--
-          <div class="row">
-              <img src="../../../assets/images/img/testimonial.jpg">
-          </div>
-          -->
+        <div class="row">
+            <img src="../../../assets/images/img/testimonial.jpg">
+        </div>
+        -->
     <div class="row section-title">
       Student<br>Review
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-4"></div>
-      <div class="col-4 sect-subtitle">수강생 후기</div>
-      <div class="col-4"></div>
+    <div class="subtitleBox">
+      <div class="sect-subtitle">수강생 후기</div>
     </div>
     <div class="testimonial-li">
 
@@ -135,7 +81,6 @@
           {{info.re1}}
         </div>
       </div>
-
       <div class="entry" *ngIf='info.restar2'>
         <div class="starWrap">
           <img src="../../../assets/images/icon/star/star{{info.restar2}}.png" alt="별점 {{info.restar2}}점">
@@ -156,56 +101,58 @@
 
     </div>
   </section>
-  <section class="intro container">
+  <section class="intro">
     <!--
-              <div class="row">
-                  <img src="../../../assets/images/img/class_introduction.jpg">
-              </div>
-              -->
+            <div class="row">
+                <img src="../../../assets/images/img/class_introduction.jpg">
+            </div>
+            -->
     <div class="row section-title">
       Class<br>Introduction
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-2"></div>
-      <div class="col-8 sect-subtitle" style="color:#dd5e5e">클래스에는 이런내용이 담겨있어요</div>
-      <div class="col-2"></div>
+    <div class="subtitleBox">
+      <div class="sect-subtitle">클래스에는 이런내용이 담겨있어요</div>
     </div>
-    <div class="row">
-      <div class="introductionImg"></div>
-      <div class="classpoint" *ngFor='let p of info.sums'>
-        <span class="uppercase title">POINT {{p.point}}</span>
-        <span class="content">{{p.desc}}</span>
+    <div>
+      <div class="introductionImg">
+        <!--  -->
+        <img src="{{filePath}}{{info.thumbnail1}}" alt="강의 썸네일 사진">
+      </div>
+      <div class="pointWrap">
+        <div class="classpoint" *ngFor='let p of info.sums'>
+          <span class="title">{{"point" | uppercase }} {{p.point}}</span>
+          <span class="content">{{p.desc}}</span>
+        </div>
       </div>
       <!-- <div class="col-4">집중하지 못하고 효율이 안나오는 사람</div>
-        <div class="col-4">체력부족을 절실히 느끼는 사람</div>
-        <div class="col-6" style="border-left: 1px solid #dd5e5e; margin-top: 30px;">계획했던 일이 잘 풀리지 않는 사람</div>
-        <div class="col-6" style="margin-top: 30px;">매일 피곤하고 지병이 생길 것 같은 사람</div> -->
+      <div class="col-4">체력부족을 절실히 느끼는 사람</div>
+      <div class="col-6" style="border-left: 1px solid #dd5e5e; margin-top: 30px;">계획했던 일이 잘 풀리지 않는 사람</div>
+      <div class="col-6" style="margin-top: 30px;">매일 피곤하고 지병이 생길 것 같은 사람</div> -->
     </div>
+
   </section>
-  <section class="presents container">
+  <section class="presents">
     <!--
-              <div class="row">
-                  <img src="../../../assets/images/img/class_introduction.jpg">
-              </div>
-              -->
+            <div class="row">
+                <img src="../../../assets/images/img/class_introduction.jpg">
+            </div>
+            -->
     <div class="row section-title">
       Class<br>Presents
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-2"></div>
-      <div class="col-8 sect-subtitle">클래스 특징</div>
-      <div class="col-2"></div>
+    <div class="subtitleBox">
+      <div class="sect-subtitle">클래스 특징</div>
     </div>
     <div class="goodness">
-      <div class="inlineBlock expect">
+      <div class="expect">
         <div class="title">기대 효과</div>
         <div class="contents" *ngFor='let e of info.exps'>{{e.desc}}</div>
       </div>
-      <div class="inlineBlock particular">
+      <div class="particular">
         <div class="title">진행 특징</div>
         <div class="contents" *ngFor='let e of info.feats'>{{e.desc}}</div>
       </div>
@@ -215,26 +162,24 @@
 
 
   <!-- Curriculum -->
-  <section class="curriculum container" #curr>
+  <section class="curriculum" #curr>
 
     <div class="row section-title">
-      Curriculum
+      Class<br>Curriculum
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-4"></div>
-      <div class="col-4 sect-subtitle">커리큘럼</div>
-      <div class="col-4"></div>
+    <div class="subtitleBox">
+      <div class="sect-subtitle">커리큘럼</div>
     </div>
-    <div class="row" style="padding-top:80px;">
+    <div class="currBox">
       <table class="table table-entry">
         <colgroup>
-          <col width="80px">
-          <col width="180px">
-          <col width="240px">
-          <col width="165px">
-          <col width="435px">
+          <col width="20px">
+          <col width="30px">
+          <col width="55px">
+          <col width="30px">
+          <col width="135px">
         </colgroup>
         <thead>
           <tr>
@@ -247,14 +192,14 @@
         </thead>
         <tbody>
           <tr *ngFor='let c of info.currs'>
-            <td>{{c.stage}} 차</td>
+            <td>{{c.stage}} 회기</td>
             <td>{{c.date | date: 'M월 d일 E'}}<br>{{c.date | date: 'HH:mm'}}({{c.dur}}분)</td>
             <td>{{c.title}}</td>
             <td class="dividedCell" colspan="2">
               <table class='innerTable'>
                 <colgroup>
-                  <col width='165px'>
-                  <col width='435px'>
+                  <col width='30px'>
+                  <col width='135px'>
                 </colgroup>
                 <tr *ngFor='let cur of c.timetable'>
                   <td>{{cur.dur}}분</td>
@@ -262,10 +207,10 @@
                 </tr>
               </table>
               <!-- <div *ngFor='let cur of c.curr'>
-                  <span>{{cur.pieceTime}}</span>
-                  <span>{{cur.kinds}}</span>
-                  <span class="nowrap">{{cur.contents}}</span>
-                </div> -->
+                <span>{{cur.pieceTime}}</span>
+                <span>{{cur.kinds}}</span>
+                <span class="nowrap">{{cur.contents}}</span>
+              </div> -->
             </td>
           </tr>
         </tbody>
@@ -273,24 +218,20 @@
     </div>
   </section>
   <!-- kit -->
-  <section class="classKit container" *ngIf='info.kit || info.mat'>
+  <section class="classKit" *ngIf='info.kit || info.mat'>
     <div class="row section-title">
       Class<br>Kit & Material
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;" *ngIf="info.kit">
-      <div class="col-4"></div>
-      <div class="col-4 sect-subtitle uppercase">kit</div>
-      <div class="col-4"></div>
+    <div class="subtitleBox" *ngIf="info.kit">
+      <div class="sect-subtitle uppercase">kit</div>
     </div>
     <div class="kitImg" *ngIf="info.kit">
       <img src="{{filePath}}{{info.kitImg}}" alt="키트사진">
     </div>
-    <div class="row" style="padding-top:50px; height:120px;" *ngIf="info.mat">
-      <div class="col-4"></div>
+    <div class="subtitleBox" *ngIf="info.mat">
       <div class="col-4 sect-subtitle uppercase">준비물</div>
-      <div class="col-4"></div>
     </div>
     <div class="materialImg" *ngIf="info.mat">
       <img src="{{filePath}}{{info.matImg}}" alt="준비물사진">
@@ -298,58 +239,59 @@
   </section>
 
   <!-- Instructor introduction -->
-  <section class="instructor container">
+  <section class="instructor">
     <!--
-          <div class="row">
-              <img src="../../../assets/images/img/instructor_introduction.jpg">
-          </div>
-          -->
+        <div class="row">
+            <img src="../../../assets/images/img/instructor_introduction.jpg">
+        </div>
+        -->
     <div class="row section-title">
       Expert<br>introduction
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-3"></div>
-      <div class="col-6 sect-topborder">{{ instInfo.name }}</div>
-      <div class="col-3"></div>
+    <div class="subtitleBox">
+      <div class="sect-topborder">{{ instInfo.name }}</div>
     </div>
-    <div class="row instructor-box">
-      <div class="col-4 instructor-picture">
-        <img width="300px" height="300px" src="{{filePath}}{{instInfo.inst.file}}">
+    <div class="instructor-box">
+      <div class="instructor-picture">
+        <img src="{{filePath}}{{instInfo.inst.file}}">
       </div>
-      <div class="col-8 instructor-desc">
+      <div class="instructor-desc">
         <p class="whitewrap">
           {{instInfo.inst.career}}
         </p>
       </div>
     </div>
-    <div class="row instructor-picli">
+    <!-- <div class="row instructor-picli">
       <img src="{{filePath}}{{info.mainImg}}">
-    </div>
+    </div> -->
   </section>
 
-  <section class="review container" #review>
+  <section class="review" #review>
     <!--
-          <div class="row">
-              <img src="../../../assets/images/img/instructor_introduction.jpg">
-          </div>
-          -->
+        <div class="row">
+            <img src="../../../assets/images/img/instructor_introduction.jpg">
+        </div>
+        -->
     <div class="row section-title">
       Class<br>Review
     </div>
     <div class="row dot-sm"></div>
     <div class="row dot-xsm"></div>
-    <div class="row" style="padding-top:50px; height:120px;">
-      <div class="col-3"></div>
-      <div class="col-6 sect-topborder">리뷰 작성하기</div>
-      <div class="col-3"></div>
+    <div class="subtitleBox">
+      <div class="sect-subtitle">리뷰 작성하기</div>
     </div>
     <div class="reviewedBox">
       <p *ngFor='let r of reviews'>
         <span class="inlineBlock img"><img src="{{r.img}}"></span>
         <span class="inlineBlock name">{{r.name}}</span>
         <span class="inlineBlock mention whitewrap">{{r.desc}}</span>
+      </p>
+      <p *ngIf='reviews.length ==0'>
+        <span class="noReviews">
+          아직 리뷰가 없습니다.
+        </span>
       </p>
     </div>
     <div class="writeBox">
@@ -368,47 +310,30 @@
           <textarea name='reviewText' placeholder="{{reviewText}}" [(ngModel)]="review_desc"></textarea>
         </div>
       </div>
-      <button mat-button class="submit" (click)="review_add()">등록</button>
+      <div class="buttonBox">
+        <button mat-button class="submit" (click)="review_add()">등록</button>
+      </div>
     </div>
   </section>
 
   <!-- Refund -->
-  <section class="refund container" #refund>
-    <div class="row">
-      <img src="../../../assets/images/img/cancel-exchange.png">
+  <section class="refund" #refund>
+    <div>
+      <span class="refundTitle">취소 / 환불</span>
+      <p class="refuncText whitewrap">
+        신청인원이 최소 수강 인원기준에 미달될 경우 개강이 취소될 수 있습니다. 이경우 2일전 12시에 연락드리고, 전액 환불해 드립니다.<br>
+        아래의 환불 정책을 꼭 확인해 주세요. 개설 확정을 위해 취소신청은 클래스 개설 3일 전까지 해주시기 바랍니다.<br>
+        가. 1회기 프로그램<br>
+        - 클래스 진행 3일전 : 취소 시 <span class="bold">전액 환불</span><br>
+        - 이후 취소 시에는 <span class="bold">환불 불가</span><br>
+        나. 다회기 프로그램<br>
+        - 클래스 1회기 D-3 이전 : 취소 시 <span class="bold">전액 환불</span><br>
+        - 클래스 1회기 진행 2일전 ~ 클래스 진행 전 : 취소 시 30% 환불<br>
+        다. 키트/준비물이 필요한 프로그램<br>
+        - 클래스 1회기 진행 3일전 : 취소 시 수강비 전액 환불 (단, 해당 시간 이후 취소 환불 불가)<br>
+        - 키트/준비물 반품 : <span class="bold">택배 개봉시, 취소 불가</span> <span class="bold pink">({{"kit" | uppercase}} 반품시, 택배비
+          본인부담 {{"kit" | uppercase}} 반송 확인 후 수강비 환불 진행)</span><br>
+      </p>
     </div>
   </section>
 </div>
-<!-- 추천 -->
-<!-- <section class="recommamd">
-    <div class="title">마음도씨 추천 라이브
-      <div class="littleSqure"></div>
-    </div>
-    <div class="recommandBox">
-      <div class="innerWrap">
-        <ul>
-          <li *ngFor='let r of detail.recommand'>
-            <div class="process">{{r.process}}</div>
-            <div class="classcategory hidden" [style.background]='r.color'>{{r.category}}</div>
-            <div class="itemHeader">{{r.title}}</div>
-            <div class="itemImg"><img src="{{r.img}}" alt="/"></div>
-            <div class='degreeBox' *ngIf='r.degree'>
-              <span class="thermo"><span [ngStyle]="{'width.px': r.degree*3}" class="thermoBar textHidden">{{r.degree}}</span></span>
-              <span class="remainDate">일 남음</span>
-              <span class="degrees">{{r.degree}}ºC 마음도씨</span>
-            </div>
-            <div class='hashTag' *ngIf='r.hashTag'>
-              <span *ngFor='let h of r.hashTag'>&nbsp;{{h.tag}}&nbsp;</span>
-            </div>
-            <div class="smallText" *ngIf='r.degree'>
-              <span>{{r.text}}</span>
-            </div>
-            <div class="bigText" *ngIf='r.hashTag'>
-              <span>{{r.text}}</span>
-            </div>
-            <span class="goDetail inlineBlock pointer" *ngIf='r.degree'></span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section> -->

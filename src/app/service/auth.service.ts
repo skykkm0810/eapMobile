@@ -11,6 +11,7 @@ const jwtHelper = new JwtHelperService();
 export class AuthService {
 
   @Output() Log: EventEmitter<any> = new EventEmitter();
+  @Output() TopTitle: EventEmitter<any> = new EventEmitter();
   constructor(
     private phxChannel: PhxChannelService,
     private router: Router
@@ -56,5 +57,9 @@ export class AuthService {
 
   getUserData(): string {
     return jwtHelper.decodeToken(this.getToken()).sub;
+  }
+
+  setTop(el): void {
+    this.TopTitle.emit(el);
   }
 }

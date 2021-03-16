@@ -1,60 +1,48 @@
 <div class="wrap">
-    <div class="innerWrap">
-        <div class="Categories">
-            <ul class="bigList">
-                <li
-                    *ngFor='let c of category'
-                    [class.selected]="c === selectedC"
-                    (click)='onselect(c)'
-                    class="pointer">
-                    <span class="inlineBlock img">
-                        <img src="{{c.image}}" alt="{{c.title}} 아이콘"></span>
-                        <span class="inlineBlock bold bigC">{{c.title}}</span>
-                    </li>
-                </ul>
-                <div class="subList" *ngIf="selectedC">
-                    <li
-                        *ngFor='let sc of selectedC.subtitle'
-                        class="pointer"
-                        [class.bold]='sc === selectedSC'
-                        (click)='filter(sc)'>
-                        {{sc.subname}}</li>
-                </div>
+  <div class="innerWrap">
+    <div class="Categories">
+      <ul class="bigList">
+        <li *ngFor='let c of category' [class.selected]="c === selectedC" (click)='onselect(c)' class="pointer">
+          <span class="img hidden">
+            <img src="{{c.image}}" alt="{{c.title}} 아이콘"></span>
+          <span class="bold bigC">{{c.title}}</span>
+        </li>
+      </ul>
+      <div class="subList" *ngIf="selectedC">
+        <li *ngFor='let sc of selectedC.subtitle' class="pointer" [class.bold]='sc === selectedSC' (click)='filter(sc)'>
+          {{sc.subname}}</li>
+      </div>
+    </div>
+    <div class="showLives">
+      <h3 class="show_title bold">{{title}}
+        <mat-icon class="rewind pointer" (click)='reset($event)'>loop</mat-icon>
+      </h3>
+      <div class="liveListGrid">
+        <div *ngFor='let r of info' class="designedBox">
+          <div class="process" *ngIf="r.dday != null">{{r.dday | date: 'M월d일 HH:mm'}}</div>
+          <div class="classcategory" [style.background]='r.color'>
+            <span class="inlineBlock textHidden maincategory">{{r.maincategory}}</span>
+            <span class="subcategory">{{r.interests}}</span>
+          </div>
+          <div class="itemHeader">{{r.title}}</div>
+          <div class="itemImg">
+            <img src="{{filePath}}{{r.thumbnail1}}" alt="/"></div>
+          <div class='degreeBox'>
+            <span class="thermo">
+              <span [ngStyle]="{'width.px': r.degree*2.45}" class="thermoBar textHidden">{{r.degree}}</span>
+            </span>
+            <div class="status">
+              <span class="remainDate">{{r.remain}}</span>
+              <span class="degrees">{{r.degree}}
+                ºC 마음도씨</span>
             </div>
-            <div class="showLives">
-                <h3 class="show_title bold">{{title}}
-                    <mat-icon class="rewind pointer rotate" (click)='reset()'>loop</mat-icon>
-                    <!-- <select class="form-select">
-                    <option selected>전체</option>
-                    <option value="진행">진행</option>
-                    <option value="종료">종료</option>
-                </select> -->
-                </h3>
-                <div class="liveListGrid">
-                    <div *ngFor='let r of info' class="designedBox">
-                        <div class="process" *ngIf="r.dday != null">{{r.dday | date: 'M월d일 HH:mm'}}</div>
-                        <div class="classcategory" [style.background]='r.color'>
-                            <span class="inlineBlock textHidden maincategory">{{r.maincategory}}</span>
-                            <span class="subcategory">{{r.interests}}</span>
-                        </div>
-                        <!-- <div class="company" *ngIf='r.company'>{{r.companys[0].name}}</div> -->
-                        <div class="itemHeader">{{r.title}}</div>
-                        <div class="itemImg">
-                            <img src="{{filePath}}{{r.thumbnail1}}" alt="/"></div>
-                            <div class='degreeBox'>
-                                <span class="thermo">
-                                    <span [ngStyle]="{'width.px': r.degree*3}" class="thermoBar textHidden">{{r.degree}}</span>
-                                </span>
-                                <span class="remainDate">{{r.remain}}</span>
-                                <span class="degrees">{{r.degree}}
-                                    ºC 마음도씨</span>
-                            </div>
-                            <div class="smallText">
-                                <span>{{r.subtitle}}</span>
-                            </div>
-                            <span class="goDetail inlineBlock pointer" (click)="detail(r)"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <div class="smallText">
+            <span>{{r.subtitle}}</span>
+          </div>
+          <span class="goDetail inlineBlock pointer" (click)="detail(r)"></span>
         </div>
+      </div>
+    </div>
+  </div>
+</div>

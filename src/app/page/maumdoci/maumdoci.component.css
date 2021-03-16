@@ -1,6 +1,65 @@
-.innerWrap div {
-    padding-top: 50px;
-}
 img {
     width:100%;
+}
+.wrap {
+    padding:20px 0;
+}
+.wrap .bigBaloon {
+    width:110px;
+    height:110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto ;
+    background: url(../../../assets/images/img/sect_title_background.png) no-repeat center center / cover;
+}
+.wrap .bigBaloon .title {
+    color:#fff;
+    font-size: 20px;
+    line-height: 23px;
+}
+.wrap .smallBaloon {
+    width:10px;
+    height:10px;
+    margin:10px auto 0;
+    background-color: #FFD7D7;
+    border-radius: 100%;
+}
+.wrap .smallestBaloon {
+    width:5px;
+    height:5px;
+    margin:10px auto 0;
+    background-color: #FFD7D7;
+    border-radius: 100%;
+}
+.wrap .maumText {
+    margin-top: 15px;
+    border-top:1px solid #DD5E5E;
+    border-bottom:1px solid #DD5E5E;
+    background-color: #FFEEEE;
+    padding:20px;
+}
+.wrap .maumText p {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom:3px;
+}
+.innerWrap {
+    padding:10px;
+}
+.innerWrap > div {
+    padding-top: 20px;
+}
+.innerWrap > div .categoryTitle {
+    font-size: 22px;
+    line-height: 28px;
+}
+.innerWrap > div .categoryText {
+    padding-top: 10px;
+}
+.innerWrap > div .categoryText p {
+    font-size: 14px;
+    line-height: 16px;
+    text-indent: 5px;
+    margin-bottom:3px;
 }

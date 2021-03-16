@@ -7,7 +7,6 @@ import { AllLiveComponent} from '../../page/all-live/all-live.component';
 import { MaumdociComponent} from '../../page/maumdoci/maumdoci.component';
 import { LoginComponent} from '../login/login.component';
 import { AuthService } from '../../service/auth.service';
-import { AuthGuard } from '../../service/auth.guard';
 import { SidenavService} from '../../service/sidenav.service';
 @Component({
   selector: 'app-top',
@@ -23,13 +22,25 @@ export class TopComponent implements AfterViewInit{
     public dialog:MatDialog,
     public sign_in:MatDialog,
     public golink:MatDialog,
-    private guard: AuthGuard,
     private sidenav: SidenavService,
   ) {
-    
+    router.events.subscribe(()=>{
+      this.url = this.router.url.split('/');
+      if(this.url.includes('allLive')){this.upsideName = '모든라이브';}
+      else if(this.url.includes('preopen')){this.upsideName = '오픈예정';}
+      else if(this.url.includes('todayLive')){this.upsideName = '오늘의 라이브';}
+      else if(this.url.includes('detail')){this.upsideName = '상세페이지';}
+      else if(this.url.includes('mypage')){this.upsideName = '마이페이지';}
+      else if(this.url.includes('mypageTeacher')){this.upsideName = '마이페이지';}
+      else if(this.url.includes('join')){this.upsideName = '회원가입';}
+      else if(this.url.includes('maum')){this.upsideName = '마음도씨란?';}
+      else{this.upsideName = null;}
+      console.log(this.upsideName);
+    })
     auth.Log.subscribe( () => {
       this.sign_check();
     })
+    
   }
 
   ngOnInit(): void {
@@ -39,8 +50,11 @@ export class TopComponent implements AfterViewInit{
     document.addEventListener('scroll',()=>{
       this.whenScroll();
     })
+    this.route.params.subscribe(dt=>{
+      console.log(dt)
+    })
   }
-   
+  upsideName:any;
   search = 0;
   topNav = false;
   sign = false;
@@ -105,7 +119,6 @@ export class TopComponent implements AfterViewInit{
       var value = tag.textContent;
       document.location.href = 'allLive';
     }
-    this.closeBox();
   }
   mfd(e:Event){
     var tag = e.target as HTMLElement;
@@ -117,7 +130,6 @@ export class TopComponent implements AfterViewInit{
     else if (bigCategory.classList.contains('preopen')){
       this.router.navigate(['/preopen/search/',text]);
     }
-    this.closeBox();
   }
   boxPosition(){
     var menu = document.getElementsByClassName('menu')[0] as HTMLElement;
@@ -159,5 +171,8 @@ export class TopComponent implements AfterViewInit{
     else {
       this.search = 0;
     }
+  }
+  back(){
+    history.back();
   }
 }

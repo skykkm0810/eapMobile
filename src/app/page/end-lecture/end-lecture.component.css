@@ -1,0 +1,8 @@
+div {
+    display: flex;
+    align-items: center;
+}
+div img {
+    display: block;
+    margin:0 auto;
+}

@@ -3,67 +3,35 @@
     <div class="Categories">
       <ul class="bigList">
         <li *ngFor='let c of category' [class.selected]="c === selectedC" (click)='onselect(c)' class="pointer">
-          <span class="inlineBlock img">
+          <span class="img hidden">
             <img src="{{c.image}}" alt="{{c.title}} 아이콘">
           </span>
-          <span class="inlineBlock bold bigC">{{c.title}}</span>
+          <span class="bold bigC">{{c.title}}</span>
         </li>
       </ul>
       <div class="subList" *ngIf="selectedC">
-        <li *ngFor='let sc of selectedC.subtitle' [class.bold]= 'sc === selectedSC' class="pointer" (click)='filter(sc)'>{{sc.subname}}</li>
+        <li *ngFor='let sc of selectedC.subtitle' [class.bold]='sc === selectedSC' class="pointer" (click)='filter(sc)'>
+          {{sc.subname}}</li>
       </div>
     </div>
     <div class="showLives">
       <h3 class="show_title bold">{{title}}
-        <mat-icon class="rewind pointer rotate" (click)='reset()'>loop</mat-icon>
-        <!-- <select class="form-select">
-                    <option selected>전체</option>
-                    <option value="진행">진행</option>
-                    <option value="종료">종료</option>
-                </select> -->
+        <mat-icon class="rewind pointer" (click)='reset($event)'>loop</mat-icon>
       </h3>
-      <p class="bold" style="padding: 50px; font-size: 22px; text-align: center;" *ngIf="info.length == 0"> 오픈예정인 라이브가 없습니다.</p>
+      <p class="bold" style="padding: 50px; font-size: 22px; text-align: center;" *ngIf="info.length == 0"> 오픈예정인 라이브가
+        없습니다.</p>
       <div class="liveListGrid">
-        <!-- <div class="live" *ngFor="let l of info">
-          <span class="inlineBlock process">{{l.process}}</span>
-          <p class="inlineBlock cardTitle bold" style=" white-space: nowrap;">{{l.title}}</p>
-          <div class="bannerImg">
-            <img src="{{filePath}}{{l.thumbnail1}}" alt="배너사진">
-          </div>
-          <div class="temp">
-            <div class="tempDynamic textHidden">{{l.degree}}</div>
-          </div>
-          <div class="closeInfo">
-            <div class="timeRound">
-              <span class="time bold"><span *ngIf="l.currs.length > 0">{{l.currs[0].dur}}</span>분</span>
-              <p class="round">
-                <span class="during bold">1</span>
-                <span class="bold">2</span>
-                <span class="bold">3</span>
-              </p>
-            </div>
-            <div class="degree bold"><span class="howMuch">{{l.limit}}</span>ºC 마음도씨</div>
-          </div>
-          <div class="bannerTexts">
-            {{l.subtitle}}
-          </div>
-          <div class="goArrow pointer" (click)="detail(l)"></div>
-        </div> -->
         <div *ngFor='let r of info' class="designedBox">
           <div class="process">OPEN 예정</div>
-          <div class="classcategory" [style.background]='r.color'><span class="inlineBlock textHidden maincategory">{{r.maincategory}}</span><span class="subcategory">{{r.interests}}</span></div>
+          <div class="classcategory" [style.background]='r.color'><span
+              class="inlineBlock textHidden maincategory">{{r.maincategory}}</span><span
+              class="subcategory">{{r.interests}}</span></div>
           <div class="itemHeader">{{r.title}}</div>
           <div class="itemImg"><img src="{{filePath}}{{r.thumbnail1}}" alt="/"></div>
-          <!-- <div class='degreeBox' *ngIf='r.degree'> -->
-            <!-- <span class="thermo"><span [ngStyle]="{'width.px': r.degree*3}" -->
-                <!-- class="thermoBar textHidden">{{r.degree}}</span></span> -->
-            <!-- <span class="remainDate">일 남음</span> -->
-            <!-- <span class="degrees">ºC 마음도씨</span> -->
-          <!-- </div> -->
-            <div class='hashTag'>
-              <span>{{r.hash}}</span>
+          <div class='hashTag'>
+            <span>{{r.hash}}</span>
           </div>
-            <div class="bigText">
+          <div class="smallText">
             <span>{{r.subtitle}}</span>
           </div>
           <span class="goDetail inlineBlock pointer" (click)="detail(r)"></span>

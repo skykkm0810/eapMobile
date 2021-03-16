@@ -3,47 +3,53 @@
 }
   #loginBox {
     background-color: #fff;
-    width: 400px;
-    height: 550px;
+    width: 280px;
+    height: 420px;
     border-radius: 20px;
     position: absolute;
-    left: calc(50% - 200px);
-    top: calc(50% - 275px);
+    left: calc(50% - 140px);
+    top: calc(50% - 210px);
     overflow-y: hidden;
   }
+  
   .boxwrap > div {
-    width: 400px;
-    height: 550px;
-    border-radius: 20px;
+    height:420px;
+    border-radius: 10px;
     box-sizing: border-box;
-    padding: 2rem;
-
+    padding: 1rem;
+    animation: back 0.3s;
+  }
+  .boxwrap1 {
+    margin-top:-420px;
+  }
+  .boxwrap2 {
+    margin-top:-840px;
   }
   
   .title {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
     margin: 0;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
   
   div.inputData {
     box-sizing: border-box;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
   
   .inputData .mat-form-field {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.5rem 0.5rem;
     width: 100%;
   }
   
   .loginButton {
     display: block;
-    width: calc(100% - 2rem);
-    margin: 20px auto;
-    padding:0.5rem;
+    width: calc(100% - 4rem);
+    margin: 0 auto;
+    padding:0.3rem;
     color:#fff;
     background-color:#2E71FF ;
   }
@@ -66,14 +72,19 @@
   }
   .AccountBox {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
   }
-  
   .AccountBox span {
+    display: block;
     padding: 0.5rem 0;
     cursor: pointer;
     color: #777;
+    font-size: 14px;
   }
   .AccountBox span:hover {
+    text-decoration: underline;
+  }
+  .goback {
+    text-align: center;
     text-decoration: underline;
   }

@@ -1,44 +1,39 @@
-.Categories {
-    padding-top:50px;
-    padding-bottom: 40px;
-}
-.bigList {
-    width: 950px;
-    margin:0 auto;
-    text-align: center;
-    padding-bottom: 20px;
+
+ul {
+    margin:0;
 }
 .bigList li {
     display: inline-block;
-    width:calc(25% - 50px);
-    margin:0 25px;
+    width:25%;
     position: relative;
+    height:40px;
+    text-align: center;
+    border-bottom: 1px solid #c4c4c4;
+    border-right:1px solid #c4c4c4;
 }
-.bigList li.clicked::after {
-    content: "▲";
-    position: absolute;
-    bottom:-25px;
-    left:45px;
+.bigList li:last-child {
+    border-right:0;
+}
+.bigList li.selected {
+    border-bottom-color: #DD5E5E ;
 }
 .bigList li .img {
     vertical-align: middle;
 }
-
 .bigList li .bigC {
-    padding-left: 10px;
-    font-size: 24px;
+    font-size: 14px;
+    line-height: 40px;
 }
 .subList {
-    border:1px solid #c4c4c4;
     background-color: #f7f8fc;
-    height: 80px;
+    height: 35px;
 }
 .subList li {
     width:25%;
     display: inline-block;
-    font-size: 22px;
+    font-size: 12px;
     text-align: center;
-    line-height: 80px;
+    line-height: 35px;
 }
 /* 라이브 리스트 */
 
@@ -46,266 +41,105 @@
 
 .show_title {
     margin:0;
-    font-size:30px;
-    line-height: 33px;
-    padding-bottom: 10px;
+    font-size:18px;
+    line-height: 40px;
     border-bottom: 1px solid #3f3d56;
+    position: relative;
+    box-sizing: border-box;
+    padding:0 10px;
 }
 .rewind {
-    padding:0;
-    margin:0;
+    position: absolute;
+    right:10px;
+    top:calc(50% - 12px);
     width:24px;
     height:24px;
-    display: inline-block;
-    margin-left: 10px;
+}
+.rotate {
+    animation-duration: 1s;
+    animation-name: rotate;
+}
+@keyframes rotate {
+    from {transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 .liveListGrid {
     width:100%;
     display: grid;
-    grid-template-columns: repeat(3,380px);
-    column-gap: 30px;
-    row-gap: 50px;
-    padding: 50px 0 60px;
+    row-gap: 35px;
+    padding: 30px 0 0;
 }
-
-/* .liveListGrid .live {
-    box-sizing: border-box;
-    padding: 0 19px;
-    position: relative;
-    background-color: #fff;
-}
-.liveListGrid .live .big,
-.liveListGrid .live .small {
-    position: absolute;
-    left: -9999px;
-}
-
-.liveListGrid .process {
-    width:38px;
-    height:33px;
-    text-align: center;
-    border-radius: 5px;
-    line-height: 33px;
-    border:1px solid #dd5e5e;
-    vertical-align: middle;
-    color:#dd5e5e;
-}
-.liveListGrid .cardTitle {
-    width:291px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 35px;
-    margin:0 !important;
-    vertical-align: middle;
-}
-.liveListGrid .bannerImg {
-    width:100%;
-    height:198px;
-    margin-top: 20px;
-}
-.liveListGrid .bannerImg img {
-    width:100%;
-    height:100%;
-}
-.liveListGrid .temp {
-    position: absolute;
-    width:100%;
-    height:60px;
-    background: url(../../../assets/images/icon/other.png) no-repeat center center / contain;
-    left:0;
-    top:220px;
-}
-.liveListGrid .tempDynamic {
-    position: absolute;
-    width:300px;
-    height:14.44px;
-    left:50.2px;
-    top:19.5px;
-    background-color: #DD5E5E;
-    border-radius: 30px;
-}
-.liveListGrid .closeInfo {
-    position: absolute;
-    left:0;
-    padding-left: 35px;
-    width:100%;
-    top:280px;
-    box-sizing: border-box;
-    vertical-align: middle;
-}
-.liveListGrid .closeInfo > div {
-    display: inline-block;
-}
-.liveListGrid .closeInfo .timeRound { display: inline-block;}
-.liveListGrid .closeInfo .time {
-    display: inline-block;
-    text-align: center;
-    font-size: 16px;
-    line-height:23px;
-    width:52px;
-    height:23px;
-    border-radius: 20px;
-    background-color: #DD5E5E;
-    color:#fff;
-    margin-right:20px;
-    vertical-align: bottom;
-
-}
-.liveListGrid .closeInfo .round {
-    display: inline-block;
-    margin:0!important;
-}
-.liveListGrid .closeInfo .round span { 
-    display: inline-block;
-    border-radius: 100%;
-    width:23px;
-    height:23px;
-    color:#fff;
-    font-size:16px ;
-    background-color: #ffdddd;
-    margin-right: 10px;
-    vertical-align: bottom;
-    text-align: center;
-    line-height: 23px;
-}
-.liveListGrid .closeInfo .round .during{
-    background-color: #DD5E5E;
-}
-.liveListGrid .closeInfo .degree {
-    display: inline-block;
-    font-size: 20px;
-    color:#dd5e5e;
-    padding-left: 15px;
-    line-height: 20px;
-}
-.liveListGrid .closeInfo .degree .howMuch{
-    font-size: 26px;
-}
-.liveListGrid .bannerTexts {
-    width:100%;
-    height:55px;
-    margin-top: 80px;
-    box-sizing: border-box;
-    padding-right: 55px;
-}
-.liveListGrid .goArrow {
-    position: absolute;
-    right:19px;
-    bottom:0;
-    width:55px;
-    height:55px;
-    background: url(../../../assets/images/button/arrowBtn.png) no-repeat center center / cover;   
-} */
-
 /* 카드 */
 .designedBox {
     display: inline-block;
-    width:380px;
-    height:435px;
-    border-radius: 15px;
+    width:320px;
+    border-radius: 15px 15px 29px 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    vertical-align: top;
     box-sizing: border-box;
-    padding: 30px 20px 0;
-
+    padding: 15px 10px 30px;
 }
 .designedBox:last-child {
     margin:0;
 }
 .designedBox .process {
-    width:150px;
-    height:35px;
+    width:130px;
+    height:30px;
     color:#fff;
     background-color: #3f3d56;
     border-radius: 30px;
     position: absolute;
-    left:30px;
-    top:-20px;
+    left:20px;
+    top:-15px;
     text-align: center;
-    line-height: 35px;
+    line-height: 30px;
     font-weight: bold;
 }
 .designedBox .classcategory {
-    width:150px;
-    height:35px;
+    width:130px;
+    height:30px;
     color:#fff;
     border-radius: 30px;
     position: absolute;
-    right:30px;
-    top:-20px;
+    right:20px;
+    top:-15px;
     text-align: center;
-    line-height: 35px;
+    line-height: 30px;
     font-weight: bold;
 }
 .designedBox .itemHeader {
-    width:340px;
-    height:66px;
-    margin: 0 auto;
-    font-size: 26px;
+    font-size: 18px;
     font-weight:bold;
-    line-height: 30px;
+    line-height: 20px;
+    padding:10px 0;
+    text-align: center;
 }
 .designedBox .itemImg {
-    width:340px;
-    height:200px;
+    height:224px;
 }
 .designedBox .itemImg img{
     width:100%;
     height:100%;
 }
-.designedBox .thermo {
-    width:100%;
-    position:absolute;
-    top:260px;
-    left:0;
-}
-.designedBox .thermo .thermoBar {
-    position: absolute;
-    top:19px;
-    left:52px;
-}
-.designedBox .remainDate {
-    position: absolute;
-    left:20px;
-    color:#DD5E5E;
-    top: 320px;
-    font-size:22px;
-    font-weight: bold;
-}
-.designedBox .degrees {
-    position: absolute;
-    right:20px;
-    color:#DD5E5E;
-    top: 320px;
-    font-size:22px;
-    font-weight: bold;
-}
+
 .designedBox .hashTag {
-    padding-top: 10px;
-    width:100%;
+    padding: 8px 0;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color:#DD5E5E;
     font-weight: bold;
 }
 .designedBox .smallText {
-    padding-top: 60px;
-    height:60px;
-    width:270px;
-    font-size: 16px;
+    width:calc(100% - 50px);
+    padding:0 10px;
+    font-size: 14px;
+    line-height: 16px;
 }
 .designedBox .goDetail {
-    width:80px;
-    height:80px;
+    width:56px;
+    height:56px;
     background: url(../../../assets/images/button/arrowBtn.png) no-repeat center center / cover;
     position: absolute;
     right:0;
     bottom:0;
-}
-.designedBox .bigText {
-    padding-top: 10px;
-    width:270px;
-    font-size: 18px;
-
 }

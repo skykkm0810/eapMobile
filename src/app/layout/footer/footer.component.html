@@ -1,7 +1,18 @@
 <nav id="nav">
   <div class="navHeader">
-    <span class="beforeLog" (click)='signin()'>로그인해주세요</span>
-    <span class="logImg" (click)='signin()'></span>
+    <span class="beforeLog" (click)='signin()' *ngIf="!sign">로그인해주세요</span>
+    <span class="afterLog" (click)="mypage()" *ngIf="sign">{{info.name}} 님</span>
+    <span class="logImg" *ngIf="!sign" [matMenuTriggerFor]="signMenu"></span>
+    <span class="setting" *ngIf="sign" [matMenuTriggerFor]="infoMenu"></span>
+    <mat-menu #signMenu='matMenu'>
+      <button mat-menu-item (click)="signin()">로그인</button>
+      <button mat-menu-item [routerLink]="['/join/']" (click)="clickMenu()">회원가입</button>
+    </mat-menu>
+    <mat-menu #infoMenu='matMenu'>
+      <button mat-menu-item (click)="mypage()">{{"my" | titlecase }} page</button>
+      <button mat-menu-item *ngIf="sign && info.type" [routerLink]="['/lectureInfoList/'+info.id]" (click)="clickMenu()">수강기록부</button>
+      <button mat-menu-item (click)="signout()">로그아웃</button>
+    </mat-menu>
 
     <!-- <span class="beforeLog" *ngIf="!sign">로그인해주세요</span> -->
     <!-- <span class="afterLog" *ngIf="sign">홍길동님</span> -->
@@ -9,31 +20,38 @@
     <!-- <span class="setting" *ngIf="sign"></span> -->
   </div>
   <ul class="gnb">
-    <li>
+    <li class="allLive">
       <mat-expansion-panel hideToggle class="expansion">
         <mat-expansion-panel-header class="panelBox">
           <mat-panel-title class="mainCategory">
             <h2>모든라이브</h2>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p class="firstSub">인생여정</p>
-        <p>사회생활</p>
-        <p>힐링</p>
-        <p>심리</p>
+        <p (click)='mfd($event)' class="firstSub">인생여정</p>
+        <p (click)='mfd($event)'>사회생활</p>
+        <p (click)='mfd($event)'>힐링</p>
+        <p (click)='mfd($event)'>심리</p>
       </mat-expansion-panel>
     </li>
-    <li>
+    <li class="preopen">
       <mat-expansion-panel hideToggle class="expansion">
         <mat-expansion-panel-header class="panelBox">
           <mat-panel-title class="mainCategory">
             <h2>오픈예정</h2>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p class="firstSub">인생여정</p>
-        <p>사회생활</p>
-        <p>힐링</p>
-        <p>심리</p>
+        <p (click)='mfd($event)' class="firstSub">인생여정</p>
+        <p (click)='mfd($event)'>사회생활</p>
+        <p (click)='mfd($event)'>힐링</p>
+        <p (click)='mfd($event)'>심리</p>
       </mat-expansion-panel>
+    </li>
+    <li>
+      <mat-list class="expansion">
+        <mat-list-item class="mainCategory pointer" [routerLink]="['todayLive']" (click)="clickMenu()">
+          <h2>오늘의 라이브</h2>
+        </mat-list-item>
+      </mat-list>
     </li>
     <li>
       <mat-list class="expansion">
@@ -44,7 +62,7 @@
     </li>
     <li>
       <mat-list class="expansion">
-        <mat-list-item class="mainCategory pointer">
+        <mat-list-item class="mainCategory pointer" [routerLink]="['maum']" (click)="clickMenu()">
           <h2>마음도씨란?</h2>
         </mat-list-item>
       </mat-list>
@@ -66,6 +84,13 @@
         <p class="firstSub">개인형 클래스</p>
         <p>맞춤형 클래스</p>
       </mat-expansion-panel>
+    </li>
+    <li>
+      <mat-list class="expansion">
+        <mat-list-item class="mainCategory pointer" (click)="clickMenu()">
+          <h2>문의</h2>
+        </mat-list-item>
+      </mat-list>
     </li>
   </ul>
   

@@ -20,6 +20,14 @@
     top:calc(50% - 12px);
     background: url(../../../assets/images/icon/pink/menu_hamburger.png) no-repeat center center / cover;
 }
+#header .back {
+    width:24px;
+    height:24px;
+    position: absolute;
+    left:10px;
+    top:calc(50% - 12px);
+    background: url(../../../assets/images/icon/pink/arrow_back.png) no-repeat center center / cover;
+}
 #header h1 {
     width:104px;
     height:32px;
@@ -27,6 +35,13 @@
     left:calc(50% - 52px);
     top:calc(50% - 16px);
     background: url(../../../assets/images/logoMobile.png) no-repeat center center / cover;
+}
+#header .pageName {
+    font-size: 22px;
+    color:#fff;
+    font-weight: bold;
+    line-height: 50px;
+    text-indent: 50px;
 }
 #header .search {
     width:25px;

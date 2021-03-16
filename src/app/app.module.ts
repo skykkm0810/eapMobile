@@ -72,6 +72,7 @@ import { SafePipe } from './pipe/safe.pipe';
 import { RqstPersonalClassComponent } from './page/rqst-personal-class/rqst-personal-class.component';
 import { RqstCompanyClassComponent } from './page/rqst-company-class/rqst-company-class.component';
 import { InquireComponent } from './page/inquire/inquire.component';
+import { EndLectureComponent } from './page/end-lecture/end-lecture.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { InquireComponent } from './page/inquire/inquire.component';
     SafePipe,
     RqstPersonalClassComponent,
     RqstCompanyClassComponent,
-    InquireComponent
+    InquireComponent,
+    EndLectureComponent
   ],
   imports: [
     BrowserModule,

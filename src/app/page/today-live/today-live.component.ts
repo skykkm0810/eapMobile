@@ -103,6 +103,7 @@ export class TodayLiveComponent implements AfterViewInit {
   }];
   onselect(c){
     this.selectedC = c;
+    this.title = c.title;
     var lives = document.getElementsByClassName('designedBox');
     for(var i=0; i<lives.length; i++){
         (lives[i] as HTMLElement).style.display='none';
@@ -125,7 +126,9 @@ export class TodayLiveComponent implements AfterViewInit {
   detail( el ) {
     this.router.navigate(['detail/' + el.id])
   }
-  reset(){
+  reset(e:Event){
+    var rotate = e.target as HTMLElement;
+    rotate.classList.add('rotate');
     var lives = document.getElementsByClassName('designedBox');
     this.title = '전체보기';
     this.selectedC ='';
@@ -135,8 +138,11 @@ export class TodayLiveComponent implements AfterViewInit {
     }
     var bigList = document.querySelectorAll('.bigList li');
     for(var i=0; i<bigList.length; i++){
-      bigList[i].classList.remove('clicked')
+      bigList[i].classList.remove('selected')
     }
+    setTimeout(()=>{
+      rotate.classList.remove('rotate');
+    },1000)
   }
 
   

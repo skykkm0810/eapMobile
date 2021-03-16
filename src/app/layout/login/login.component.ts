@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
   }
   findId(){
     var boxwrap = document.getElementsByClassName('boxwrap')[0] as HTMLElement;
-    boxwrap.style.marginTop = -550+'px';
+    boxwrap.classList.remove('boxwrap1');
+    boxwrap.classList.remove('boxwrap2');
+    boxwrap.classList.add('boxwrap1');
   }
   idSend(){
     // 이름 이메일 확인 후
@@ -56,7 +58,9 @@ export class LoginComponent implements OnInit {
   }
   findPWD(){
     var boxwrap = document.getElementsByClassName('boxwrap')[0] as HTMLElement;
-    boxwrap.style.marginTop = -1100+'px';
+    boxwrap.classList.remove('boxwrap1');
+    boxwrap.classList.remove('boxwrap2');
+    boxwrap.classList.add('boxwrap2');
   }
   
   sendCode(){
@@ -70,5 +74,10 @@ export class LoginComponent implements OnInit {
   chgpwd(){
     // 비밀번호 변경 
     this.close();
+  }
+  goFirst() {
+    var boxwrap = document.getElementsByClassName('boxwrap')[0] as HTMLElement;
+    boxwrap.classList.remove('boxwrap1');
+    boxwrap.classList.remove('boxwrap2');
   }
 }

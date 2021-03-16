@@ -1,6 +1,8 @@
 <header id="header" [class.floating]='topNav == true'>
-  <div class="menu pointer" (click)="clickMenu()"></div>
-  <h1 class="textHidden pointer" (click)="HyperLink('./')">마음도씨</h1>
+  <div class="menu pointer" *ngIf='upsideName == null' (click)="clickMenu()"></div>
+  <div class="back pointer"  *ngIf='upsideName != null' (click)="back()"></div>
+  <h1 class="textHidden pointer" *ngIf='upsideName == null' (click)="HyperLink('./')">마음도씨</h1>
+  <p class="pageName" *ngIf='upsideName != null'>{{this.upsideName}}</p>
   <div class="search pointer" (click)='searchOn()'></div>
   <div class="searchModal" *ngIf='search == 1' (click)="searchOff($event)">
     <div class="searchBox" [class.boxOpen] = 'search == 1'>
@@ -28,7 +30,6 @@
         <li class="pointer" *ngIf="sign && info.type" [routerLink]="['/lectureInfoList/'+info.id]">
           <h2>수강기록부</h2>
         </li> -->
-
         <!-- <li class="pointer" *ngIf="sign">
           <h2>오늘 내 강의</h2>
         </li> -->

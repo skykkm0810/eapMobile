@@ -23,14 +23,16 @@ export class AllLiveComponent implements AfterViewInit {
       this.info = [];
       let filtered;
       data.filter( dt => dt.currs.length > 0 )
-      // data.filter( dt => dt.currs[0].data != null )
+      data.filter( dt => dt.currs[0].data != null )
       data.filter( dt => dt.dday != null )
       data.sort(function(a, b) {
         let rst = new Date(a.dday).getTime() - new Date(b.dday).getTime();
         return rst;
       })
+      this.title = this.search.text;
       if( this.search.text === '인생여정' ) {
         filtered = data.filter( data => data.interests.includes("연애결혼") || data.interests.includes("자녀양육") || data.interests.includes("부부/가족관계") || data.interests.includes("인생 2막") )
+        
       } 
       else if( this.search.text === '사회생활' ) {
         filtered = data.filter( data => data.interests.includes("대인관계") || data.interests.includes("커뮤니케이션") || data.interests.includes("리더십") || data.interests.includes("조직적응") )
@@ -139,9 +141,10 @@ export class AllLiveComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    
     this.phxChannel.gets('lecture:open', '');
     
-    // this.search = this.route.snapshot.params;
+    this.search = this.route.snapshot.params;
     this.route.params.subscribe( data => this.search = data )
     
   }
@@ -192,6 +195,7 @@ export class AllLiveComponent implements AfterViewInit {
   onselect(c){
     this.info = this.all;
     this.selectedC = c;
+    this.title = c.title;
     var lives = document.getElementsByClassName('designedBox');
     for(var i=0; i<lives.length; i++){
         (lives[i] as HTMLElement).style.display='none';
@@ -216,7 +220,10 @@ export class AllLiveComponent implements AfterViewInit {
   detail( el ) {
     this.router.navigate(['detail/' + el.id])
   }
-  reset(){
+  reset(e:Event){
+    var rotate = e.target as HTMLElement;
+    rotate.classList.add('rotate');
+
     var lives = document.getElementsByClassName('designedBox');
     this.title = '전체보기';
     this.selectedC ='';
@@ -228,5 +235,9 @@ export class AllLiveComponent implements AfterViewInit {
     for(var i=0; i<bigList.length; i++){
       bigList[i].classList.remove('selected')
     }
+    setTimeout(()=>{
+      rotate.classList.remove('rotate');
+    },1000)
+
   }
 }
