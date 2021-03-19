@@ -1,37 +1,7 @@
 <div class="wrap">
   <div class="innerWrap">
-    <p class="title bold">수강신청</p>
     <form action="/">
       <div class="contentsBox">
-        <div class="classInfo">
-          <div class="headTag"><span class="bold inlineBlock">수강정보</span></div>
-          <div class="classinfoBox">
-            <div>
-              <span class="block labeling">강의 이미지</span>
-              <div class="cic"><img class="img" src="{{filePath}}{{info.thumbnail1}}" alt=""></div>
-            </div>
-            <div>
-              <span class="block labeling">강의 제목</span>
-              <div class="cic subject bold">{{ info.title }}</div>
-            </div>
-            <div>
-              <span class="block labeling">강사명</span>
-              <div class="cic teacherName">{{ info.inst.name }}</div>
-            </div>
-            <div>
-              <span class="block labeling">회차</span>
-              <div class="cic classRound bold">{{ info.currs.length }}회</div>
-            </div>
-            <div>
-              <span class="block labeling">강의일정</span>
-              <div class="cic classTime"><span *ngIf="info.currs.length > 0">{{ info.currs[0].date | date: 'Y. M. d. H시 m분' }}</span></div>
-            </div>
-            <div>
-              <span class="block labeling">강의시간</span>
-              <div class="cic classDuration bold">{{ info.currs[0].dur }} 분</div>
-            </div>
-          </div>
-        </div>
         <div class="deliveryInfo" *ngIf="info.kit">
           <div class="headTag"><span class="bold inlineBlock">배송지 정보</span></div>
           <div class="deliveryInfoBox">
@@ -77,6 +47,36 @@
             </div>
           </div>
         </div>
+        <div class="classInfo">
+          <div class="headTag"><span class="bold inlineBlock">수강정보</span></div>
+          <div class="classinfoBox">
+            <div>
+              <span class="block labeling">강의 이미지</span>
+              <div class="cic"><img class="img" src="{{filePath}}{{info.thumbnail1}}" alt=""></div>
+            </div>
+            <div>
+              <span class="block labeling">강의 제목</span>
+              <div class="cic subject bold">{{ info.title }}</div>
+            </div>
+            <div>
+              <span class="block labeling">강사명</span>
+              <div class="cic teacherName">{{ info.inst.name }}</div>
+            </div>
+            <div>
+              <span class="block labeling">회차</span>
+              <div class="cic classRound bold">{{ info.currs.length }}회</div>
+            </div>
+            <div>
+              <span class="block labeling">강의일정</span>
+              <div class="cic classTime"><span *ngIf="info.currs.length > 0">{{ info.currs[0].date | date: 'Y. M. d. H시 m분' }}</span></div>
+            </div>
+            <div>
+              <span class="block labeling">강의시간</span>
+              <div class="cic classDuration bold">{{ info.currs[0].dur }} 분</div>
+            </div>
+          </div>
+        </div>
+        
         <div class="payment">
           <div class="headTag"><span class="bold inlineBlock">포인트 결제</span></div>
           <div class="paymentBox">
