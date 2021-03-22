@@ -3,37 +3,37 @@
     <form action="/">
       <div class="contentsBox">
         <div class="deliveryInfo" *ngIf="info.kit">
-          <div class="headTag"><span class="bold inlineBlock">배송지 정보</span></div>
+          <div class="headTag hidden"><span class="bold inlineBlock">배송지 정보</span></div>
           <div class="deliveryInfoBox">
             <div class="destination">
-              <span class="inlineBlock">배송지선택</span>
-              <mat-radio-group class="inlineBlock" name="delivery" [(ngModel)]="delivery">
+              <span class="bold block">배송지</span>
+              <mat-radio-group class="block" name="delivery" [(ngModel)]="delivery">
                 <mat-radio-button value="1" (click)="deli(1)">기본 배송지</mat-radio-button>
                 <mat-radio-button value="2" (click)="deli(2)">신규 배송지</mat-radio-button>
               </mat-radio-group>
             </div>
             <div class="destinationInfo">
-              <div class="inlineBlock" style="width:380px; margin-right:30px;">
+              <div>
                 <span class="need">수령인</span>
                 <input type="text" name="di.name" [(ngModel)]="receipt.name" required>
               </div>
-              <div class="inlineBlock" style="width:380px; margin-right:30px;">
+              <div>
                 <span class="need">연락처</span>
                 <input type="text" name="di.contact" [(ngModel)]="receipt.contact" required>
               </div>
-              <div class="inlineBlock" style="width:380px;">
+              <div>
                 <span>추가연락처</span>
                 <input type="text" name="di.contactAdd" [(ngModel)]="receipt.subcontact">
               </div>
-              <div class="inlineBlock" style="width:585px; margin-right:30px;">
+              <div>
                 <span class="need">주소</span>
                 <input type="text" name="di.address" [(ngModel)]="receipt.addr" required>
               </div>
-              <div class="inlineBlock" style="width:585px;">
+              <div>
                 <span class="need">상세주소</span>
                 <input type="text" name="di.addressDetail" [(ngModel)]="receipt.subaddr">
               </div>
-              <div class="inlineBlock" style="width:585px; margin-right:30px;">
+              <div>
                 <span>요청사항</span>
                 <select name="di_request" (click)="fakeoption()" [(ngModel)]="msg">
                   <option value="" selected>요청 사항을 직접 입력합니다.</option>

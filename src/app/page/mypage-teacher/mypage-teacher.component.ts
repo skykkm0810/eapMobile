@@ -252,18 +252,15 @@ export class MypageTeacherComponent implements OnInit {
   }
   showStudent(e:Event){
     var showStudent = (e.target as HTMLElement);
-    var thisTd = showStudent.closest('td') as HTMLElement;
-    var listTable = thisTd.getElementsByClassName('studentList')[0] as HTMLElement;
-    if(listTable.classList.contains('hidden')){
-      showStudent.classList.remove('showStudent')
-      showStudent.classList.add('hideStudent')
-      listTable.classList.remove('hidden')
-    }
-    else {
-      showStudent.classList.remove('hideStudent')
-      showStudent.classList.add('showStudent')
-      listTable.classList.add('hidden')
-    }
+    var innerCard = showStudent.closest('.innerCard') as HTMLElement;
+    var listTable = innerCard.getElementsByClassName('studentList')[0] as HTMLElement;
+    listTable.classList.remove('hidden');
+  }
+  hideStudent(e:Event){
+    var hideStudent = (e.target as HTMLElement);
+    var innerCard = hideStudent.closest('.innerCard') as HTMLElement;
+    var listTable = innerCard.getElementsByClassName('studentList')[0] as HTMLElement;
+    listTable.classList.add('hidden');
   }
 
   addEdu() {

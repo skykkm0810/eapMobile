@@ -1,14 +1,65 @@
 <script src="./assets/js/address.js"></script>
 <div class="wrap" (click)='popupRemove($event)'>
+  <h2 class="hidden">마이페이지</h2>
+  <ul class="tabBox">
+    <li class="bold pointer on" (click)="tabclick($event)">진행 강의 목록</li>
+    <li class="bold pointer " (click)="tabclick($event)">완료된 강의 목록</li>
+    <li class="bold pointer " (click)="tabclick($event)">개인 정보 변경</li>
+  </ul>
   <div class="innerWrap">
-    <h2>마이페이지</h2>
-    <ul class="tabBox">
-      <li class="bold pointer on" (click)="tabclick($event)">진행 강의 목록</li>
-      <li class="bold pointer " (click)="tabclick($event)">완료된 강의 목록</li>
-      <li class="bold pointer " (click)="tabclick($event)">개인 정보 변경</li>
-    </ul>
     <div class="agreement tabContentBox">
-      <table class="lecTb">
+      <div class="noLec" *ngIf='lecture_yet.length == 0'>
+        <p class="bold">신청된 강의가 없습니다.</p>
+      </div>
+      <div class="lecCard" *ngFor="let l of lecture_yet">
+        <div class="innerCard">
+          <p class="cardTop">{{ l.title }}</p>
+          <div class="cardBody">
+            <div class="content">
+              <img src="{{filePath}}{{l.thumbnail1}}" alt="{{l.date}} 강의 사진"
+                [routerLink]="['/detail/'+l.id]">
+              <p class="subtitle">{{ l.subtitle }}</p>
+            </div>
+            <div class="content2">
+              <div class="left">
+                <p class="classDay"><span class="tag">강의일정</span><span
+                    class="data">{{ l.currs[0].date | date: 'Y-M-d' }}</span></p>
+                <p class="classNum"><span class="tag">강의회차</span><span class="data">총 {{ l.currs.length }}회</span></p>
+                <p class="stuNum"><span class="tag">수강인원</span><span class="data">{{ l.receipts.length }}명</span></p>
+              </div>
+              <div class="right">
+                <div class="upper">
+                  <button mat-button class="noStart">강의 준비</button>
+                  <div class="liveButtonFix" *ngFor="let c of l.currs">
+                    <button mat-button *ngIf='c.set === true' class="startClass block" (click)='goLive(c.id)'>강의 시작</button>
+                  </div>
+                </div>
+                <div class="under">
+                  <button mat-button (click)="showStudent($event)">수강생 리스트</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="studentList hidden">
+            <p class="cardTop">수강생 리스트<button mat-button class="right" (click)='hideStudent($event)'>닫기</button></p>
+            <div class="cardBody">
+              <div class="tableHeader">
+                <span>이름</span>
+                <span>소속회사</span>
+                <span>신청일</span>
+                <span>고객정보</span>
+              </div>
+              <div *ngFor="let ss of l.receipts">
+                <span>{{ ss.user[0].name }}</span>
+                <span>{{ ss.user[0].company[0].name }}</span>
+                <span>{{ ss.date | date:'yyyy-MM-dd' }}</span>
+                <span class="studentInfo" (click)="infoShow(ss)">상세정보</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <table class="lecTb">
         <colgroup>
           <col width="180px">
           <col width="230px">
@@ -43,7 +94,7 @@
                 </div>
                 <p class="ft-22 ft-bold">총{{ l.currs.length }}회차</p>
                 <p class="ft-22 ft-bold showStudent pointer" (click)="showStudent($event)">{{ l.receipts.length }}명</p>
-                <!-- <p class="ft-16">{{ c.datetime | date: 'YY년 MM월 dd일'}}<br>{{ c.datetime | date: 'HH시 mm분'}}</p> -->
+                <p class="ft-16">{{ c.datetime | date: 'YY년 MM월 dd일'}}<br>{{ c.datetime | date: 'HH시 mm분'}}</p>
                 <p> 
                   <span class="block">{{l.processText}}</span>
                  </p>
@@ -95,11 +146,59 @@
             </td>
           </tr>
         </tbody>
-      </table>
-      <p *ngIf="lecture_yet.length == 0" style="padding-top: 50px;"> 현재 진행 예정인 강의가 없습니다.</p>
+      </table> -->
+      <!-- <p *ngIf="lecture_yet.length == 0" style="padding-top: 50px;"> 현재 진행 예정인 강의가 없습니다.</p> -->
     </div>
     <div class="certification tabContentBox hidden">
-      <table class="lecTb">
+      <div class="noLec" *ngIf='lecture_end.length == 0'>
+        <p class="bold">신청된 강의가 없습니다.</p>
+      </div>
+      <div class="lecCard" *ngFor="let l of lecture_end">
+        <div class="innerCard">
+          <p class="cardTop">{{ l.title }}</p>
+          <div class="cardBody">
+            <div class="content">
+              <img src="{{filePath}}{{l.thumbnail1}}" alt="{{l.date}} 강의 사진"
+                [routerLink]="['/detail/'+l.id]">
+              <p class="subtitle">{{ l.subtitle }}</p>
+            </div>
+            <div class="content2">
+              <div class="left">
+                <p class="classDay"><span class="tag">강의일정</span><span
+                    class="data">{{ l.currs[0].date | date: 'Y-M-d' }}</span></p>
+                <p class="classNum"><span class="tag">강의회차</span><span class="data">총 {{ l.currs.length }}회</span></p>
+                <p class="stuNum"><span class="tag">수강인원</span><span class="data">{{ l.receipts.length }}명</span></p>
+              </div>
+              <div class="right">
+                <div class="upper">
+                  <button mat-button class="godetail" [routerLink]="['/detail/'+l.id]">강의 리뷰 보기</button>
+                </div>
+                <div class="under">
+                  <button mat-button (click)="showStudent($event)">수강생 리스트</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="studentList hidden">
+            <p class="cardTop">수강생 리스트<button mat-button class="right" (click)='hideStudent($event)'>닫기</button></p>
+            <div class="cardBody">
+              <div class="tableHeader">
+                <span>이름</span>
+                <span>소속회사</span>
+                <span>신청일</span>
+                <span>고객정보</span>
+              </div>
+              <div *ngFor="let ss of l.receipts">
+                <span>{{ ss.user[0].name }}</span>
+                <span>{{ ss.user[0].company[0].name }}</span>
+                <span>{{ ss.date | date:'yyyy-MM-dd' }}</span>
+                <span class="studentInfo" (click)="infoShow(ss)">상세정보</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <table class="lecTb">
         <colgroup>
           <col width="180px">
           <col width="230px">
@@ -134,7 +233,6 @@
                 </div>
                 <p class="ft-22 ft-bold">총 {{ l.currs.length }}회차</p>
                 <p class="ft-22 ft-bold showStudent pointer" (click)="showStudent($event)">{{ l.receipts.length }}명</p>
-                <!-- <p class="ft-16">{{ c.datetime | date: 'YY년 MM월 dd일'}}<br>{{ c.datetime | date: 'HH시 mm분'}}</p> -->
                 <p> <span class="endClass block">강의완료</span> </p>
               </div>
               <div class="studentList hidden">
@@ -175,19 +273,25 @@
           </tr>
         </tbody>
       </table>
-      <p *ngIf="lecture_end.length == 0" style="padding-top: 50px;"> 진행 완료된 강의가 없습니다.</p>
+      <p *ngIf="lecture_end.length == 0" style="padding-top: 50px;"> 진행 완료된 강의가 없습니다.</p> -->
     </div>
     <div class="personal tabContentBox hidden">
       <form action="/">
+        <div class="profile">
+          <div class="profileInfo">
+            <span class="bold infoTitle">프로필 이미지<label class="changeBtn pointer">
+              <input type="file" id="file" name="teacher_profile" hidden (change)="showPicture($event)">
+            </label></span>
+
+            <div class="floatImg"><img src="{{filePath}}{{info.file}}" width="100%" height="100%" alt=""></div>
+            
+          </div>
+        </div>
         <div class="basic">
           <div class="basicInfo">
             <span class="bold infoTitle">기본 정보</span>
-            <button mat-button (click)="changePw()" class="changePwd tryToChange" type='button'>비밀번호 변경</button>
-            <div class="floatImg"><img src="{{filePath}}{{info.file}}" width="100%" height="100%" alt=""></div>
-            <label class="changeBtn pointer">
-              <input type="file" id="file" name="teacher_profile" hidden (change)="showPicture($event)">
-            </label>
-            <div class="gridBox">
+            
+            <div class="inputBox">
               <div>
                 <span class="need">이름</span>
                 <mat-form-field>
@@ -204,7 +308,8 @@
                 <span class="need">비밀번호</span>
                 <span class="chkPsw" [ngStyle]='{"color":pwdRule.color}'>{{pwdRule.word}}</span>
                 <mat-form-field>
-                  <input matInput [(ngModel)]="info.pwd" type="password" name="myt.password" (change)='pwdLength($event)'>
+                  <input matInput [(ngModel)]="info.pwd" type="password" name="myt.password"
+                    (change)='pwdLength($event)'>
                 </mat-form-field>
               </div>
               <div class="pwdChkPart" hidden>
@@ -215,6 +320,7 @@
                     (keyup)='passChk()'>
                 </mat-form-field>
               </div>
+              <button mat-button (click)="changePw()" class="changePwd tryToChange" type='button'>비밀번호 변경</button>
               <div>
                 <span class="need">생년월일</span>
                 <mat-form-field>
@@ -225,10 +331,10 @@
                 <span class="need">연락처</span>
                 <mat-form-field>
                   <input matInput [(ngModel)]="info.contact" type="text" name="myt.contact" required>
-                  <mat-hint [ngStyle]='{"color":"#666", "font-size":"14px"}'>- 없이 번호로 입력</mat-hint>
+                  <mat-hint [ngStyle]='{"color":"#666", "font-size":"10px"}'>- 없이 번호로 입력</mat-hint>
                 </mat-form-field>
               </div>
-              <div  class="addrDiv">
+              <!-- <div class="addrDiv">
                 <span class="need">주소</span>
                 <mat-form-field (click)="addr()">
                   <input matInput [(ngModel)]="info.addr" type="text" name="myt.address" disabled>
@@ -239,7 +345,7 @@
                 <mat-form-field>
                   <input matInput type="text" name="b.subaddr" [(ngModel)]="info.subaddr" required>
                 </mat-form-field>
-              </div>
+              </div> -->
               <div>
                 <span class="need">성별</span>
                 <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="info.gender">
@@ -258,7 +364,7 @@
           <div class="billInfo">
             <span class="bold infoTitle">결 재</span>
             <div class="billKinds">
-              <span class="need" style="height:60px;">계산서 유형</span>
+              <span class="need">계산서 유형</span>
               <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="info.accType">
                 <mat-radio-button value="세금계산서" class="bold">&nbsp;&nbsp; 세금계산서 </mat-radio-button>
                 <mat-radio-button value="계산서(비과세)" class="bold">&nbsp;&nbsp; 계산서(비과세) </mat-radio-button>
@@ -276,15 +382,23 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-              <input type="text" name="bill.masterWhere" [(ngModel)]="info.bankAcc">
+              <div>
+                <span class="need">계좌번호</span>
+              <mat-form-field>
+                <input matInput type="text" name="bill.masterWhere" [(ngModel)]="info.bankAcc">
+              </mat-form-field>
+              </div>
             </div>
             <div>
               <span class="need">주민등록번호 혹은 사업자등록번호</span>
-              <input type="text" name="myt.masterWhere" [(ngModel)]="info.reg">
+              <mat-form-field>
+              <input matInput type="text" name="myt.masterWhere2" [(ngModel)]="info.reg">
+            </mat-form-field>
+
             </div>
           </div>
         </div>
-        <div class="lecture">
+        <!-- <div class="lecture">
           <div class="lectureInfo">
             <span class="bold infoTitle c-pink ft-20">강의 관련 정보</span>
             <div>
@@ -388,9 +502,10 @@
               </div>
             </div>
           </div>
-          <div class="btnBox">
-            <button mat-button (click)="click()">변경</button>
-          </div>
+          
+        </div> -->
+        <div class="btnBox">
+          <button mat-button (click)="click()">변경</button>
         </div>
       </form>
     </div>

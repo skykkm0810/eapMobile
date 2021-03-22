@@ -10,7 +10,10 @@
   <div class="innerWrap">
     <form action="/">
 
-      <div class="agreement tabContentBox hidden">
+      <div class="agreement tabContentBox">
+        <div class="noLec" *ngIf='receipt_yet.length == 0'>
+          <p class="bold">신청된 강의가 없습니다.</p>
+        </div>
         <div class="lecCard" *ngFor="let l of receipt_yet">
           <div class="innerCard">
             <p class="cardTop">신청 강의 목록</p>
@@ -18,9 +21,11 @@
               <p class="buylabel">결재일</p>
               <p class="buyday">{{ l.date | date: 'Y-M-d' }}</p>
               <div class="lecContent">
-                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진" [routerLink]="['/detail/'+l.lecture[0].id]">
+                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진"
+                  [routerLink]="['/detail/'+l.lecture[0].id]">
                 <div class="content">
-                  <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분 {{l.lecture[0].currs.length}}회기</span></p>
+                  <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분
+                      {{l.lecture[0].currs.length}}회기</span></p>
                   <p class="lecTitle">{{ l.lecture[0].title }}</p>
                 </div>
               </div>
@@ -29,12 +34,13 @@
                   <span class="block bold">회기</span>
                   <span class="block bold">날짜</span>
                   <span class="block bold">시간</span>
-                </div>   
+                </div>
                 <div *ngFor="let c of l.lecture[0].currs">
                   <span>{{ c.stage }}회기</span>
                   <span *ngIf="c.date != null">{{ c.date | date: 'M월 d일' }}</span>
                   <span class="liveBox">{{ c.date | date: 'HH:mm'}} ({{ c.dur }}분) </span>
-                  <button *ngIf='c.set === true' mat-button class="goLive pointer block" (click)='goLive(c.id)'>수업시작</button>
+                  <button *ngIf='c.set === true' mat-button class="goLive pointer block"
+                    (click)='goLive(c.id)'>수업시작</button>
                 </div>
               </div>
             </div>
@@ -81,6 +87,9 @@
         </table> -->
       </div>
       <div class="certification tabContentBox hidden">
+        <div class="noLec" *ngIf='receipt_end.length == 0'>
+          <p class="bold">완료한 강의가 없습니다.</p>
+        </div>
         <div class="lecCard" *ngFor="let l of receipt_end">
           <div class="innerCard">
             <p class="cardTop">완료 강의 목록</p>
@@ -88,9 +97,11 @@
               <p class="buylabel">결재일</p>
               <p class="buyday">{{ l.date | date: 'Y-M-d' }}</p>
               <div class="lecContent">
-                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진" [routerLink]="['/detail/'+l.lecture[0].id]">
+                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진"
+                  [routerLink]="['/detail/'+l.lecture[0].id]">
                 <div class="content">
-                  <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분 {{l.lecture[0].currs.length}}회기</span></p>
+                  <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분
+                      {{l.lecture[0].currs.length}}회기</span></p>
                   <p class="lecTitle">{{ l.lecture[0].title }}</p>
                 </div>
               </div>
@@ -99,12 +110,13 @@
                   <span class="block bold">회기</span>
                   <span class="block bold">날짜</span>
                   <span class="block bold">시간</span>
-                </div>   
+                </div>
                 <div *ngFor="let c of l.lecture[0].currs">
                   <span>{{ c.stage }}회기</span>
                   <span *ngIf="c.date != null">{{ c.date | date: 'M월 d일' }}</span>
                   <span class="liveBox">{{ c.date | date: 'HH:mm'}} ({{ c.dur }}분) </span>
-                  <button *ngIf='c.set === true' mat-button class="goLive pointer block" (click)='goLive(c.id)'>수업시작</button>
+                  <button *ngIf='c.set === true' mat-button class="goLive pointer block"
+                    (click)='goLive(c.id)'>수업시작</button>
                 </div>
               </div>
             </div>
@@ -159,9 +171,10 @@
                 <div class="tableHeader">
                   <span class="block">문의 제목</span>
                   <span class="block">처리결과</span>
-                </div>   
+                </div>
                 <div *ngFor='let f of fake' class="tableBody">
-                  <span class="bold ellipse">{{f.title}}<span class="arrow pointer" (click)="showInq($event)"></span></span>
+                  <span class="bold ellipse">{{f.title}}<span class="arrow pointer"
+                      (click)="showInq($event)"></span></span>
                   <span class="bold">{{f.process}}</span>
                   <div class="inqBox hidden">
                     <div class="inqinnerBox">
@@ -221,26 +234,32 @@
           <button mat-button [routerLink]="['/inquire/']">문의하기</button>
         </div>
       </div>
-      <div class="personal tabContentBox">
+      <div class="personal tabContentBox hidden">
         <div class="basic">
           <div class="basicInfo">
             <span class="bold infoTitle">기본 정보</span>
-            <button mat-button (click)="changePw()" class="changePwd tryToChange" type='button'>비밀번호 변경</button>
-            <div class="gridBox">
+            <!-- <button mat-button (click)="changePw()" class="changePwd tryToChange" type='button'>비밀번호 변경</button> -->
+            <div class="inputBox">
               <div>
                 <span class="need">이름</span>
                 <mat-form-field>
-                  <input matInput type="text" name="b.name"  [(ngModel)]="user.name" required>
+                  <input matInput type="text" name="b.name" [(ngModel)]="user.name" required disabled>
                 </mat-form-field>
               </div>
               <div>
                 <span class="need">연락처</span>
                 <mat-form-field>
-                  <input matInput type="tel" name="b.branch"   [(ngModel)]="user.contact" required>
-                  <mat-hint [ngStyle]='{"color":"#666", "font-size":"14px"}'>- 없이 번호로 입력</mat-hint>
+                  <input matInput type="tel" name="b.branch" [(ngModel)]="user.contact" required>
+                  <mat-hint [ngStyle]='{"color":"#666", "font-size":"10px"}'>- 없이 번호로 입력</mat-hint>
                 </mat-form-field>
               </div>
-              <div class="pwdParts" hidden>
+              <div>
+                <span class="need">생년월일</span>
+                <mat-form-field>
+                  <input matInput type="date" name="j.birth" [(ngModel)]="user.birth" required>
+                </mat-form-field>
+              </div>
+              <!-- <div class="pwdParts" hidden>
                 <span class="need">비밀번호</span>
                 <span class="chkPsw" [ngStyle]='{"color":pwdRule.color}'>{{pwdRule.word}}</span>
                 <mat-form-field>
@@ -253,8 +272,8 @@
                 <mat-form-field>
                   <input matInput type="password" name="b.pwd2" required [(ngModel)]="pwdChk.correct" (keyup)='passChk()'>
                 </mat-form-field>
-              </div>
-              <div>
+              </div> -->
+              <!-- <div>
                 <span class="need">주소</span>
                 <mat-form-field (click)="addr()">
                   <input matInput type="text" name="b.addr"   [(ngModel)]="user.addr" disabled>
@@ -265,26 +284,21 @@
                 <mat-form-field>
                   <input matInput type="text" name="b.subaddr"   [(ngModel)]="user.subaddr" required>
                 </mat-form-field>
-              </div>
-              <div>
-                <span class="need">생년월일</span>
-                <mat-form-field>
-                  <input matInput type="date" name="j.birth"  [(ngModel)]="user.birth" required>
-                </mat-form-field>
-              </div>
+              </div> -->
               <div>
                 <span class="need">성별</span>
                 <mat-radio-group name="gender" [(ngModel)]="user.gender">
-                  <mat-radio-button value="남성" class="bold">&nbsp;&nbsp; 남 </mat-radio-button>
-                  <mat-radio-button value="여성" class="bold">&nbsp;&nbsp; 녀 </mat-radio-button>
+                  <mat-radio-button value="남성" class="bold">&nbsp;&nbsp; 남성 </mat-radio-button>
+                  <mat-radio-button value="여성" class="bold">&nbsp;&nbsp; 여성 </mat-radio-button>
                 </mat-radio-group>
               </div>
             </div>
           </div>
-          <div class="addition">
-            <div class="additionInfo">
-              <span class="bold infoTitle">추가 정보</span>
-              <div class="gridBox">
+        </div>
+        <div class="addition">
+          <div class="additionInfo">
+            <span class="bold infoTitle">추가 정보</span>
+            <div class="inputBox">
               <div>
                 <span class="checkFalse" (click)='nomerry()'>결혼유무</span>
                 <mat-radio-group name="merry" [(ngModel)]="user.merry">
@@ -292,23 +306,22 @@
                   <mat-radio-button value="무" class="bold">&nbsp;&nbsp; 무 </mat-radio-button>
                 </mat-radio-group>
                 <!-- <input type="radio" name="child" value='1'> 유
-                  <input type="radio" name="child" value='2'> 무 -->
-                </div>
-                <div>
-                  <span class="checkFalse" (click)='nochild()'>자녀유무</span>
-                  <mat-radio-group name="child" [(ngModel)]="user.child">
-                    <mat-radio-button value="유" class="bold">&nbsp;&nbsp; 유 </mat-radio-button>
-                    <mat-radio-button value="무" class="bold">&nbsp;&nbsp; 무 </mat-radio-button>
-                  </mat-radio-group>
-                  <!-- <input type="radio" name="child" value='1'> 유
-                  <input type="radio" name="child" value='2'> 무 -->
-                </div>
+                <input type="radio" name="child" value='2'> 무 -->
+              </div>
+              <div>
+                <span class="checkFalse" (click)='nochild()'>자녀유무</span>
+                <mat-radio-group name="child" [(ngModel)]="user.child">
+                  <mat-radio-button value="유" class="bold">&nbsp;&nbsp; 유 </mat-radio-button>
+                  <mat-radio-button value="무" class="bold">&nbsp;&nbsp; 무 </mat-radio-button>
+                </mat-radio-group>
+                <!-- <input type="radio" name="child" value='1'> 유
+                <input type="radio" name="child" value='2'> 무 -->
               </div>
             </div>
           </div>
         </div>
 
-        <div class="jobs">
+        <!-- <div class="jobs">
           <div class="jobsInfo">
             <span class="bold infoTitle">회사 정보</span>
             <div class="gridBox">
@@ -334,28 +347,25 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="interest">
           <div class="interestInfo">
             <span class="bold infoTitle">관심 영역</span>
             <div class="gridBox">
               <div *ngFor="let i of interests">
-                <mat-checkbox 
-                  [(ngModel)]="i.completed"
-                  name="i.name"
-                  >
+                <mat-checkbox [(ngModel)]="i.completed" name="i.name">
                   {{i.value}}
                 </mat-checkbox>
               </div>
+            </div>
           </div>
         </div>
+        <div class="btnBox">
+          <!-- 서브밋 버튼이 되어야함 -->
+          <button mat-button class="next bold" (click)="click();">저장</button>
+        </div>
       </div>
-      <div class="btnBox">
-        <!-- 서브밋 버튼이 되어야함 -->
-        <button mat-button class="next bold" (click)="click();">저장</button>
-      </div>
-    </div>
-  </form>
-</div>
-<div #daum_popup class="daum" style="display:none;position:fixed;overflow:hidden;z-index:1;">
-</div>
+    </form>
+  </div>
+  <div #daum_popup class="daum" style="display:none;position:fixed;overflow:hidden;z-index:1;">
+  </div>

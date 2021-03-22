@@ -1,3 +1,6 @@
 mat-drawer {
     position: fixed;
 }
+mat-drawer-container {
+    background-color: #fff;
+}

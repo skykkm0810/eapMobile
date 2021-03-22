@@ -10,7 +10,7 @@
     </mat-menu>
     <mat-menu #infoMenu='matMenu'>
       <button mat-menu-item (click)="mypage()">{{"my" | titlecase }} page</button>
-      <button mat-menu-item *ngIf="sign && info.type" [routerLink]="['/lectureInfoList/'+info.id]" (click)="clickMenu()">수강기록부</button>
+      <!-- <button mat-menu-item *ngIf="sign && info.type" [routerLink]="['/lectureInfoList/'+info.id]" (click)="clickMenu()">수강기록부</button> -->
       <button mat-menu-item (click)="signout()">로그아웃</button>
     </mat-menu>
 
@@ -53,13 +53,13 @@
         </mat-list-item>
       </mat-list>
     </li>
-    <li>
+    <!-- <li>
       <mat-list class="expansion">
         <mat-list-item class="mainCategory pointer">
           <h2>리뷰</h2>
         </mat-list-item>
       </mat-list>
-    </li>
+    </li> -->
     <li>
       <mat-list class="expansion">
         <mat-list-item class="mainCategory pointer" [routerLink]="['maum']" (click)="clickMenu()">
@@ -87,7 +87,7 @@
     </li>
     <li>
       <mat-list class="expansion">
-        <mat-list-item class="mainCategory pointer" (click)="clickMenu()">
+        <mat-list-item class="mainCategory pointer" [routerLink]="['inquire']" (click)="clickMenu()">
           <h2>문의</h2>
         </mat-list-item>
       </mat-list>

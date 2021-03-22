@@ -46,7 +46,6 @@
         <p class="bold">마음도씨 이용을 위해 본인인증이 필요합니다.</p>
         <div class="emailBox">
           <p class="emailTitle bold">이메일 인증<span class="designA"></span></p>
-
           <div class="mailAddress">
             <div>
               <span class="need">이메일 주소</span>
@@ -56,8 +55,8 @@
                   {{emailCodeMessage}}
                 </mat-hint>
               </mat-form-field>
+              <button mat-button (click)="send($event)">인증코드 전송</button>
             </div>
-            <button mat-button (click)="send($event)">인증코드 전송</button>
           </div>
           <div class="mailCertifi">
             <div>
@@ -65,8 +64,8 @@
               <mat-form-field>
                 <input matInput type="text" name="e.code" class="neccesary" required>
               </mat-form-field>
+              <button mat-button (click)="clear($event)">인증코드 확인</button>
             </div>
-            <button mat-button (click)="clear($event)">인증코드 확인</button>
           </div>
         </div>
         <div class="companyBox">
@@ -77,8 +76,8 @@
               <mat-form-field>
                 <input matInput type="text" name="c.code" [(ngModel)]="companyInfo.code" required>
               </mat-form-field>
+              <button mat-button (click)="confirm()">회사 코드 확인</button>
             </div>
-            <button mat-button (click)="confirm()">회사 코드 확인</button>
           </div>
           <div class="companyName">
             <div>
@@ -112,19 +111,19 @@
               </mat-form-field>
             </div>
           </div>
-          <div class="btnBox">
-            <button mat-button class="next bold" (click)='prevBtn($event)'>이전</button>
-            <button mat-button class="next bold" (click)='beforeNext2($event)'>다음</button>
-          </div>
+        </div>
+        <div class="btnBox">
+          <button mat-button class="before bold" (click)='prevBtn($event)'>이전</button>
+          <button mat-button class="next bold" (click)='beforeNext2($event)'>다음</button>
         </div>
       </div>
       <div class="personal tabContentBox hidden">
         <div class="basic">
           <div class="basicInfo">
             <span class="bold infoTitle">기본정보</span>
-            <div class="gridBox">
+            <div class="inputBox">
               <div>
-                <span class="need">ID</span>
+                <span class="need">아이디</span>
                 <mat-form-field>
                   <input matInput type="text" name="b.uname" [(ngModel)]="info.uname" required>
                 </mat-form-field>
@@ -138,12 +137,6 @@
                 </mat-form-field>
               </div>
               <div>
-                <span class="need">이름</span>
-                <mat-form-field>
-                  <input matInput type="text" name="b.name" [(ngModel)]="info.name" required>
-                </mat-form-field>
-              </div>
-              <div>
                 <span class="need">비밀번호 확인</span>
                 <span class="chkPsw" [ngStyle]='{"color":pwdChk.color}'>{{pwdChk.word}}</span>
                 <mat-form-field>
@@ -152,10 +145,17 @@
                 </mat-form-field>
               </div>
               <div>
+                <span class="need">이름</span>
+                <mat-form-field>
+                  <input matInput type="text" name="b.name" [(ngModel)]="info.name" required>
+                </mat-form-field>
+              </div>
+
+              <div>
                 <span class="need">연락처</span>
                 <mat-form-field>
                   <input matInput type="tel" name="b.branch" [(ngModel)]="info.contact" required>
-                  <mat-hint [ngStyle]='{"color":"#666", "font-size":"14px"}'>- 없이 번호로 입력</mat-hint>
+                  <mat-hint [ngStyle]='{"color":"#666", "font-size":"10px"}'>- 없이 번호로 입력</mat-hint>
                 </mat-form-field>
               </div>
               <div>
@@ -182,8 +182,8 @@
               <div>
                 <span class="need">성별</span>
                 <mat-radio-group [(ngModel)]="info.gender" [ngModelOptions]="{standalone: true}">
-                  <mat-radio-button value="남성" class="bold">&nbsp;&nbsp; 남 </mat-radio-button>
-                  <mat-radio-button value="여성" class="bold">&nbsp;&nbsp; 녀 </mat-radio-button>
+                  <mat-radio-button value="남성" class="bold">&nbsp;&nbsp; 남성 </mat-radio-button>
+                  <mat-radio-button value="여성" class="bold">&nbsp;&nbsp; 여성 </mat-radio-button>
                 </mat-radio-group>
               </div>
             </div>
@@ -192,7 +192,7 @@
         <div class="basic">
           <div class="basicInfo">
             <span class="bold infoTitle">선택정보</span>
-            <div class="gridBox">
+            <div class="inputBox">
               <div>
                 <span class="checkFalse" (click)="nochild()">자녀유무</span>
                 <mat-radio-group [(ngModel)]="info.child" [ngModelOptions]="{standalone: true}">
@@ -212,8 +212,8 @@
         </div>
         <div class="jobs">
           <div class="jobsInfo">
-            <span class="bold infoTitle hidden">회사정보</span>
-            <div class="gridBox">
+            <span class="bold infoTitle">회사정보</span>
+            <div class="inputBox">
               <div>
                 <span class="need">직장명</span>
                 <mat-form-field>
@@ -260,20 +260,21 @@
           </div>
           <div class="btnBox">
             <!-- 서브밋 버튼이 되어야함 -->
-            <button mat-button class="next bold" (click)='prevBtn($event)'>이전</button>
+            <button mat-button class="before bold" (click)='prevBtn($event)'>이전</button>
             <button mat-button class="next bold" (click)='beforeNext3($event)'>다음</button>
           </div>
         </div>
-        <!-- <div class="finish tabContentBox hidden">
-          <div class="finishBox">
-            <div class="charactor"></div>
-            <p class="bold"><span>{{ info.name }}</span> 님 환영합니다!</p>
-            <p class="bold">마음도씨 회원가입이 완료 되었습니다.</p>
-          </div>
-          <div class="btnBox">
-            <button mat-button [routerLink]="['']" class="next bold">확인</button>
-          </div>
-        </div> -->
+        
+      </div>
+      <div class="finish tabContentBox hidden">
+        <p class="bold">마음도씨 회원가입이 성공적으로 완료 되었습니다.</p>
+        <div class="finishBox">
+          <div class="charactor"></div>
+          <p class="bold"><span>{{ info.name }}</span> 님 환영합니다!</p>
+        </div>
+        <div class="btnBox">
+          <button mat-button (click)='this.reg();' class="next bold">확인</button>
+        </div>
       </div>
     </form>
   </div>

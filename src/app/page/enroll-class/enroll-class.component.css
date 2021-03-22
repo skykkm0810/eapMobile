@@ -1,5 +1,5 @@
 .innerWrap {
-    padding-top: 40px;
+    padding:0 10px;
 }
 .title {
     margin:0!important;
@@ -9,10 +9,7 @@
 }
 .contentsBox {
     color:#555555;
-    padding-bottom: 50px;
-}
-.contentsBox > div {
-    padding-top: 40px;
+    padding-bottom: 20px;
 }
 .headTag {
     border-bottom: 1px solid #c4c4c4;
@@ -62,16 +59,22 @@
     font-size: 22px;
 }
 /* 배송지 정보 */
-
+.deliveryInfo {
+    padding-top:10px;
+}
 .deliveryInfoBox{
-    padding:40px 0;
-    border-bottom:1px solid #c4c4c4;
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    padding:8px;
 }
 .deliveryInfoBox .destination span {
-    padding-right: 15px;
-    font-size: 18px;
-    letter-spacing: 5px;
-    vertical-align: middle;
+    font-size: 14px;
+    line-height: 24px;
+    border-bottom: 1px solid #3F3D56;
+}
+.deliveryInfoBox .destination .mat-radio-group {
+    padding-top: 20px;
+    font-size: 14px;
 }
 .deliveryInfoBox .destination .mat-radio-button {
     padding :0 15px;

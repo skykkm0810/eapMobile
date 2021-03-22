@@ -36,6 +36,7 @@ export class TopComponent implements AfterViewInit{
       else if(this.url.includes('maum')){this.upsideName = '마음도씨란?';}
       else if(this.url.includes('enrollClass')){this.upsideName = '수강신청';}
       else if(this.url.includes('inquire')){this.upsideName = '문의하기';}
+      else if(this.url.includes('joinTeacher')){this.upsideName = '회원가입';}
       else{this.upsideName = null;}
       console.log(this.upsideName);
     })

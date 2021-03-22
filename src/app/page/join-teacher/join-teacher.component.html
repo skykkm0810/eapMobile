@@ -1,7 +1,7 @@
 <script src="./assets/js/address.js"></script>
 <div class="wrap" (click)='popupRemove($event)'>
   <div class="innerWrap">
-    <h2>회원가입</h2>
+    <h2 class="hidden">회원가입</h2>
     <ul class="tabBox">
       <li class="bold on">이용약관 동의</li>
       <!-- <li class="bold ">본인 인증</li> -->
@@ -9,54 +9,59 @@
     </ul>
     <form action="/">
 
-      <div class="agreement tabContentBox ">
+      <div class="agreement tabContentBox">
         <p class="bold">서비스 이용을 위해 이용약관 동의가 필요합니다.</p>
         <div class="agreeBox">
           <p class="allAgree bold">전체 동의<span class="agreeHole pointer" (click)='allchk($event)'></span></p>
           <div>
-            <p class="agreeKinds"><span class="underline">이용약관</span> (필수)</p>
-            <div class="agreeDetail" style="white-space:pre-wrap;">
+            <p class="agreeKinds"><span class="underline" (click)='showPolicy(1)'>이용약관</span> (필수)</p>
+            <div class="agreeDetail hidden" style="white-space:pre-wrap;">
               {{ agreement.userRule }}
             </div>
-            <label class="pointer need neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
-                type="checkbox" name="a_info_useage" class="hidden" required> 동의 </label>
+            <label class="pointer neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
+                type="checkbox" name="a_info_useage" class="hidden" required></label>
           </div>
           <div>
-            <p class="agreeKinds"><span class="underline">개인정보취급방침</span> 이용약관 (필수)</p>
-            <div class="agreeDetail" style="white-space:pre-wrap;">
+            <p class="agreeKinds"><span class="underline" (click)='showPolicy(2)'>개인정보취급방침</span> 이용약관 (필수)</p>
+            <div class="agreeDetail hidden" style="white-space:pre-wrap;">
               {{ agreement.privRule }}
             </div>
-            <label class="pointer need neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
-                type="checkbox" name="a_info_useage" class="hidden" required> 동의 </label>
+            <label class="pointer neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
+                type="checkbox" name="a_info_useage" class="hidden" required></label>
           </div>
           <div>
-            <p class="agreeKinds"><span class="underline">마케팅 활용 동의</span> (선택)</p>
-            <div class="agreeDetail" style="white-space:pre-wrap;">
+            <p class="agreeKinds"><span class="underline" (click)='showPolicy(3)'>마케팅 활용 동의</span> (선택)</p>
+            <div class="agreeDetail hidden" style="white-space:pre-wrap;">
               {{ agreement.marketing }}
             </div>
             <label class="pointer "><span class="agreeHole" (click)="onechk($event)"></span><input type="checkbox"
-                name="a_info_useage" class="hidden" required> 동의 </label>
+                name="a_info_useage" class="hidden" required></label>
           </div>
-          <div class="btnBox">
-            <button mat-button class="next bold" (click)='beforeNext1($event)'>다음</button>
-          </div>
+
+        </div>
+        <div class="btnBox">
+          <button mat-button class="next bold" (click)='beforeNext1($event)'>다음</button>
         </div>
       </div>
-      
+
 
       <div class="personal tabContentBox hidden">
         <form action="/">
+          <div class="profile">
+            <div class="profileInfo">
+              <span class="bold infoTitle">프로필 이미지<label class="changeBtn pointer">
+                  <input type="file" id="file" name="teacher_profile" hidden (change)="showPicture($event)">
+                </label></span>
+
+              <div class="floatImg"><img src="{{filePath}}{{info.file}}" width="100%" height="100%" alt="/"></div>
+
+            </div>
+          </div>
           <div class="basic">
             <div class="basicInfo">
               <span class="bold infoTitle">기본 정보</span>
-              <div class="floatImg">
-                <span class="need">사진정보</span>
-                <img src="{{filePath}}{{info.file}}" width="100%" height="100%" alt="/">
-              </div>
-              <label class="changeBtn pointer">
-                <input type="file" id="file" name="teacher_profile" hidden (change)="showPicture($event)">
-              </label>
-              <div class="gridBox">
+
+              <div class="inputBox">
                 <div>
                   <span class="need">이름</span>
                   <mat-form-field>
@@ -73,27 +78,30 @@
                   <span class="need">비밀번호</span>
                   <span class="chkPsw" [ngStyle]='{"color":pwdRule.color}'>{{pwdRule.word}}</span>
                   <mat-form-field>
-                    <input matInput [(ngModel)]="info.pwd" type="password" name="myt.password" minlength="8" maxlength="20" (change)='pwdLength($event)'>
+                    <input matInput [(ngModel)]="info.pwd" type="password" name="myt.password" minlength="8"
+                      maxlength="20" (change)='pwdLength($event)'>
                   </mat-form-field>
                 </div>
                 <div>
                   <span class="need">비밀번호 확인</span>
                   <span class="chkPsw" [ngStyle]='{"color":pwdChk.color}'>{{pwdChk.word}}</span>
                   <mat-form-field>
-                    <input matInput type="password" name="b.pwd2" required [(ngModel)]="pwdChk.correct" (keyup)='passChk()'>
+                    <input matInput type="password" name="b.pwd2" required [(ngModel)]="pwdChk.correct"
+                      (keyup)='passChk()'>
                   </mat-form-field>
                 </div>
                 <div>
                   <span class="need">생년월일</span>
                   <mat-form-field>
-                    <input  matInput [(ngModel)]="info.birth" type="date" name="myt.homepage" required>
+                    <input matInput [(ngModel)]="info.birth" type="date" name="myt.homepage" required>
                   </mat-form-field>
                 </div>
                 <div>
                   <span class="need">연락처</span>
                   <mat-form-field>
-                    <input  matInput [(ngModel)]="info.contact" type="tel" name="myt.contact" required placehoslder="- 없이 번호로 입력">
-                    <mat-hint [ngStyle]='{"color":"#666", "font-size":"14px"}'>- 없이 번호로 입력</mat-hint>
+                    <input matInput [(ngModel)]="info.contact" type="tel" name="myt.contact" required
+                      placehoslder="- 없이 번호로 입력">
+                    <mat-hint [ngStyle]='{"color":"#666", "font-size":"10px"}'>- 없이 번호로 입력</mat-hint>
                   </mat-form-field>
                 </div>
                 <div class="addrDiv">
@@ -111,7 +119,7 @@
                 <div>
                   <span class="need">이메일</span>
                   <mat-form-field>
-                    <input  matInput [(ngModel)]="info.email" type="text" name="myt.email">
+                    <input matInput [(ngModel)]="info.email" type="text" name="myt.email">
                   </mat-form-field>
                 </div>
                 <div>
@@ -123,7 +131,7 @@
                 </div>
                 <div class="careerbox">
                   <span>경력정보 요약</span>
-                    <textarea matInput name="career" [(ngModel)]="info.career" rows="8"></textarea>
+                  <textarea matInput name="career" [(ngModel)]="info.career" rows="8"></textarea>
                 </div>
               </div>
             </div>
@@ -150,15 +158,23 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-                <input type="text" name="bill.masterWhere" [(ngModel)]="info.bankAcc">
+              </div>
+              <div>
+                <span class="need">계좌번호</span>
+                <mat-form-field>
+                  <input matInput type="text" name="bill.masterWhere" [(ngModel)]="info.bankAcc">
+                </mat-form-field>
+
               </div>
               <div>
                 <span class="need">주민등록번호 혹은 사업자등록번호</span>
-                <input type="text" name="myt.masterWhere" [(ngModel)]="info.reg">
+                <mat-form-field>
+                  <input matInput type="text" name="myt.masterWhere" [(ngModel)]="info.reg">
+                </mat-form-field>
               </div>
             </div>
           </div>
-          <div class="lecture">
+          <!-- <div class="lecture">
             <div class="lectureInfo">
               <span class="bold infoTitle c-pink ft-20">강의 관련 정보</span>
               <div>
@@ -261,15 +277,15 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="btnBox">
-         
-            <button mat-button class="next bold" (click)='prevBtn($event)'>이전</button>
+
+            <button mat-button class="before bold" (click)='prevBtn($event)'>이전</button>
             <button mat-button class="next bold" (click)="beforeNext3()">완료</button>
           </div>
-     
-    </form>
-  </div>
 
-<div #daum_popup style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-</div>
+        </form>
+      </div>
+
+      <div #daum_popup style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+      </div>

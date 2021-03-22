@@ -327,9 +327,11 @@ export class JoinTeacherComponent implements OnInit {
   }
   popupRemove(e:Event){
     var thisClickTag = e.target as HTMLElement;
+    var innerWrap = document.getElementsByClassName('innerWrap')[0] as HTMLElement;
     var basicInfo = document.getElementsByClassName('basicInfo')[0] as HTMLElement;
     var outside = document.getElementsByClassName('wrap')[0] as HTMLElement;
-    if(thisClickTag == outside || thisClickTag == basicInfo ){
+    var personal = document.getElementsByClassName('personal')[0] as HTMLElement;
+    if(thisClickTag == outside || thisClickTag == basicInfo || thisClickTag == innerWrap || thisClickTag == personal  ){
         this.close();
     }
   }
@@ -353,5 +355,8 @@ export class JoinTeacherComponent implements OnInit {
       this.pwdRule.word = '사용가능한 비밀번호 입니다.';
       this.pwdRule.color = 'green';
     }
+  }
+  showPolicy(n){
+    
   }
 }

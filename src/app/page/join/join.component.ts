@@ -215,10 +215,6 @@ export class JoinComponent implements OnInit {
       alert('모든 필수항목이 채워져 있어야 합니다.');
       return;
     }
-    else{
-      alert('성공적으로 가입되셨습니다.')
-      this.reg();
-    }
   }
   nextBtn(b:Event){
     var mother = (b.target as HTMLElement).closest('.tabContentBox')
@@ -338,9 +334,11 @@ export class JoinComponent implements OnInit {
   }
   popupRemove(e:Event){
     var thisClickTag = e.target as HTMLElement;
+    var innerWrap = document.getElementsByClassName('innerWrap')[0] as HTMLElement;
     var basicInfo = document.getElementsByClassName('basicInfo')[0] as HTMLElement;
     var outside = document.getElementsByClassName('wrap')[0] as HTMLElement;
-    if(thisClickTag == outside || thisClickTag == basicInfo ){
+    var personal = document.getElementsByClassName('personal')[0] as HTMLElement;
+    if(thisClickTag == outside || thisClickTag == basicInfo || thisClickTag == innerWrap || thisClickTag == personal  ){
         this.close();
     }
   }

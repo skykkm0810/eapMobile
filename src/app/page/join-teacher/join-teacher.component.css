@@ -1,25 +1,26 @@
 /* 체크박스 설정 */
 .agreeHole {
-    display: block;
-    width:24px;
-    height:24px;
-    border:1px solid #c4c4c4;
-    background-color: #f2f2f2;
-    border-radius: 100%;
+  display: block;
+  width:16px;
+  height:16px;
+  border:1px solid #c4c4c4;
+  background-color: #f2f2f2;
+  border-radius: 100%;
+  float: right;
 }
 .checked {
-    background-color: #dd5e5e;
-    position: relative;
-    border-color: #dd5e5e;
+  background-color: #dd5e5e;
+  position: relative;
+  border-color: #dd5e5e;
 }
 .checked::after{
-    content: '';
-    width:17px;
-    height:13px;
-    position: absolute;
-    left:3.5px;
-    top:5.5px;
-    background: url(../../../assets/images/icon/white/chk.png) no-repeat center center / cover;
+  content: '';
+  width:10px;
+  height:10px;
+  position: absolute;
+  left:2px;
+  top:2px;
+  background: url(../../../assets/images/icon/white/chk.png) no-repeat center center / cover;
 }
 .checkFalse::after {
     content: '체크해제';
@@ -33,74 +34,93 @@
     color:#666;
 }
 /* --------------------------------------------------- */
-.wrap { padding-bottom: 50px;}
+.wrap {
+  height:100%;
+  color:#3F3D56;
+  padding-bottom: 30px;
+}
 .innerWrap {
-    padding-top: 40px;
+  height:100%;
+}
+ul {
+  margin:0;
 }
 h2 {
     text-indent: 10px;
     color:#3F3D56;
     border-bottom:1px solid #c4c4c4;
 }
-.tabBox {
-    margin-top: 50px;
+p {
+  margin:0;
 }
 .tabBox li {
-    height:60px;
-    display: inline-block;
-    width:calc(50% - 2px);
-    border-right:1px solid #ffdddd;
-    border-top: 1px solid #ffdddd;
-    border-bottom:1px solid #dd5e5e;
-    text-align: center;
-    line-height: 60px;
-    font-size: 26px;
-    color:#c4c4c4;
+  height:40px;
+  display: inline-block;
+  width:50%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+  color:#3F3D56;
+  box-sizing: border-box;
+  border-right: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
 }
-.tabBox li:nth-child(1){
-    border-left: 1px solid #ffdddd;
-    width:calc(50% - 2px);
+.tabBox li:last-child {
+  border-right: 0;
 }
 .tabBox li.on {
-    background-color: #dd5e5e;
-    color: #fff;
-    border-color: #dd5e5e;
+  border-bottom-color: #dd5e5e;
+
 }
 .tabContentBox {
-    padding-top: 67px;
+  padding:15px;
 }
 .tabContentBox > p {
-    color:#3F3D56;
-    font-size: 26px;
-    text-align: center;
-    margin: 0 !important;
+  color:#3F3D56;
+  font-size: 26px;
+  line-height: 29px;
+  text-align: left;
+  margin: 0 !important;
+  word-break: keep-all;
 
 }
 
 /* 이용약관동의 */
 .agreeBox {
-    padding-top: 40px;
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+.agreeBox {
+  margin-top: 20px;
+  background-color: #fff;
+  border:1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding:10px;
 }
 .agreeBox > p {
-    font-size: 20px;
-    border-bottom: 1px solid #dd5e5e;
-    color:#dd5e5e;
-    padding-bottom: 10px;
-    text-indent: 10px;
-    margin: 0 !important;
-}
-.agreeBox > p span {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
+  font-size: 18px;
+  line-height: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dd5e5e;
+  color:#dd5e5e;
+  text-indent: 10px;
+  margin: 0 !important;
 }
 .agreeBox > div {
-    padding-top: 30px;
-    position: relative;
+  position: relative;
+  padding:15px 0;
 }
 .agreeBox .agreeKinds {
-    font-size: 18px;
-    margin-bottom: 30px!important;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 25px;
+  margin:0!important;
+  color:#555555;
+  text-indent: 5px;
+  font-weight: 500;
 }
 .agreeBox .agreeDetail {
     height:162px;
@@ -110,271 +130,108 @@ h2 {
     overflow-y: scroll;
 }
 .agreeBox > div label {
-    margin-top: 20px;
+  float: right;
 }
 .agreeBox > div .agreeHole {
     display: inline-block;
     vertical-align: middle;
     padding-left: 10px;
 }
-.agreeBox .btnBox {
-    padding-top: 45px;
-    text-align: center;
+.agreement .btnBox {
+  padding-top: 30px;
+  text-align: center;
 } 
-.agreeBox .btnBox .next {
-    width:300px;
-    height:60px;
-    border-radius: 0;
-    background-color: #dd5e5e;
-    color:#fff;
-    font-size:26px;
-    text-align: center;
-    line-height: 60px;
+.agreement .btnBox .next {
+  width:100%;
+  height:40px;
+  border-radius: 4px;
+  background-color: #dd5e5e;
+  color:#fff;
+  font-size:18px;
+  text-align: center;
+  line-height: 40px;
 }
-/* 이메일 인증 */
-.emailBox {
-    padding-top: 100px;
-}
-.emailBox > p {
-    text-align: center;
-    width: 600px;
-    height:60px;
-    line-height: 60px;
-    font-size: 30px;
-    border-bottom: 1px solid #dd5e5e;
-    color:#dd5e5e;
-    text-indent: 10px;
-    margin: 0 auto !important;
-    position: relative;
-}
-.emailBox > p .designA {
-    position: absolute;
-    bottom:-6px;
-    left:calc(50% - 15px);
-}
-.emailBox > div {
-    position: relative;
-    width:540px;
-    margin:0 auto;
-}
-.emailBox .mailAddress {
-    padding-top: 104px;
-}
-.emailBox .mailCertifi {
-    padding-top: 56px;
-}
-.emailBox > div > div {
-    width:380px;
-    height:70px;
-}
-.emailBox > div > div span {
-    display:block;
-    height:30px;
-    font-size: 22px;
-    color:#3F3D56;
-    line-height: 30px;
-}
-.emailBox > div > div input {
-    width:380px;
-    color:#3F3D56;
-    font-size: 22px;
-    display:block;
-    height:40px;
-    box-sizing: border-box;
-    padding-bottom: 8px;
-    border:0;
-    border-bottom: 1px solid #c4c4c4;
-    text-indent: 15px;
-}
-.emailBox > div > div input::placeholder{
-    color:#ccc;
-}
-.emailBox > div > div input:focus {
-    outline: none;
-}
-.emailBox > div > button {
-    width:130px;
-    height:40px;
-    border:1px solid #dd5e5e;
-    color:#dd5e5e;
-    font-size: 18px;
-    line-height: 20px;
-    border-radius: 0;
-    text-align: center;
-    padding:0;
-    position: absolute;
-    right:0;
-    bottom:0;
-}
-.emailBox .btnBox {
-    padding-top: 100px;
-    text-align: center;
-} 
-.emailBox .btnBox .next {
-    position: relative;
-    display: inline-block;
-    width:220px;
-    height:60px;
-    border-radius: 0;
-    background-color: #dd5e5e;
-    color:#fff;
-    font-size:26px;
-    text-align: center;
-    line-height: 60px;
-    margin:0 20px;
-}
-.companyBox {
-    padding-top: 100px;
-}
-.companyBox > p {
-    text-align: center;
-    width: 600px;
-    height:60px;
-    line-height: 60px;
-    font-size: 30px;
-    border-bottom: 1px solid #dd5e5e;
-    color:#dd5e5e;
-    text-indent: 10px;
-    margin: 0 auto !important;
-    position: relative;
-}
-.companyBox > p .designA {
-    position: absolute;
-    bottom:-6px;
-    left:calc(50% - 15px);
-}
-.companyBox > div {
-    position: relative;
-    width:540px;
-    margin:0 auto;
-    padding-top: 40px;
-}
-.companyBox > div > div {
-    width:100%;
-    height:70px;
-} 
-.companyBox > div > div span {
-    display:block;
-    height:30px;
-    font-size: 22px;
-    color:#3F3D56;
-    line-height: 30px;
-}
-.companyBox > div > div input {
-    width:100%;
-    color:#3F3D56;
-    font-size: 22px;
-    display:block;
-    height:40px;
-    box-sizing: border-box;
-    padding-bottom: 8px;
-    border:0;
-    border-bottom: 1px solid #c4c4c4;
-    text-indent: 15px;
-}
-.companyBox .companyCode > div > input  {
-    width: 380px;
-}
-.companyBox > div > div input::placeholder{
-    color:#ccc;
-}
-.companyBox > div > div input:focus{
-    outline: none;
-}
-.companyBox > div > button{
-    width:130px;
-    height:40px;
-    border:1px solid #dd5e5e;
-    color:#dd5e5e;
-    font-size: 18px;
-    line-height: 20px;
-    border-radius: 0;
-    text-align: center;
-    padding:0;
-    position: absolute;
-    right:0;
-    bottom:0;
-}
-.companyBox .companyInfo {
-    padding-top: 120px;
-    position: relative;
-}
-
-
 
 /* 회원정보입력 */
+/* 프로필 정보 */
+.profile {
+  position: relative;
+  color:#3F3D56;
+  box-sizing: border-box;
+  padding:0 10px;
+  padding-top:20px;
+}
+.profileInfo {
+  border:1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding:8px;
+  background-color: #fff;
+}
+.profileInfo .infoTitle{
+  display: block;
+  border-bottom: 1px solid #3f3D56;
+  font-size: 12px;
+  color:#dd5e5e;
+  font-weight: bold;
+}
+.profileInfo .infoTitle .changeBtn {
+  float: right;
+  width:18px;
+  height:18px;
+  background: url(../../../assets/images/icon/pink/edit.png) no-repeat center center / cover;
+}
+.profileInfo .floatImg {
+  padding-top: 10px;
+  background: url(../../../assets/images/noImg.png) no-repeat center center / contain;
+
+}
 /* 기본정보 */
 .basic {
-    padding-top : 100px;
-    position: relative;
+  position: relative;
+  color:#3F3D56;
+  box-sizing: border-box;
+  padding:0 10px;
+  padding-top:20px;
+  }
+  .basicInfo {
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:8px;
+    background-color: #fff;
   }
   .basicInfo .infoTitle {
-    font-size: 20px;
-    position: absolute;
-    left:0;
-    top:100px;
-    color:#DD5E5E;
-  }
-  .basicInfo .floatImg {
-    position: absolute;
-    left:0;
-    top:170px;
-    width:175px;
-    height: 210px;
-    border:1px solid #ccc;
-    background: url(../../../assets/images/noImg.png) no-repeat center center / contain;
-  }
-  .basicInfo .floatImg span {
-    position: absolute;
-    top: -30px;
-    left:0;
     display: block;
-    font-size: 16px;
+    border-bottom: 1px solid #3f3D56;
+    font-size: 12px;
+    color:#dd5e5e;
+    font-weight: bold;
   }
-  .basicInfo .changeBtn {
-      width:25px;
-      height:25px;
-      background: url(../../../assets/images/icon/pink/edit.png) no-repeat center center / cover;
-      position: absolute;
-      top:390px;
-      left:150px;
-      z-index:2;      
+  
+  .basicInfo .inputBox {
+    box-sizing: border-box;
+    padding:8px;
   }
-  .basicInfo .gridBox {
-    margin:0 auto;
-    width:790px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 30px;
-  }
-  .basicInfo .gridBox div {
-    width:380px;
+  .basicInfo .inputBox div {
     position: relative;
+
   }
-  .basicInfo .gridBox div span {
-    box-sizing: border-box;
+  .basicInfo .inputBox div span {
     display:block;
-    height:30px;
-    font-size: 16px;
+    font-size: 12px;
     color:#3F3D56;
-    line-height: 30px;
   }
-  .basicInfo .gridBox div .mat-form-field {
-    width:380px;
+  .basicInfo .inputBox div .mat-form-field {
     color:#3F3D56;
-    font-size: 22px;
+    font-size: 14px;
     display:block;
     box-sizing: border-box;
-    padding-bottom: 8px;
-    border:0;
   }
-  .basicInfo .gridBox div input::placeholder {
+  .basicInfo .inputBox div input::placeholder {
     color:#ccc;
   }
-  .basicInfo .gridBox div input {
-    outline: none;
-  }
-  .basicInfo .gridBox div label {
+  .basicInfo .inputBox div label {
     width:50%;
     font-size: 16px;
     display:inline-block;
@@ -386,7 +243,7 @@ h2 {
     text-align: center;
   }
 
-  .basicInfo .gridBox div .chkPsw{
+  .basicInfo .inputBox div .chkPsw{
     display: block;
     position: absolute;
     font-size: 14px;
@@ -394,96 +251,69 @@ h2 {
     top:7px;
     line-height: 16px;
 }
-  .basicInfo .gridBox div label input[type=radio]{
-    width:auto;
-    font-size: 22px;
-    display:inline-block;
-    height:20px;
-    box-sizing: border-box;
-    vertical-align: middle;
-  }
-  .basicInfo .gridBox div label input[type='radio']:checked{
   
-    background-color: #3F3D56;
-  }
-  .basicInfo .gridBox div .mat-radio-group {
-    display: inline-block;
+  .basicInfo .inputBox div .mat-radio-group {
     height:40px;
-    padding-top: 15px;
     width:100%;
   }
-  .basicInfo .gridBox .careerbox {
+  .basicInfo .inputBox .careerbox {
     grid-column: 1 / 3;
     width:100%;
 
   }
-  .basicInfo .gridBox div textarea {
+  .basicInfo .inputBox div textarea {
     width:100%;
     border:1px solid #c4c4c4;
-    font-size: 16px;
+    font-size: 14px;
     box-sizing: border-box;
     padding:0.5rem;
+    resize: none;
   }
-  .basicInfo .gridBox div .mat-radio-group .mat-radio-button {
+  .basicInfo .inputBox div .mat-radio-group .mat-radio-button {
     width:50%;
-    font-size: 16px;
+    font-size: 14px;
+    padding-top: 10px;
   }
   /* 계산서유형 */
   .bill {
-    padding-top : 70px;
     position: relative;
+    color:#3F3D56;
+    box-sizing: border-box;
+    padding:0 10px;
+    padding-top:20px;
   }
   .billInfo {
-    margin:0 auto;
-    width:790px;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    column-gap: 30px;
-    row-gap: 40px;
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:8px;
+    background-color: #fff;
   }
   .billInfo .infoTitle {
-    font-size: 20px;
-    position: absolute;
-    left:0;
-    top:100px;
-    color:#DD5E5E;
+    display: block;
+    border-bottom: 1px solid #3f3D56;
+    font-size: 12px;
+    color:#dd5e5e;
+    font-weight: bold;
   }
   
   .billInfo div {
-    width:100%;
-    position: relative;
-  }
-  .billInfo div.billKinds {
-    grid-column: 1 / 3 ;
-  }
-  .billInfo div.billKinds span{
-    padding-bottom: 30px;
+    padding:0 8px;
+
   }
   .billInfo div span {
     display:block;
-    height:30px;
-    font-size: 16px;
+    font-size: 12px;
     color:#3F3D56;
-    line-height: 30px;
-    padding-bottom: 15px;
+    padding: 8px 0;
+    font-weight: bold;
   }
   .billInfo div .mat-form-field {
-    position:absolute;
-    right:0;
-    bottom:-1.12rem;
-    width: 150px;
+    display: block;
   }
   .billInfo div input {
-    width:380px;
-    color:#3F3D56;
-    font-size: 16px;
-    display:block;
-    height:40px;
-    box-sizing: border-box;
-    padding-right: 160px;
-    border:0;
-    border-bottom: 1px solid #c4c4c4;
-    text-indent: 8px;
+    outline: none;
+
   }
   .billInfo div input::placeholder {
     color:#ccc;
@@ -503,14 +333,14 @@ h2 {
     text-align: center;
   }
   .billInfo div .mat-radio-group {
-    height:40px;
     padding-top: 15px;
     width:100%;
   }
   .billInfo div .mat-radio-group .mat-radio-button {
     display: inline-block;
-    width:25%;
-    font-size: 16px;
+    width:50%;
+    height:25px;
+    font-size: 12px;
   }
   /* 추가 정보 */
   .education {
@@ -668,20 +498,30 @@ h2 {
     background-color: #3F3D56;
     border-color: #3F3D56;
   }
-   .btnBox {
+  .agreement .btnBox {
     padding-top: 100px;
     text-align: center;
   }
-   .btnBox button {
-    position: relative;
-    display: inline-block;
-    margin:0 20px;
-    width:300px;
-    height:60px;
-    border-radius: 0;
-    background-color: #DD5E5E;
-    color:#fff;
-    font-size:26px;
-    text-align: center;
-    line-height: 60px;
-  }
+  .personal .btnBox {
+    padding:0 10px;
+   padding-top: 30px;
+   text-align: center;
+ }
+  .personal .btnBox button {
+   position: relative;
+   display: inline-block;
+   width:45%;
+   height:40px;
+   background-color: #dd5e5e;
+   color:#fff;
+   font-size:14px;
+   text-align: center;
+   line-height: 40px;
+}
+.personal .btnBox .before {
+ background-color: #c4c4c4;
+}
+.personal .btnBox .next {
+ margin-left: 20px;
+}
+  

@@ -1,10 +1,9 @@
 p { 
-    font-size: 16px;
-    padding-bottom: 15px;
+    font-size: 14px;
 }
 .label {
     display: inline-block;
-    width:100px;
+    width:30%;
     font-weight: bold;
     margin-right: 10px;
     vertical-align: top;
@@ -13,5 +12,5 @@ p {
 .contents {
     text-align: left;
     display: inline-block;
-    width:200px;
+    width:60%;
 }

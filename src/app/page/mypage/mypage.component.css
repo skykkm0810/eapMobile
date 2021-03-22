@@ -58,6 +58,7 @@ img {
   line-height: 32px;
   font-size: 11px;
   color: #3F3D56;
+  background-color: #fff;
 }
 .tabBox li:nth-child(1){
   border-left: 1px solid #F7F8FC;
@@ -70,6 +71,16 @@ img {
 }
 
 /* 강의 카드 */
+.noLec {
+  width:100%;
+  height:300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noLec p {
+  font-size: 16px;
+}
 .lecCard {
   padding-top: 16px;
   color:#3F3D56;
@@ -79,6 +90,7 @@ img {
   border-radius: 8px;
   box-sizing: border-box;
   padding:8px;
+  background-color: #fff;
 }
 .cardTop {
   font-size: 14px;  
@@ -223,16 +235,26 @@ img {
 .basic {
   position: relative;
   color:#3F3D56;
+  box-sizing: border-box;
+  padding:0 10px;
+  padding-top:20px;
+  
+}
+.basicInfo {
+  border:1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding:8px;
+  background-color: #fff;
 }
 .basicInfo .infoTitle {
+  display: block;
+  border-bottom: 1px solid #3f3D56;
   font-size: 12px;
   color:#dd5e5e;
   font-weight: bold;
 }
 .basicInfo .changePwd {
-  position: absolute;
-  left:0;
-  top:130px;
   font-size:12px;
   color:#fff;
 }
@@ -242,40 +264,30 @@ img {
 .basicInfo .changeCancel {
   background-color: #666;
 }
-.basicInfo .gridBox {
-  margin:0 auto;
-  width:790px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 30px;
+.basicInfo .inputBox {
+  box-sizing: border-box;
+  padding:8px;
 }
-.basicInfo .gridBox div {
-  width:380px;
+.basicInfo .inputBox div {
   position: relative;
 }
-.basicInfo .gridBox div span {
+.basicInfo .inputBox div span {
   display:block;
-  height:30px;
-  font-size: 16px;
+  font-size: 12px;
   color:#3F3D56;
-  line-height: 30px;
 }
-.basicInfo .gridBox div .mat-form-field {
-  width:380px;
+.basicInfo .inputBox div .mat-form-field {
   color:#3F3D56;
-  font-size: 22px;
+  font-size: 14px;
   display:block;
   box-sizing: border-box;
   padding-bottom: 8px;
-  text-indent: 5px;
 }
-.basicInfo .gridBox div input::placeholder {
+.basicInfo .inputBox div input::placeholder {
   color:#ccc;
 }
-.basicInfo .gridBox div input {
-  outline: none;
-}
-.basicInfo .gridBox div label {
+
+.basicInfo .inputBox div label {
   width:50%;
   font-size: 16px;
   display:inline-block;
@@ -286,30 +298,16 @@ img {
   margin:0!important;
   text-align: center;
 }
-
-.basicInfo .gridBox div label input[type=radio]{
-  width:auto;
-  font-size: 22px;
-  display:inline-block;
-  height:20px;
-  box-sizing: border-box;
-  vertical-align: middle;
-}
-.basicInfo .gridBox div label input[type='radio']:checked{
-
-  background-color: #3F3D56;
-}
-.basicInfo .gridBox div .mat-radio-group {
-  display: inline-block;
+.basicInfo .inputBox div .mat-radio-group {
   height:40px;
-  padding-top: 15px;
   width:100%;
 }
-.basicInfo .gridBox div .mat-radio-group .mat-radio-button {
+.basicInfo .inputBox div .mat-radio-group .mat-radio-button {
   width:50%;
-  font-size: 16px;
+  font-size: 14px;
+  padding-top: 10px;
 }
-.basicInfo .gridBox div .chkPsw{
+.basicInfo .inputBox div .chkPsw{
   display: block;
   position: absolute;
   font-size: 14px;
@@ -317,8 +315,153 @@ img {
   top:7px;
   line-height: 16px;
 }
+
+
+/* 추가 정보 */
+.addition {
+  padding:0 10px;
+  padding-top : 20px;
+  position: relative;
+}
+.additionInfo {
+  border:1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding:8px;
+  background-color: #fff;
+}
+.additionInfo .infoTitle {
+  display: block;
+  border-bottom: 1px solid #3f3D56;
+  font-size: 12px;
+  color:#dd5e5e;
+  font-weight: bold;
+}
+.additionInfo .inputBox {
+  box-sizing: border-box;
+  padding:8px;
+}
+.additionInfo .inputBox div span {
+  display:block;
+  font-size: 12px;
+  color:#3F3D56;
+}
+.additionInfo .inputBox div input {
+  width:380px;
+  color:#3F3D56;
+  font-size: 22px;
+  display:block;
+  height:40px;
+  box-sizing: border-box;
+  padding-bottom: 8px;
+  border:0;
+  border-bottom: 1px solid #c4c4c4;
+  text-indent: 15px;
+}
+
+
+.additionInfo .inputBox div .mat-radio-group {
+  height:40px;
+  width:100%;
+}
+.additionInfo .inputBox div .mat-radio-group .mat-radio-button {
+  width:50%;
+  font-size: 14px;
+  padding-top: 10px;
+}
+/* 관심영역 */
+.interest {
+  padding:0 10px;
+  padding-top : 20px;
+  position: relative;
+}
+.interestInfo {
+  border:1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding:8px;
+  background-color: #fff;
+}
+.interestInfo .infoTitle {
+  display: block;
+  border-bottom: 1px solid #3f3D56;
+  font-size: 12px;
+  color:#dd5e5e;
+  font-weight: bold;
+}
+.interestInfo .gridBox {
+  padding:8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 24px;
+}
+.interestInfo .gridBox div {
+  height:32px;
+  border-bottom: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  padding-bottom: 15px;
+}
+
+.interestInfo .gridBox div label {
+  width:100%;
+  font-size: 16px;
+}
+.interestInfo .gridBox div label span{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+.interestInfo .gridBox div label span.checking{
+  background-color: #3F3D56;
+  border-color: #3F3D56;
+}
+.personal .btnBox {
+  padding-top: 20px;
+  text-align: center;
+} 
+.personal .btnBox .next {
+  position: relative;
+  display: inline-block;
+  width:168px;
+  height:40px;
+  border-radius: 4px;
+  background-color: #3F3D56;
+  color:#fff;
+  font-size:14px;
+}
+
+
+/* lecture list */
+
+.fontA {
+  font-family: NanumSquare_ac;
+}
+.ft-16 {
+  font-size: 16px;
+  line-height: 18px;
+}
+.ft-18 {
+  font-size: 18px;
+  line-height: 20px;
+}
+.ft-22 {
+  font-size: 22px;
+  line-height: 28px;
+}
+.ft-bold {
+  font-weight: bold;
+}
+.c-pink {
+  color: #DD5E5E;
+}
+
+/*  지운 정보 */
 /* 회사정보 */
-.jobs {
+/* .jobs {
   padding-top : 100px;
   position: relative;
 }
@@ -399,172 +542,4 @@ img {
 .jobsInfo .gridBox div .mat-radio-group .mat-radio-button {
   width:50%;
   font-size: 16px;
-}
-/* 추가 정보 */
-.addition {
-  padding-top : 100px;
-  position: relative;
-}
-.additionInfo .infoTitle {
-  font-size: 20px;
-  position: absolute;
-  left:0;
-  top:100px;
-  color:#3F3D56;
-}
-.additionInfo .gridBox {
-  margin:0 auto;
-  width:790px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px 30px;
-}
-.additionInfo .gridBox div {
-  width:380px;
-  height:70px;
-}
-.additionInfo .gridBox div span {
-  box-sizing: border-box;
-  display:block;
-  height:30px;
-  font-size: 16px;
-  color:#3F3D56;
-  line-height: 30px;
-  padding-bottom: 15px;
-}
-.additionInfo .gridBox div input {
-  width:380px;
-  color:#3F3D56;
-  font-size: 22px;
-  display:block;
-  height:40px;
-  box-sizing: border-box;
-  padding-bottom: 8px;
-  border:0;
-  border-bottom: 1px solid #c4c4c4;
-  text-indent: 15px;
-}
-.additionInfo .gridBox div input::placeholder {
-  color:#ccc;
-}
-.additionInfo .gridBox div input {
-  outline: none;
-}
-.additionInfo .gridBox div label {
-  width:50%;
-  font-size: 16px;
-  display:inline-block;
-  height:40px;
-  box-sizing: border-box;
-  padding-top: 12px;
-  border:0;
-  margin:0!important;
-  text-align: center;
-}
-.additionInfo .gridBox div label input[type=radio]{
-  width:auto;
-  font-size: 22px;
-  display:inline-block;
-  height:20px;
-  box-sizing: border-box;
-  vertical-align: middle;
-}
-.additionInfo .gridBox div label input[type='radio']:checked{
-
-  background-color: #3F3D56;
-}
-.additionInfo .gridBox div .mat-radio-group {
-  display: inline-block;
-  height:40px;
-  padding-top: 15px;
-  width:100%;
-}
-.additionInfo .gridBox div .mat-radio-group .mat-radio-button {
-  width:50%;
-  font-size: 16px;
-}
-/* 관심영역 */
-.interest {
-  padding-top : 50px;
-  position: relative;
-}
-.interestInfo .infoTitle {
-  font-size: 20px;
-  position: absolute;
-  left:0;
-  top:70px;
-  color:#3F3D56;
-}
-.interestInfo .gridBox {
-  margin:0 auto;
-  width:790px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px 19px;
-}
-.interestInfo .gridBox div {
-  width:260px;
-  height:34px;
-  border-bottom: 1px solid #c4c4c4;
-  box-sizing: border-box;
-  padding-bottom: 15px;
-}
-
-.interestInfo .gridBox div label {
-  width:100%;
-  font-size: 16px;
-}
-.interestInfo .gridBox div label span{
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  border: 1px solid #c4c4c4;
-  border-radius: 2px;
-  vertical-align: middle;
-}
-.interestInfo .gridBox div label span.checking{
-  background-color: #3F3D56;
-  border-color: #3F3D56;
-}
-.personal .btnBox {
-  padding-top: 100px;
-  text-align: center;
-} 
-.personal .btnBox .next {
-  position: relative;
-  display: inline-block;
-  width:300px;
-  height:60px;
-  border-radius: 0;
-  background-color: #3F3D56;
-  color:#fff;
-  font-size:26px;
-  text-align: center;
-  line-height: 60px;
-}
-
-
-/* lecture list */
-
-.fontA {
-  font-family: NanumSquare_ac;
-}
-.ft-16 {
-  font-size: 16px;
-  line-height: 18px;
-}
-.ft-18 {
-  font-size: 18px;
-  line-height: 20px;
-}
-.ft-22 {
-  font-size: 22px;
-  line-height: 28px;
-}
-.ft-bold {
-  font-weight: bold;
-}
-.c-pink {
-  color: #DD5E5E;
-}
+} */

@@ -1,330 +1,273 @@
-/* 스낵바 */
-/* .mat-snack-bar-container {
-  background-color: #fff!important;
-  color:#3F3D56!important;
-} */
-/* 체크박스 설정 */
-.agreeHole {
-    display: block;
-    width:24px;
-    height:24px;
-    border:1px solid #c4c4c4;
-    background-color: #f2f2f2;
-    border-radius: 100%;
-  }
-  .checked {
-    background-color: #DD5E5E;
-    position: relative;
-    border-color: #DD5E5E;
-  }
-  .checked::after{
-    content: '';
-    width:17px;
-    height:13px;
-    position: absolute;
-    left:1.5px;
-    top:3.5px;
-    background: url(../../../assets/images/icon/white/chk.png) no-repeat center center / cover;
-  }
+.gray {
+  color:#555555;
+}
+ul {
+  margin:0;
+}
+p {
+  margin:0;
+}
+img {
+  width:100%;
+  height:100%;
+}
   /* --------------------------------------------------- */
-  .wrap { padding-bottom: 50px;}
+  .wrap { 
+    padding-bottom: 50px;
+  }
   .innerWrap {
-    padding-top: 40px;
-  }
-  h2 {
-    text-indent: 10px;
-    color:#3F3D56;
-    border-bottom:1px solid #c4c4c4;
-  }
-  .tabBox {
-    margin-top: 50px;
+    box-sizing: border-box;
+  padding:0 10px;
   }
   .tabBox li {
-    height:60px;
+    height:32px;
     display: inline-block;
-    width:calc(33.3% - 2px);
-    border-right:1px solid #F7F8FC;
-    border-top: 1px solid #F7F8FC;
+    box-sizing: border-box;
+    width:33.3333%;
+    border-right:1px solid #c4c4c4;
+    border-top: 1px solid #c4c4c4;
     border-bottom:1px solid #3F3D56;
     text-align: center;
-    line-height: 60px;
-    font-size: 26px;
-    color:#c4c4c4;
+    line-height: 32px;
+    font-size: 11px;
+    color: #3F3D56;
+    background-color: #fff;
   }
   .tabBox li:nth-child(1){
     border-left: 1px solid #F7F8FC;
   }
   .tabBox li.on {
-    background-color: #3F3D56;
-    color: #fff;
-    border-color: #3F3D56;
+    border-bottom-color: #DD5E5E;
   }
   .tabContentBox {
     padding-top: 0;
   }
-  .tabContentBox > p {
-    color:#3F3D56;
-    font-size: 26px;
-    text-align: center;
-    margin: 0 !important;
-  
-  }
-  
-  /* 이용약관동의 */
-  .agreeBox {
-    padding-top: 40px;
-  }
-  .agreeBox > p {
-    font-size: 20px;
-    border-bottom: 1px solid #3F3D56;
-    color:#3F3D56;
-    padding-bottom: 10px;
-    text-indent: 10px;
-    margin: 0 !important;
-  }
-  .agreeBox > p span {
-    float:right;
-  }
-  .agreeBox > div {
+  .btnBox {
     padding-top: 30px;
-    position: relative;
-  }
-  .agreeBox .agreeKinds {
-    font-size: 18px;
-    margin-bottom: 30px!important;
-  }
-  .agreeBox .agreeDetail {
-    height:162px;
-    border:1px solid #c4c4c4;
-    box-sizing: border-box;
-    padding:1rem;
-    overflow-y: scroll;
-  }
-  .agreeBox > div .agreeHole {
-    position: absolute;
-    right:0;
-    top:30px;
-  }
-  .agreeBox .btnBox {
-    padding-top: 45px;
     text-align: center;
-  } 
-  .agreeBox .btnBox .next {
-    width:300px;
-    height:60px;
-    border-radius: 0;
-    background-color: #3F3D56;
-    color:#fff;
-    font-size:26px;
-    text-align: center;
-    line-height: 60px;
   }
-  /* 이메일 인증 */
-  .emailBox {
-    padding-top: 100px;
-  }
-  .emailBox > p {
-    text-align: center;
-    width: 600px;
-    height:60px;
-    line-height: 60px;
-    font-size: 30px;
-    border-bottom: 1px solid #3F3D56;
-    color:#3F3D56;
-    text-indent: 10px;
-    margin: 0 auto !important;
-    position: relative;
-  }
-  .emailBox > p .designA {
-    position: absolute;
-    bottom:-6px;
-    left:calc(50% - 15px);
-  }
-  .emailBox > div {
-    position: relative;
-    width:540px;
-    height:70px;
-    margin:0 auto;
-  }
-  .emailBox .mailAddress {
-    padding-top: 104px;
-  }
-  .emailBox .mailCertifi {
-    padding-top: 56px;
-  }
-  .emailBox > div > div {
-    width:380px;
-    height:70px;
-  }
-  .emailBox > div > div span {
-    display:block;
-    height:30px;
-    font-size: 22px;
-    color:#3F3D56;
-    line-height: 30px;
-  }
-  .emailBox > div > div input {
-    width:380px;
-    color:#3F3D56;
-    font-size: 22px;
-    display:block;
-    height:40px;
-    box-sizing: border-box;
-    padding-bottom: 8px;
-    border:0;
-    border-bottom: 1px solid #c4c4c4;
-    text-indent: 15px;
-  }
-  .emailBox > div > div input::placeholder{
-    color:#ccc;
-  }
-  .emailBox > div > div input:focus {
-    outline: none;
-  }
-  .emailBox > div > button {
-    width:130px;
-    height:40px;
-    border:1px solid #3F3D56;
-    color:#3F3D56;
-    font-size: 18px;
-    line-height: 20px;
-    border-radius: 0;
-    text-align: center;
-    padding:0;
-    position: absolute;
-    right:0;
-    bottom:0;
-  }
-  .emailBox > div.btnBox {
-    padding-top: 300px;
-    text-align: center;
-  } 
-  .emailBox .btnBox .next {
+   .btnBox button {
     position: relative;
     display: inline-block;
-    width:300px;
-    height:60px;
-    border-radius: 0;
-    background-color: #3F3D56;
-    color:#fff;
-    font-size:26px;
-    text-align: center;
-    line-height: 60px;
-  }
-  .companyBox {
-    padding-top: 100px;
-  }
-  .companyBox > p {
-    text-align: center;
-    width: 600px;
-    height:60px;
-    line-height: 60px;
-    font-size: 30px;
-    border-bottom: 1px solid #3F3D56;
-    color:#3F3D56;
-    text-indent: 10px;
-    margin: 0 auto !important;
-    position: relative;
-  }
-  .companyBox > p .designA {
-    position: absolute;
-    bottom:-6px;
-    left:calc(50% - 15px);
-  }
-  .companyBox > div {
-    position: relative;
-    width:540px;
-    height:70px;
-    margin:0 auto;
-    padding-top: 40px;
-  }
-  .companyBox > div > div {
-    width:100%;
-    height:70px;
-  } 
-  .companyBox > div > div span {
-    display:block;
-    height:30px;
-    font-size: 22px;
-    color:#3F3D56;
-    line-height: 30px;
-  }
-  .companyBox > div > div input {
-    width:100%;
-    color:#3F3D56;
-    font-size: 22px;
-    display:block;
+    width:168px;
     height:40px;
-    box-sizing: border-box;
-    padding-bottom: 8px;
-    border:0;
-    border-bottom: 1px solid #c4c4c4;
-    text-indent: 15px;
-  }
-  .companyBox .companyCode > div > input  {
-    width: 380px;
-  }
-  .companyBox > div > div input::placeholder{
-    color:#ccc;
-  }
-  .companyBox > div > div input:focus{
-    outline: none;
-  }
-  .companyBox > div > button{
-    width:130px;
-    height:40px;
-    border:1px solid #3F3D56;
-    color:#3F3D56;
-    font-size: 18px;
-    line-height: 20px;
-    border-radius: 0;
-    text-align: center;
-    padding:0;
-    position: absolute;
-    right:0;
-    bottom:0;
-  }
-  .companyBox .companyInfo {
-    padding-top: 120px;
-    position: relative;
-  }
-  
-  .companyBox .btnBox {
-    padding-top: 50px;
-    text-align: center;
-  } 
-  .companyBox .btnBox .next {
-    position: relative;
-    display: inline-block;
-    width:300px;
-    height:60px;
-    border-radius: 0;
-    background-color: #3F3D56;
+    border-radius: 4px;
+    background-color: #3f3D56;
     color:#fff;
-    font-size:26px;
-    text-align: center;
-    line-height: 60px;
   }
-  
+  /* 강의 카드 */
+.noLec {
+  width:100%;
+  height:300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noLec p {
+  font-size: 16px;
+}
+.lecCard {
+  padding-top: 16px;
+  color:#3F3D56;
+}
+.innerCard {
+  border:1px solid #c4c4c4;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding:8px;
+  background-color: #fff;
+}
+.cardTop {
+  font-size: 14px;  
+
+  line-height: 16px;
+  border-bottom: 1px solid #3F3D56;
+}
+.cardBody {
+  padding:8px;
+}
+.content {
+  display: grid;
+  grid-template-columns: 29% 69%;
+  column-gap: 2%;
+  box-sizing: border-box;
+  padding-top:8px;
+}
+.content img {
+  width:100%;
+  max-height: 50px;
+}
+.content .subtitle {
+  font-size: 14px;
+}
+.content2 {
+  display: grid;
+  grid-template-columns: 60% 35%;
+  column-gap: 5%;
+  box-sizing: border-box;
+  padding-top:8px;
+}
+.content2 .left p {
+  font-size: 12px;
+  line-height: 24px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.content2 .left p .data{
+
+  font-size: 14px;
+  float: right;
+}
+.content2 .left .classDay .data {
+  color:#dd5e5e;
+}
+.content2 .right .upper{
+  height:40px;
+  position: relative;
+}
+.content2 .right .upper button {
+  width:100%;
+  height:100%;
+  font-size: 16px;
+  background-color: #3F3D56;
+  color:#fff;
+  padding:0;
+  border-radius:5px;
+}
+.content2 .right .upper .liveButtonFix {
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+}
+.content2 .right .upper .liveButtonFix button {
+  background-color: #DD5E5E;
+  color:#fff;
+}
+.content2 .right .under {
+  margin-top:3px;
+  height:32px;
+}
+.content2 .right .under button {
+  width:100%;
+  height:100%;
+  font-size: 12px;
+  padding:0;
+  box-sizing: border-box;
+  border:1px solid #c4c4c4;
+  line-height: 32px;
+}
+.studentList{
+  padding-top:8px;
+}
+.studentList .cardTop {
+  line-height: 24px;
+}
+.studentList .cardTop .right {
+  float: right;
+  padding:0;
+  border:1px solid #c4c4c4;
+  font-size: 10px;
+  height:20px;
+  line-height: 20px;
+}
+.studentList .cardBody > div {
+  display: grid;
+  grid-template-columns: 15% calc(31% - 5px) calc(31% - 5px) calc(23% - 5px);
+  grid-template-rows: 24px auto;
+  column-gap: 5px;
+  text-align: center;
+}
+.studentList > div span {
+  height:100%;
+  border-bottom: 1px solid #c4c4c4;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.studentList .tableHeader span {
+  height:100%;
+  border-bottom: 1px solid #dd5e5e;
+}
+.studentInfo {
+  width: 100%;
+  box-sizing: border-box;
+  height: 20px;
+  font-size: 10px;
+  line-height: 20px;
+  border-radius: 4px;
+  border:1px solid #F2A6A3;
+  color: #F2A6A3;
+  padding:0;
+} 
+.certification .content2 .right .upper button {
+  font-size: 12px;
+}
   /* 회원정보입력 */
-  /* 기본정보 */
-  .basic {
-    padding-top : 100px;
+  /* 프로필 정보 */
+  .profile {
     position: relative;
+    color:#3F3D56;
+    box-sizing: border-box;
+    padding:0 10px;
+    padding-top:20px;
+  }
+  .profileInfo {
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:8px;
+    background-color: #fff;
+  }
+  .profileInfo .infoTitle{
+    display: block;
+    border-bottom: 1px solid #3f3D56;
+    font-size: 12px;
+    color:#dd5e5e;
+    font-weight: bold;
+  }
+  .profileInfo .infoTitle .changeBtn {
+    float: right;
+    width:18px;
+    height:18px;
+    background: url(../../../assets/images/icon/pink/edit.png) no-repeat center center / cover;
+  }
+  .profileInfo .floatImg {
+    padding-top: 10px;
+    background: url(../../../assets/images/noImg.png) no-repeat center center / contain;
+
+  }
+  /* 기본정보 */
+ 
+  .basic {
+    position: relative;
+    color:#3F3D56;
+    box-sizing: border-box;
+    padding:0 10px;
+    padding-top:20px;
+  }
+  .basicInfo {
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:8px;
+    background-color: #fff;
   }
   .basicInfo .infoTitle {
-    font-size: 20px;
-    position: absolute;
-    left:0;
-    top:100px;
-    color:#DD5E5E;
+    display: block;
+    border-bottom: 1px solid #3f3D56;
+    font-size: 12px;
+    color:#dd5e5e;
+    font-weight: bold;
   }
   .basicInfo .changePwd {
-    position: absolute;
-    left:0;
-    top:130px;
-    font-size:13px;
+    font-size:12px;
     color:#fff;
+    padding:0 8px;
+    height:32px;
+    line-height: 32px;
+    margin-bottom: 10px;
   }
   .basicInfo .tryToChange {
     background-color: royalblue;
@@ -332,71 +275,29 @@
   .basicInfo .changeCancel {
     background-color: #666;
   }
-  .basicInfo .floatImg {
-    position: absolute;
-    left:0;
-    top:180px;
-    width:175px;
-    height: 210px;
-    border:1px solid #ccc;
-    background: url(../../../assets/images/noImg.png) no-repeat center center / contain;
+  .basicInfo .inputBox {
+    box-sizing: border-box;
+    padding:8px;
   }
-  .basicInfo .changeBtn {
-      width:25px;
-      height:25px;
-      background: url(../../../assets/images/icon/pink/edit.png) no-repeat center center / cover;
-      position: absolute;
-      top:400px;
-      left:150px;
-      z-index:2;      
-  }
-  .basicInfo .gridBox {
-    margin:0 auto;
-    width:790px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 30px;
-  }
-  .basicInfo .gridBox div {
-    width:380px;
+  .basicInfo .inputBox div {
     position: relative;
   }
-  .basicInfo .gridBox div.careerBox {
-    grid-column: 1/ 3;
-    width:100%;
-    padding-top: 20px;
-  }
-  .basicInfo .gridBox div.careerBox span {
-    padding-bottom: 20px;
-  }
-  .basicInfo .gridBox div.careerBox textarea {
-    width:100%;
-    box-sizing: border-box;
-    padding :0.5rem;
-    font-size: 16px;
-  }
-  .basicInfo .gridBox div span {
+  .basicInfo .inputBox div span {
     display:block;
-    font-size: 16px;
+    font-size: 12px;
     color:#3F3D56;
-    line-height: 30px;
   }
-  .basicInfo .gridBox div .mat-form-field {
-    width:380px;
+  .basicInfo .inputBox div .mat-form-field {
     color:#3F3D56;
-    font-size: 22px;
+    font-size: 14px;
     display:block;
     box-sizing: border-box;
-    padding-bottom: 8px;
-    text-indent: 5px;
   }
-  .basicInfo .gridBox div input::placeholder {
+  .basicInfo .inputBox div input::placeholder {
     color:#ccc;
   }
-  .basicInfo .gridBox div input {
-    outline: none;
-  }
-  .basicInfo .gridBox div label {
+  
+  .basicInfo .inputBox div label {
     width:50%;
     font-size: 16px;
     display:inline-block;
@@ -407,33 +308,16 @@
     margin:0!important;
     text-align: center;
   }
-  .basicInfo .gridBox div label input[type=radio]{
-    width:auto;
-    font-size: 22px;
-    display:inline-block;
-    height:20px;
-    box-sizing: border-box;
-    vertical-align: middle;
-  }
-  .basicInfo .gridBox div label input[type='radio']:checked{
-  
-    background-color: #3F3D56;
-  }
-  .basicInfo .gridBox div textarea {
-    display: block;
-    width:100%;
-  }
-  .basicInfo .gridBox div .mat-radio-group {
-    display: inline-block;
+  .basicInfo .inputBox div .mat-radio-group {
     height:40px;
-    padding-top: 15px;
     width:100%;
   }
-  .basicInfo .gridBox div .mat-radio-group .mat-radio-button {
+  .basicInfo .inputBox div .mat-radio-group .mat-radio-button {
     width:50%;
-    font-size: 16px;
+    font-size: 14px;
+    padding-top: 10px;
   }
-  .basicInfo .gridBox div .chkPsw{
+  .basicInfo .inputBox div .chkPsw{
     display: block;
     position: absolute;
     font-size: 14px;
@@ -441,62 +325,46 @@
     top:7px;
     line-height: 16px;
   }
-  /* 계산서유형 */
-  .bill {
-    padding-top : 100px;
-    position: relative;
-  }
-  .billInfo {
-    margin:0 auto;
-    width:790px;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    column-gap: 30px;
-    row-gap: 20px;
-  }
-  .billInfo .infoTitle {
-    font-size: 20px;
-    position: absolute;
-    left:0;
-    top:100px;
-    color:#DD5E5E;
+  .basicInfo .inputBox .careerBox textarea {
+    width:100%;
+    resize: none;
   }
   
-  .billInfo div {
-    width:100%;
+  /* 계산서유형 */
+  .bill {
     position: relative;
+    color:#3F3D56;
+    box-sizing: border-box;
+    padding:0 10px;
+    padding-top:20px;
   }
-  .billInfo div.billKinds {
-    grid-column: 1 / 3 ;
+  .billInfo {
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:8px;
+    background-color: #fff;
   }
-  .billInfo div.billKinds span{
-    padding-bottom: 30px;
+  .billInfo .infoTitle {
+    display: block;
+    border-bottom: 1px solid #3f3D56;
+    font-size: 12px;
+    color:#dd5e5e;
+    font-weight: bold;
+  }
+  
+  .billInfo >  div {
+    padding:0 8px;
   }
   .billInfo div span {
     display:block;
-    height:30px;
-    font-size: 16px;
+    font-size: 12px;
     color:#3F3D56;
-    line-height: 30px;
-    padding-bottom: 15px;
+    padding: 8px 0;
+    font-weight: bold;
   }
   .billInfo div .mat-form-field {
-    position:absolute;
-    right:0;
-    bottom:-1.12rem;
-    width: 150px;
-  }
-  .billInfo div input {
-    width:380px;
-    color:#3F3D56;
-    font-size: 16px;
-    display:block;
-    height:40px;
-    box-sizing: border-box;
-    padding-right: 160px;
-    border:0;
-    border-bottom: 1px solid #c4c4c4;
-    text-indent: 8px;
+    display: block;
   }
   .billInfo div input::placeholder {
     color:#ccc;
@@ -516,111 +384,18 @@
     text-align: center;
   }
   .billInfo div .mat-radio-group {
-    height:40px;
     padding-top: 15px;
     width:100%;
   }
   .billInfo div .mat-radio-group .mat-radio-button {
     display: inline-block;
-    width:25%;
-    font-size: 16px;
-  }
-  /* 추가 정보 */
-  .education {
-    padding-top : 100px;
-    position: relative;
-  }
-  .educationInfo .infoTitle {
-    font-size: 20px;
-    position: absolute;
-    left:0;
-    top:100px;
-    color:#DD5E5E;
-  }
-  .educationInfo .infoTitle button {
-    background-color: #DD5E5E;
-    color:#fff;
-  }
-  .educationInfo {
-    margin:0 auto;
-    width:790px;
-    display: grid;
-    row-gap: 40px;
-  }
-  .educationInfo div {
-    width:100%;
-    height:70px;
-    position: relative;
-  }
-  .educationInfo div .removeBtn {
-    position: absolute;
-    right:-70px;
-    top:40px;
-    background-color: #eee;
-  }
-  .educationInfo div span {
-    box-sizing: border-box;
-    display:block;
-    height:30px;
-    font-size: 20px;
-    color:#3F3D56;
-    line-height: 30px;
-    padding-bottom: 15px;
-  }
-  .educationInfo div span .chkBox{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border:1px solid #c4c4c4;
-    border-radius: 2px;
-    vertical-align: middle;
-    margin-right: 20px;
-  }
-  .educationInfo div span .checked {
-    background-color: #DD5E5E;
-    border-color: #DD5E5E;
-  }
-  .educationInfo div .mat-form-field{
-    width:calc(25% - 10px);
-    color:#3F3D56;
-    font-size: 16px;
-    display:inline-block;
-    height:40px;
-    box-sizing: border-box;
-    padding: 8px;
-    margin: 0 5px;
-    border:0;
-  }
-  .educationInfo div input::placeholder {
-    color:#ccc;
-  }
-  .educationInfo div input {
-    outline: none;
-  }
-  .educationInfo div label input[type=radio]{
-    width:auto;
-    font-size: 22px;
-    display:inline-block;
-    height:20px;
-    box-sizing: border-box;
-    vertical-align: middle;
-  }
-  .educationInfo div label input[type='radio']:checked{
-  
-    background-color: #3F3D56;
-  }
-  .educationInfo div .mat-radio-group {
-    display: inline-block;
-    height:40px;
-    padding-top: 15px;
-    width:100%;
-  }
-  .educationInfo div .mat-radio-group .mat-radio-button {
     width:50%;
-    font-size: 16px;
+    height:25px;
+    font-size: 12px;
   }
+  
   /* 강의 관련정보 */
-  .lecture {
+  /* .lecture {
     padding-top : 50px;
     position: relative;
   }
@@ -697,7 +472,7 @@
     text-align: center;
     line-height: 60px;
   }
-  
+   */
   
   /* lecture list */
   
@@ -750,9 +525,7 @@
     align-items: center;
     border-top: 1px solid #c4c4c4;
   }
-  .subtitle {
-    justify-self: left;
-  }
+  
   .fontA {
     font-family: NanumSquare_ac;
   }
@@ -768,84 +541,16 @@
     font-size: 22px;
     line-height: 28px;
   }
-  .ft-bold {
-    font-weight: bold;
-  }
+
   .c-pink {
     color: #DD5E5E;
   }
 
-.showStudent::after {
-    content: '▼';
-    display: inline-block;
-    color:#DD5E5E;
-    position: absolute;
-}
-.hideStudent::after {
-    content: '▲';
-    display: inline-block;
-    color:#DD5E5E;
-    position: absolute;
-}
-.startClass {
-    width:80px;
-    height:80px;
-    border: 1px solid #F2A6A3;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding:10px 15px 12px;
-    color:#DD5E5E;
-    font-size:20px;
-    text-align: center;
-    margin:0 auto;
-    line-height: 25px;
-    position: relative;
-}
-.startClass::after{
-    content: "";
-    position: absolute;
-    display:block;
-    left:calc(50% - 20px);
-    width:39px;
-    height:8px;
-    background: url(../../../assets/images/icon/pink/half-arrow.png) no-repeat center center / cover;
-}
-.endClass {
-  width:80px;
-    height:80px;
-    border: 1px solid #F2A6A3;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding:10px 15px 12px;
-    color:#DD5E5E;
-    font-size:20px;
-    text-align: center;
-    margin:0 auto;
-    line-height: 30px;
-    position: relative;
-}
-.studentList {
-    margin-top: 20px;
-}
-.studentList tr td {
-    padding:10px 0;
-    border-bottom:1px dashed #c4c4c4;
-    vertical-align: middle;
-}
-.studentList tr:last-child td {
-    border:0;
-}
+
 .sendKit {
     width:33px;
     height:30px;
     background: url(../../../assets/images/icon/white/kit.png) no-repeat center center / cover;
 }
-.studentInfo {
-  width:90px;
-  height: 40px;
-  border-radius: 4px;
-  border:2px solid #F2A6A3;
-  color: #F2A6A3;
-  font-weight: bold;
-}
+
 
