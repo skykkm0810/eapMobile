@@ -73,6 +73,7 @@ import { RqstPersonalClassComponent } from './page/rqst-personal-class/rqst-pers
 import { RqstCompanyClassComponent } from './page/rqst-company-class/rqst-company-class.component';
 import { InquireComponent } from './page/inquire/inquire.component';
 import { EndLectureComponent } from './page/end-lecture/end-lecture.component';
+import { MarketingComponent } from './modal/marketing/marketing.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { EndLectureComponent } from './page/end-lecture/end-lecture.component';
     RqstPersonalClassComponent,
     RqstCompanyClassComponent,
     InquireComponent,
-    EndLectureComponent
+    EndLectureComponent,
+    MarketingComponent
   ],
   imports: [
     BrowserModule,

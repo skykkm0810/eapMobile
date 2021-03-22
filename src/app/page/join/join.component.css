@@ -1,11 +1,23 @@
+.wrap {
+    height:100%;
+    color:#3F3D56;
+}
+.innerWrap {
+    height:100%;
+    background-color: #F7F8FC;
+}
+ul {
+    margin:0;
+}
 /* 체크박스 설정 */
 .agreeHole {
     display: block;
-    width:24px;
-    height:24px;
+    width:16px;
+    height:16px;
     border:1px solid #c4c4c4;
     background-color: #f2f2f2;
     border-radius: 100%;
+    float: right;
 }
 .checked {
     background-color: #dd5e5e;
@@ -14,82 +26,89 @@
 }
 .checked::after{
     content: '';
-    width:17px;
-    height:13px;
+    width:10px;
+    height:10px;
     position: absolute;
-    left:3.5px;
-    top:5.5px;
+    left:2px;
+    top:2px;
     background: url(../../../assets/images/icon/white/chk.png) no-repeat center center / cover;
 }
 /* --------------------------------------------------- */
-.wrap { padding-bottom: 50px; color:#3F3D56;}
-.innerWrap {
-    padding-top: 40px;
-}
 h2 {
     text-indent: 10px;
     color:#3F3D56;
     border-bottom:1px solid #c4c4c4;
 }
-.tabBox {
-    margin-top: 50px;
-}
 .tabBox li {
-    height:60px;
+    height:40px;
     display: inline-block;
-    width:calc(33.3% - 2px);
-    border-right:1px solid #ffdddd;
-    border-top: 1px solid #ffdddd;
-    border-bottom:1px solid #dd5e5e;
+    width:25%;
+    background-color: #fff;
     text-align: center;
-    line-height: 60px;
-    font-size: 26px;
-    color:#c4c4c4;
+    line-height: 40px;
+    font-size: 12px;
+    color:#3F3D56;
+    box-sizing: border-box;
+    border-right: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
 }
-.tabBox li:nth-child(1){
-    border-left: 1px solid #ffdddd;
-    width:calc(33.3% - 2px);
+.tabBox li:last-child {
+    border-right: 0;
 }
+
 .tabBox li.on {
-    background-color: #dd5e5e;
-    color: #fff;
-    border-color: #dd5e5e;
+    border-bottom-color: #dd5e5e;
 }
 .tabContentBox {
-    padding-top: 67px;
+    padding:15px;
 }
 .tabContentBox > p {
+
     color:#3F3D56;
     font-size: 26px;
-    text-align: center;
+    line-height: 29px;
+    text-align: left;
     margin: 0 !important;
+    word-break: keep-all;
 
 }
 
 /* 이용약관동의 */
+.agreement {
+    box-sizing: border-box;
+    padding-top: 20px;
+}
 .agreeBox {
-    padding-top: 40px;
+    margin-top: 20px;
+    background-color: #fff;
+    border:1px solid #c4c4c4;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding:10px;
 }
 .agreeBox > p {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 5px;
     border-bottom: 1px solid #dd5e5e;
     color:#dd5e5e;
-    padding-bottom: 10px;
     text-indent: 10px;
     margin: 0 !important;
 }
-.agreeBox > p span {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-}
+
 .agreeBox > div {
-    padding-top: 30px;
     position: relative;
+    padding:15px 0;
 }
 .agreeBox .agreeKinds {
-    font-size: 18px;
-    margin-bottom: 30px!important;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    line-height: 25px;
+    margin:0!important;
+    color:#555555;
+    text-indent: 5px;
+    font-weight: 500;
 }
 .agreeBox .agreeDetail {
     height:162px;
@@ -99,26 +118,21 @@ h2 {
     overflow-y: scroll;
 }
 .agreeBox > div label {
-    margin-top: 20px;
+    float: right;
 }
-.agreeBox > div .agreeHole {
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 10px;
-}
-.agreeBox .btnBox {
-    padding-top: 45px;
+.agreement .btnBox {
+    padding-top: 30px;
     text-align: center;
 } 
-.agreeBox .btnBox .next {
-    width:300px;
-    height:60px;
-    border-radius: 0;
+.agreement .btnBox .next {
+    width:100%;
+    height:40px;
+    border-radius: 4px;
     background-color: #dd5e5e;
     color:#fff;
-    font-size:26px;
+    font-size:18px;
     text-align: center;
-    line-height: 60px;
+    line-height: 40px;
 }
 /* 이메일 인증 */
 .emailBox {

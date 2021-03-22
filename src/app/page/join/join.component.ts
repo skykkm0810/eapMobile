@@ -344,5 +344,8 @@ export class JoinComponent implements OnInit {
         this.close();
     }
   }
+  showPolicy(n){
+    
+  }
 }
 

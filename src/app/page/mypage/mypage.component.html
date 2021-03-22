@@ -1,17 +1,46 @@
 <script src="./assets/js/address.js"></script>
 <div class="wrap" (click)='popupRemove($event)'>
+  <h2 class="hidden">마이페이지</h2>
+  <ul class="tabBox">
+    <li class="bold pointer on" (click)="tabclick($event)">신청 강의 목록</li>
+    <li class="bold pointer " (click)="tabclick($event)">완료된 강의 목록</li>
+    <li class="bold pointer " (click)="tabclick($event)">나의 문의</li>
+    <li class="bold pointer " (click)="tabclick($event)">개인 정보 변경</li>
+  </ul>
   <div class="innerWrap">
-    <h2>마이페이지</h2>
-    <ul class="tabBox">
-      <li class="bold pointer on" (click)="tabclick($event)">신청 강의 목록</li>
-      <li class="bold pointer " (click)="tabclick($event)">완료된 강의 목록</li>
-      <li class="bold pointer " (click)="tabclick($event)">나의 문의</li>
-      <li class="bold pointer " (click)="tabclick($event)">개인 정보 변경</li>
-    </ul>
     <form action="/">
 
-      <div class="agreement tabContentBox">
-        <table class="lecTb">
+      <div class="agreement tabContentBox hidden">
+        <div class="lecCard" *ngFor="let l of receipt_yet">
+          <div class="innerCard">
+            <p class="cardTop">신청 강의 목록</p>
+            <div class="cardBody">
+              <p class="buylabel">결재일</p>
+              <p class="buyday">{{ l.date | date: 'Y-M-d' }}</p>
+              <div class="lecContent">
+                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진">
+                <div class="content">
+                  <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분 {{l.lecture[0].currs.length}}회기</span></p>
+                  <p class="lecTitle">{{ l.lecture[0].title }}</p>
+                </div>
+              </div>
+              <div class="currs">
+                <div class="tableHeader">
+                  <span class="block bold">회기</span>
+                  <span class="block bold">날짜</span>
+                  <span class="block bold">시간</span>
+                </div>   
+                <div *ngFor="let c of l.lecture[0].currs">
+                  <span>{{ c.stage }}회기</span>
+                  <span *ngIf="c.date != null">{{ c.date | date: 'M월 d일' }}</span>
+                  <span class="liveBox">{{ c.date | date: 'HH:mm'}} ({{ c.dur }}분) </span>
+                  <button *ngIf='c.set === true' mat-button class="goLive pointer block" (click)='goLive(c.id)'>수업시작</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <table class="lecTb">
           <colgroup>
             <col width="180px">
             <col width="230px">
@@ -49,10 +78,39 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </div>
       <div class="certification tabContentBox hidden">
-        <table class="lecTb">
+        <div class="lecCard" *ngFor="let l of receipt_end">
+          <div class="innerCard">
+            <p class="cardTop">완료 강의 목록</p>
+            <div class="cardBody">
+              <p class="buylabel">결재일</p>
+              <p class="buyday">{{ l.date | date: 'Y-M-d' }}</p>
+              <div class="lecContent">
+                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진">
+                <div class="content">
+                  <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분 {{l.lecture[0].currs.length}}회기</span></p>
+                  <p class="lecTitle">{{ l.lecture[0].title }}</p>
+                </div>
+              </div>
+              <div class="currs">
+                <div class="tableHeader">
+                  <span class="block bold">회기</span>
+                  <span class="block bold">날짜</span>
+                  <span class="block bold">시간</span>
+                </div>   
+                <div *ngFor="let c of l.lecture[0].currs">
+                  <span>{{ c.stage }}회기</span>
+                  <span *ngIf="c.date != null">{{ c.date | date: 'M월 d일' }}</span>
+                  <span class="liveBox">{{ c.date | date: 'HH:mm'}} ({{ c.dur }}분) </span>
+                  <button *ngIf='c.set === true' mat-button class="goLive pointer block" (click)='goLive(c.id)'>수업시작</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <table class="lecTb">
           <colgroup>
             <col width="180px">
             <col width="230px">
@@ -90,13 +148,42 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </div>
-      <div class="inquire tabContentBox hidden">
-        <div class="titleBox">
-          <p class="title">문의 내역</p>
+      <div class="inquire tabContentBox">
+        <div class="lecCard">
+          <div class="innerCard">
+            <p class="cardTop">문의 내역</p>
+            <div class="cardBody">
+              <div class="question">
+                <div class="tableHeader">
+                  <span class="block">문의 제목</span>
+                  <span class="block">처리결과</span>
+                </div>   
+                <div *ngFor='let f of fake' class="tableBody">
+                  <span class="bold ellipse">{{f.title}}<span class="arrow pointer" (click)="showInq($event)"></span></span>
+                  <span class="bold">{{f.process}}</span>
+                  <div class="inqBox">
+                    <div class="inqinnerBox">
+                      <div class="inqQ">
+                        <p class="bold">답변</p>
+                        <div class="textBox whiteWrap">{{f.answer}}</div>
+                      </div>
+                      <div class="inqA">
+                        <p class="bold">문의내용</p>
+                        <div class="textBox whiteWrap">{{f.que}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <table class="inqTable">
+        <!-- <div class="titleBox">
+          <p class="title">문의 내역</p>
+        </div> -->
+        <!-- <table class="inqTable">
           <thead>
             <tr>
               <th><div>문의번호</div></th>
@@ -129,7 +216,7 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
         <div class="goInquire">
           <button mat-button>문의하기</button>
         </div>

@@ -1,6 +1,6 @@
 import { getLocaleDateTimeFormat } from '@angular/common';
 import { Router } from '@angular/router';
-import { Component, ElementRef, OnInit, Renderer2, ViewChild, ɵɵresolveBody } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild, ɵɵresolveBody } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Environment } from 'src/app/environment/environment';
 import { INTERESTS } from 'src/app/interface/interface';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './mypage.component.html',
   styleUrls: ['./mypage.component.css']
 })
-export class MypageComponent implements OnInit {
+export class MypageComponent implements OnInit, AfterViewInit {
 
   constructor(
     private phxChannel: PhxChannelService,
@@ -49,7 +49,6 @@ export class MypageComponent implements OnInit {
           let idx = el.lecture[0].currs.length;
           // console.log(idx);
           for(var i =0; i<idx; i++){
-              
             if( el.lecture[0].currs[i].date == null ) {
               yet = true;
               el.lecture[0].currs[i].set = false;
@@ -75,18 +74,21 @@ export class MypageComponent implements OnInit {
         } else {
           yet = true;  
         }
+        
         if( yet ) {
           this.receipt_yet.push(el);
         } else {
           this.receipt_end.push(el);
         }
+
       })
       console.log(this.receipt_yet, this.receipt_end);
+      
     })
     phxChannel.UserUp.subscribe( () => {
       window.location.reload();
     })
-
+    
   }
 
   ngOnInit(): void {
@@ -121,7 +123,9 @@ export class MypageComponent implements OnInit {
     }
 
   }
-
+  ngAfterViewInit(){
+    
+  }
 
   @ViewChild('daum_popup', { read: ElementRef, static: true }) popup: ElementRef;
 
@@ -133,7 +137,7 @@ export class MypageComponent implements OnInit {
     {num : 1000, 
       date:'2021-03-10', 
       title:'글자가넘어가나요?글자가넘어가나요?글자가넘어가나요?글자가넘어가나요?', 
-      que:'이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구',
+      que:'이러저러어쩌구저쩌구이    러저러어쩌구저쩌구이러저러어쩌구    저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이    러저러어쩌구저쩌구이러저러어쩌구    저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구이    러저러어쩌구저쩌구이러저러어쩌구    저쩌구이러저러어쩌구저쩌구이러저러어쩌구저쩌구',
       answer:'답변했씁니다.',
       process:'처리중'
      },
@@ -160,6 +164,7 @@ export class MypageComponent implements OnInit {
         currs: [{ id: null, set: false, date: null, dur: 0, stage: 1, title: ''}],
         title: '',
         thumbnail1: '',
+        totalDur:0,
       }]
     }
   ];
@@ -171,6 +176,7 @@ export class MypageComponent implements OnInit {
         currs: [{ id: null, set: false, date: null, dur: 0, stage: 1, title: ''}],
         title: '',
         thumbnail1: '',
+        totalDur:0,
       }]
     }
   ];

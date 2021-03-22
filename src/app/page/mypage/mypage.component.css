@@ -1,26 +1,17 @@
+.gray {
+  color:#555555;
+}
+ul {
+  margin:0;
+}
+p {
+  margin:0;
+}
+img {
+  width:100%;
+  height:100%;
+}
 /* 체크박스 설정 */
-.agreeHole {
-  display: block;
-  width:24px;
-  height:24px;
-  border:1px solid #c4c4c4;
-  background-color: #f2f2f2;
-  border-radius: 100%;
-}
-.checked {
-  background-color: #3F3D56;
-  position: relative;
-  border-color: #3F3D56;
-}
-.checked::after{
-  content: '';
-  width:17px;
-  height:13px;
-  position: absolute;
-  left:3.5px;
-  top:5.5px;
-  background: url(../../../assets/images/icon/white/chk.png) no-repeat center center / cover;
-}
 .checkFalse::after {
   content: '체크해제';
   cursor:pointer;
@@ -34,301 +25,176 @@
 }
 /* 수업버튼 */
 .goLive {
-  font-size: 16px;
-  width:100px;
-  height:30px;
-  border :1px solid #DD5E5E;
-  color:#DD5E5E;
-  border-radius: 10px;
-  bottom:-25px;
-  left: calc(50% - 50px);
-}
-.goLive:hover {
+  grid-column: 3 / 4;
+  font-size: 18px;
+  width:100%;
+  height:40px;
+  border :1px solid #3f3D56;
+  background-color: #3F3D56;
   color:#fff;
-  background-color: #DD5E5E;
+  border-radius: 4px;
+  margin-top:10px;
+  padding:0;
 }
 
+
 /* --------------------------------------------------- */
-.wrap { padding-bottom: 50px;}
+.wrap { 
+  padding-bottom: 50px;
+}
 .innerWrap {
-  padding-top: 40px;
-}
-h2 {
-  font-size: 30px;
-  text-indent: 10px;
-  color:#3F3D56;
-  padding-bottom: 10px;
-  border-bottom:1px solid #c4c4c4;
-  font-weight: bold;
-}
-.tabBox {
-  margin-top: 50px;
+  box-sizing: border-box;
+  padding:0 10px;
 }
 .tabBox li {
-  height:60px;
+  height:32px;
   display: inline-block;
-  width:calc(25% - 2px);
-  border-right:1px solid #F7F8FC;
-  border-top: 1px solid #F7F8FC;
+  box-sizing: border-box;
+  width:25%;
+  border-right:1px solid #c4c4c4;
+  border-top: 1px solid #c4c4c4;
   border-bottom:1px solid #3F3D56;
   text-align: center;
-  line-height: 60px;
-  font-size: 26px;
-  color:#c4c4c4;
+  line-height: 32px;
+  font-size: 11px;
+  color: #3F3D56;
 }
 .tabBox li:nth-child(1){
   border-left: 1px solid #F7F8FC;
 }
 .tabBox li.on {
-  background-color: #3F3D56;
-  color: #fff;
-  border-color: #3F3D56;
+  border-bottom-color: #DD5E5E;
 }
 .tabContentBox {
   padding-top: 0;
 }
-.tabContentBox > p {
-  color:#3F3D56;
-  font-size: 26px;
-  text-align: center;
-  margin: 0 !important;
 
-}
-
-/* 이용약관동의 */
-.agreeBox {
-  padding-top: 40px;
-}
-.agreeBox > p {
-  font-size: 20px;
-  border-bottom: 1px solid #3F3D56;
+/* 강의 카드 */
+.lecCard {
+  padding-top: 16px;
   color:#3F3D56;
-  padding-bottom: 10px;
-  text-indent: 10px;
-  margin: 0 !important;
 }
-.agreeBox > p span {
-  float:right;
-}
-.agreeBox > div {
-  padding-top: 30px;
-  position: relative;
-}
-.agreeBox .agreeKinds {
-  font-size: 18px;
-  margin-bottom: 30px!important;
-}
-.agreeBox .agreeDetail {
-  height:162px;
+.innerCard {
   border:1px solid #c4c4c4;
+  border-radius: 8px;
   box-sizing: border-box;
-  padding:1rem;
-  overflow-y: scroll;
+  padding:8px;
 }
-.agreeBox > div .agreeHole {
-  position: absolute;
-  right:0;
-  top:30px;
-}
-.agreeBox .btnBox {
-  padding-top: 45px;
-  text-align: center;
-} 
-.agreeBox .btnBox .next {
-  width:300px;
-  height:60px;
-  border-radius: 0;
-  background-color: #3F3D56;
-  color:#fff;
-  font-size:26px;
-  text-align: center;
-  line-height: 60px;
-}
-/* 이메일 인증 */
-.emailBox {
-  padding-top: 100px;
-}
-.emailBox > p {
-  text-align: center;
-  width: 600px;
-  height:60px;
-  line-height: 60px;
-  font-size: 30px;
+.cardTop {
+  font-size: 14px;  
+  font-weight: bold;
+  line-height: 16px;
   border-bottom: 1px solid #3F3D56;
-  color:#3F3D56;
-  text-indent: 10px;
-  margin: 0 auto !important;
-  position: relative;
 }
-.emailBox > p .designA {
-  position: absolute;
-  bottom:-6px;
-  left:calc(50% - 15px);
+.cardBody {
+  padding:8px;
 }
-.emailBox > div {
-  position: relative;
-  width:540px;
-  height:70px;
-  margin:0 auto;
+.buylabel {
+  font-size: 12px;
+  color:#555555;
 }
-.emailBox .mailAddress {
-  padding-top: 104px;
-}
-.emailBox .mailCertifi {
-  padding-top: 56px;
-}
-.emailBox > div > div {
-  width:380px;
-  height:70px;
-}
-.emailBox > div > div span {
-  display:block;
-  height:30px;
-  font-size: 22px;
-  color:#3F3D56;
-  line-height: 30px;
-}
-.emailBox > div > div input {
-  width:380px;
-  color:#3F3D56;
-  font-size: 22px;
-  display:block;
-  height:40px;
-  box-sizing: border-box;
-  padding-bottom: 8px;
-  border:0;
-  border-bottom: 1px solid #c4c4c4;
-  text-indent: 15px;
-}
-.emailBox > div > div input::placeholder{
-  color:#ccc;
-}
-.emailBox > div > div input:focus {
-  outline: none;
-}
-.emailBox > div > button {
-  width:130px;
-  height:40px;
-  border:1px solid #3F3D56;
-  color:#3F3D56;
-  font-size: 18px;
+.buyday {
+  font-size: 14px;
   line-height: 20px;
-  border-radius: 0;
-  text-align: center;
-  padding:0;
-  position: absolute;
-  right:0;
-  bottom:0;
-}
-.emailBox > div.btnBox {
-  padding-top: 300px;
-  text-align: center;
-} 
-.emailBox .btnBox .next {
-  position: relative;
-  display: inline-block;
-  width:300px;
-  height:60px;
-  border-radius: 0;
-  background-color: #3F3D56;
-  color:#fff;
-  font-size:26px;
-  text-align: center;
-  line-height: 60px;
-}
-.companyBox {
-  padding-top: 100px;
-}
-.companyBox > p {
-  text-align: center;
-  width: 600px;
-  height:60px;
-  line-height: 60px;
-  font-size: 30px;
-  border-bottom: 1px solid #3F3D56;
-  color:#3F3D56;
-  text-indent: 10px;
-  margin: 0 auto !important;
-  position: relative;
-}
-.companyBox > p .designA {
-  position: absolute;
-  bottom:-6px;
-  left:calc(50% - 15px);
-}
-.companyBox > div {
-  position: relative;
-  width:540px;
-  height:70px;
-  margin:0 auto;
-  padding-top: 40px;
-}
-.companyBox > div > div {
-  width:100%;
-  height:70px;
-} 
-.companyBox > div > div span {
-  display:block;
-  height:30px;
-  font-size: 22px;
-  color:#3F3D56;
-  line-height: 30px;
-}
-.companyBox > div > div input {
-  width:100%;
-  color:#3F3D56;
-  font-size: 22px;
-  display:block;
-  height:40px;
-  box-sizing: border-box;
-  padding-bottom: 8px;
-  border:0;
+  font-weight: bold;
+  color:#dd5e5e;
   border-bottom: 1px solid #c4c4c4;
-  text-indent: 15px;
 }
-.companyBox .companyCode > div > input  {
-  width: 380px;
+.lecContent {
+  display: grid;
+  grid-template-columns: 29% 69%;
+  column-gap: 2%;
+  box-sizing: border-box;
+  padding-top:8px;
 }
-.companyBox > div > div input::placeholder{
-  color:#ccc;
+.lecContent img {
+  width:100%;
+  max-height: 50px;
 }
-.companyBox > div > div input:focus{
-  outline: none;
+.lecContent .content .upper{
+  font-size: 12px;
 }
-.companyBox > div > button{
-  width:130px;
-  height:40px;
-  border:1px solid #3F3D56;
-  color:#3F3D56;
-  font-size: 18px;
-  line-height: 20px;
-  border-radius: 0;
+.lecContent .content .lecTitle {
+  font-size: 12px;
+  font-weight: bold;
+}
+.currs{
+  padding-top:8px;
+}
+.currs > div {
+  display: grid;
+  grid-template-columns: 20% calc(40% - 10px) calc(40% - 10px);
+  grid-template-rows: 24px auto;
+  column-gap: 10px;
   text-align: center;
-  padding:0;
-  position: absolute;
-  right:0;
-  bottom:0;
 }
-.companyBox .companyInfo {
-  padding-top: 120px;
-  position: relative;
+.currs > div span {
+  height:100%;
+  border-bottom: 1px solid #c4c4c4;
+}
+.currs .tableHeader span {
+  height:100%;
+  border-bottom: 1px solid #dd5e5e;
+}
+/* 문의 카드 */
+.question > div {
+  display: grid;
+  grid-template-columns: calc(70% - 10px) 30%; 
+  column-gap: 10px;
+  text-align: center;
+}
+.question > div span {
+  height:100%;
+  border-bottom: 1px solid #c4c4c4;
+}
+.question .tableHeader span {
+  height:100%;
+  border-bottom: 1px solid #dd5e5e;
 }
 
-.companyBox .btnBox {
-  padding-top: 50px;
-  text-align: center;
-} 
-.companyBox .btnBox .next {
+.tableBody span.ellipse {
+  text-overflow: ellipsis;  
+  box-sizing: border-box;
+  padding-right:20px;
+  overflow-x: hidden;
+  white-space: nowrap;
   position: relative;
-  display: inline-block;
-  width:300px;
-  height:60px;
-  border-radius: 0;
-  background-color: #3F3D56;
-  color:#fff;
-  font-size:26px;
-  text-align: center;
-  line-height: 60px;
+}
+.tableBody span.ellipse .arrow {
+  display: block;
+  width:16px;
+  height:16px;
+  position: absolute;
+  right:0;
+  top:calc(50% - 8px);
+  border:0;
+  background: url(../../../assets/images/icon/pink/arrow_bottom.png) no-repeat center center / contain;
+  transition-duration: 0.5s;
+}
+.tableBody span.ellipse .rotate {
+  transform:rotate(180deg) ;
+  transition-duration: 0.5s;
+}
+.tableBody .inqBox {
+  grid-column: 1 / 3;
+  padding-top:5px;
+  text-align: left;
+}
+.tableBody .inqinnerBox {
+  box-sizing: border-box;
+  padding:5px;
+  font-size: 14px;
+}
+.tableBody .inqinnerBox > div p {
+  padding:5px 0;
+}
+.tableBody .inqinnerBox > div .textBox {
+  border:1px solid #c4c4c4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding:4px;
+  height:120px;
+  overflow-y:scroll;
 }
 
 /* 회원정보입력 */
@@ -662,46 +528,6 @@ h2 {
 
 /* lecture list */
 
-.lecTb {
-  width: 100%;
-}
-.lecTb tr {
-  text-align: center;
-  height:50px;
-}
-.lecTb tr th {
-  border-bottom: 1px solid #C4C4C4;
-}
-.lecTb tr td {
-  border-bottom: 1px solid #C4C4C4;
-}
-.lecTb th {
-  font-size: 18px;
-  line-height: 20px;
-}
-.lecTb img {
-  width: 95%;
-  max-height: 220px;
-  min-height: 185px;
-  padding: 20px 0;
-}
-
-.lecTb p{
-  text-align: center;
-  padding: 10px 0 ;
-  margin: 0;
-}
-.tdgCtnr {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 370px 130px 180px 1fr;
-  justify-items: center;
-  align-items: center;
-  border-top: 1px dashed #C4C4C4;
-}
-.subtitle {
-  justify-self: left;
-}
 .fontA {
   font-family: NanumSquare_ac;
 }

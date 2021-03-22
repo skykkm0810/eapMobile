@@ -1,46 +1,45 @@
 <script src="./assets/js/address.js"></script>
 <div class="wrap" (click)='popupRemove($event)'>
   <div class="innerWrap">
-    <h2>회원가입</h2>
+    <h2 class="hidden">회원가입</h2>
     <ul class="tabBox">
       <li class="bold on">이용약관 동의</li>
       <li class="bold ">본인 인증</li>
       <li class="bold ">회원 정보 입력</li>
-      <!-- <li class="bold ">가입 완료</li> -->
+      <li class="bold ">가입 완료</li>
     </ul>
     <form action="/">
-
       <div class="agreement tabContentBox">
         <p class="bold">서비스 이용을 위해 이용약관 동의가 필요합니다.</p>
         <div class="agreeBox">
           <p class="allAgree bold">전체 동의<span class="agreeHole pointer" (click)='allchk($event)'></span></p>
           <div>
-            <p class="agreeKinds"><span class="underline">이용약관</span> (필수)</p>
-            <div class="agreeDetail" style="white-space:pre-wrap;">
+            <p class="agreeKinds"><span class="underline pointer" (click)='showPolicy(1)'>이용약관</span> (필수)</p>
+            <div class="agreeDetail hidden" style="white-space:pre-wrap;">
               {{ agreement.userRule }}
             </div>
-            <label class="pointer need neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
-                type="checkbox" name="a_info_useage" class="hidden" required> 동의 </label>
+            <label class="pointer neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
+                type="checkbox" name="a_info_useage" class="hidden" required></label>
           </div>
           <div>
-            <p class="agreeKinds"><span class="underline">개인정보취급방침</span> 이용약관 (필수)</p>
-            <div class="agreeDetail" style="white-space:pre-wrap;">
+            <p class="agreeKinds"><span class="underline pointer" (click)='showPolicy(2)'>개인정보취급방침</span> 이용약관 (필수)</p>
+            <div class="agreeDetail hidden" style="white-space:pre-wrap;">
               {{ agreement.privRule }}
             </div>
-            <label class="pointer need neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
-                type="checkbox" name="a_info_useage" class="hidden" required> 동의 </label>
+            <label class="pointer neccesary"><span class="agreeHole" (click)="onechk($event)"></span><input
+                type="checkbox" name="a_info_useage" class="hidden" required></label>
           </div>
           <div>
-            <p class="agreeKinds"><span class="underline">마케팅 활용 동의</span> (선택)</p>
-            <div class="agreeDetail" style="white-space:pre-wrap;">
+            <p class="agreeKinds"><span class="underline pointer" (click)='showPolicy(3)'>마케팅 활용 동의</span> (선택)</p>
+            <div class="agreeDetail hidden" style="white-space:pre-wrap;">
               {{ agreement.marketing }}
             </div>
-            <label class="pointer "><span class="agreeHole" (click)="onechk($event)"></span><input type="checkbox"
-                name="a_info_useage" class="hidden" required> 동의 </label>
+            <label class="pointer"><span class="agreeHole" (click)="onechk($event)"></span><input type="checkbox"
+                name="a_info_useage" class="hidden" required></label>
           </div>
-          <div class="btnBox">
-            <button mat-button class="next bold" (click)='beforeNext1($event)'>다음</button>
-          </div>
+        </div>
+        <div class="btnBox">
+          <button mat-button class="next bold" (click)='beforeNext1($event)'>다음</button>
         </div>
       </div>
       <div class="certification tabContentBox hidden">
@@ -134,7 +133,8 @@
                 <span class="need">비밀번호</span>
                 <span class="chkPsw" [ngStyle]='{"color":pwdRule.color}'>{{pwdRule.word}}</span>
                 <mat-form-field>
-                  <input matInput type="password" name="b.pwd" [(ngModel)]="info.pwd" required minlength="8" maxlength="20" (change)='pwdLength($event)'>
+                  <input matInput type="password" name="b.pwd" [(ngModel)]="info.pwd" required minlength="8"
+                    maxlength="20" (change)='pwdLength($event)'>
                 </mat-form-field>
               </div>
               <div>
@@ -147,7 +147,8 @@
                 <span class="need">비밀번호 확인</span>
                 <span class="chkPsw" [ngStyle]='{"color":pwdChk.color}'>{{pwdChk.word}}</span>
                 <mat-form-field>
-                  <input matInput type="password" name="b.pwd2" required [(ngModel)]="pwdChk.correct" (keyup)='passChk()'>
+                  <input matInput type="password" name="b.pwd2" required [(ngModel)]="pwdChk.correct"
+                    (keyup)='passChk()'>
                 </mat-form-field>
               </div>
               <div>
@@ -177,7 +178,7 @@
                   <input matInput type="text" name="b.subaddr" [(ngModel)]="info.subaddr" required>
                 </mat-form-field>
               </div>
-              
+
               <div>
                 <span class="need">성별</span>
                 <mat-radio-group [(ngModel)]="info.gender" [ngModelOptions]="{standalone: true}">
