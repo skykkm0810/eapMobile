@@ -137,6 +137,9 @@ img {
   border-bottom: 1px solid #dd5e5e;
 }
 /* 문의 카드 */
+.inquire {
+  padding-bottom: 70px;
+}
 .question > div {
   display: grid;
   grid-template-columns: calc(70% - 10px) 30%; 
@@ -196,19 +199,35 @@ img {
   height:120px;
   overflow-y:scroll;
 }
-
+.inquire .goInquire {
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:56px;
+  border-top:1px solid #c4c4c4;
+}
+.inquire .goInquire button {
+  width:300px;
+  height:40px;
+  position: absolute;
+  left:calc(50% - 150px);
+  top:calc(50% - 20px);
+  padding:0;
+  background-color: #3f3D56;
+  color:#fff;
+  font-weight: bold;
+}
 /* 회원정보입력 */
 /* 기본정보 */
 .basic {
-  padding-top : 100px;
   position: relative;
+  color:#3F3D56;
 }
 .basicInfo .infoTitle {
-  font-size: 20px;
-  position: absolute;
-  left:0;
-  top:100px;
-  color:#3F3D56;
+  font-size: 12px;
+  color:#dd5e5e;
+  font-weight: bold;
 }
 .basicInfo .changePwd {
   position: absolute;
@@ -548,119 +567,4 @@ img {
 }
 .c-pink {
   color: #DD5E5E;
-}
-/* 문의 내역 */
-.inquire .titleBox {
-  padding-top: 27px;
-  border-bottom: 1px solid #c4c4c4;
-}
-.inquire .titleBox .title {
-  width: 280px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  font-size: 26px;
-  font-weight: bold;
-  background-color: #eeeeee;
-  margin-bottom: 0;
-}
-.inquire table {
-  margin-top: 40px;
-  width:100%;
-} 
-.inquire table th:nth-child(1) {width:205px;box-sizing: border-box; padding-right: 30px;}
-.inquire table th:nth-child(2) {width:205px;box-sizing: border-box; padding-right: 30px;}
-.inquire table th:nth-child(3) {width:615px;box-sizing: border-box; padding-right: 30px;}
-.inquire table th:nth-child(4) {width:175px;}
-.inquire table th div{
-  text-align: center;
-  font-size: 18px;
-  line-height: 20px;
-  box-sizing: border-box;
-  padding-bottom: 15px;
-  border-bottom: 15px;
-  border-bottom: 1px solid #c4c4c4;
-}
-.inquire table td .tdGrid {
-  display: grid;
-  grid-template-columns: 205px 205px 615px 175px;
-}
-.inquire table td .tdGrid div {
-  text-align: center;
-  height:80px;
-  padding-right: 30px;
-  border-bottom:1px solid #c4c4c4;
-  position: relative;
-}
-.inquire table td .tdGrid div:last-child {
-  padding-right: 0;
-}
-.inquire table td .tdGrid div span {
-  display: block;
-  padding-top: 32px;
-  font-size: 18px;
-  line-height: 20px;
-}
-.inquire table td .tdGrid div p {
-  margin:0;
-  padding-top: 21px;
-  font-size: 22px;
-  line-height: 38px;
-  font-weight: bold;
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.inquire table td .tdGrid div p.tit {
-  padding:21px 32px 0;
-  text-align: left;
-}
-.inquire table td .tdGrid div .arrow {
-  width:30px;
-  height:24px;
-  position: absolute;
-  top:calc(50% - 12px);
-  right:30px;
-  background: url(../../../assets/images/icon/pink/arrow_bottom.png) no-repeat center center / contain;
-  transition-duration: 0.5s;
-}
-.inquire table td .tdGrid div .rotate {
-  transform:rotate(180deg) ;
-  transition-duration: 0.5s;
-}
-.inquire table td .inqBox {
-  text-align: right;
-  padding-bottom: 20px;
-}
-.inquire table td .inqinnerBox {
-  display: inline-block;
-  width:790px;
-  text-align: left;
-}
-.inquire table td .inqinnerBox > div {
-  padding-top: 10px;
-}
-.inquire table td .inqinnerBox > div p {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 23px;
-}
-.inquire table td .inqinnerBox > div .textBox {
-  width:100%;
-  height:120px;
-  box-sizing: border-box;
-  padding: 1rem;
-  border:1px solid #c4c4c4;
-}
-.inquire .goInquire {
-  padding-top: 150px;
-  text-align: right;
-}
-.inquire .goInquire button {
-  width:250px;
-  height:50px;
-  background-color: #3F3D56;
-  color:#fff;
-  font-weight: bold;
-  font-size: 26px;
 }

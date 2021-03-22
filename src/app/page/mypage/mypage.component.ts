@@ -359,7 +359,7 @@ export class MypageComponent implements OnInit, AfterViewInit {
   }
   showInq(e:Event){
     let thisTag = e.target as HTMLElement;
-    let viewBox = thisTag.closest('td').getElementsByClassName('inqBox')[0] as HTMLElement;
+    let viewBox = thisTag.closest('.tableBody').getElementsByClassName('inqBox')[0] as HTMLElement;
     console.log(viewBox)
     if(thisTag.classList.contains('rotate')){
       thisTag.classList.remove('rotate');

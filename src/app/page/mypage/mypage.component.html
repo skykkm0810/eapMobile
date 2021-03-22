@@ -18,7 +18,7 @@
               <p class="buylabel">결재일</p>
               <p class="buyday">{{ l.date | date: 'Y-M-d' }}</p>
               <div class="lecContent">
-                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진">
+                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진" [routerLink]="['/detail/'+l.lecture[0].id]">
                 <div class="content">
                   <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분 {{l.lecture[0].currs.length}}회기</span></p>
                   <p class="lecTitle">{{ l.lecture[0].title }}</p>
@@ -88,7 +88,7 @@
               <p class="buylabel">결재일</p>
               <p class="buyday">{{ l.date | date: 'Y-M-d' }}</p>
               <div class="lecContent">
-                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진">
+                <img src="{{ filePath }}{{ l.lecture[0].thumbnail1 }}" alt="{{l.date}} 강의 사진" [routerLink]="['/detail/'+l.lecture[0].id]">
                 <div class="content">
                   <p class="upper"><span class="gray bold">클래스일정</span>&nbsp;/&nbsp;<span class="bold">분 {{l.lecture[0].currs.length}}회기</span></p>
                   <p class="lecTitle">{{ l.lecture[0].title }}</p>
@@ -150,7 +150,7 @@
           </tbody>
         </table> -->
       </div>
-      <div class="inquire tabContentBox">
+      <div class="inquire tabContentBox hidden">
         <div class="lecCard">
           <div class="innerCard">
             <p class="cardTop">문의 내역</p>
@@ -163,7 +163,7 @@
                 <div *ngFor='let f of fake' class="tableBody">
                   <span class="bold ellipse">{{f.title}}<span class="arrow pointer" (click)="showInq($event)"></span></span>
                   <span class="bold">{{f.process}}</span>
-                  <div class="inqBox">
+                  <div class="inqBox hidden">
                     <div class="inqinnerBox">
                       <div class="inqQ">
                         <p class="bold">답변</p>
@@ -218,10 +218,10 @@
           </tbody>
         </table> -->
         <div class="goInquire">
-          <button mat-button>문의하기</button>
+          <button mat-button [routerLink]="['/inquire/']">문의하기</button>
         </div>
       </div>
-      <div class="personal tabContentBox hidden">
+      <div class="personal tabContentBox">
         <div class="basic">
           <div class="basicInfo">
             <span class="bold infoTitle">기본 정보</span>
